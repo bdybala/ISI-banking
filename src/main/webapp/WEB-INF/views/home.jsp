@@ -4,14 +4,15 @@
 <head>
 <meta charset="utf-8">
 <title>M.L. INC. </title>
-<link href = "arkusz2.css" rel="stylesheet">
+
+<link href=<c:url value="/resources/arkusz2.css" /> rel="stylesheet">
 
   </head>
 <body>
    
 <div class= "pasek">
     <ol id="menu">
-      <li><a href="#"> <img src="LOGO.png>" </a>
+      <li><a href="#"> <img src=<c:url value="/resources/LOGO.png"/> > </a>
         
       </li>
         <li><a href="#">Transakcje</a>       </li>
