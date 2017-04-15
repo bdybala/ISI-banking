@@ -4,15 +4,19 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 public class ClientService {
-
+	
+	
+	@PersistenceContext
 	EntityManager em;
 
 	public ClientService(EntityManager em) {
 		this.em = em;
 	}
+	
 	
 	public Client findClient(String pesel) {
 		return em.find(Client.class, pesel);
@@ -43,8 +47,11 @@ public class ClientService {
 		cl.setEmail(email);
 		cl.setNrTel(nrTel);
 		cl.setBirthday(birthday);
+		
+		em.getTransaction().begin();
 		em.persist(cl);
-		em.flush();
+		em.getTransaction().commit();
+//		em.flush();
 		return cl;
 	}
 }
