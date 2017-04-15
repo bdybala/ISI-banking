@@ -1,8 +1,10 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
 	<title>ISIS BANK</title>
 	<link rel="stylesheet" href=<c:url value="/resources/css/styles.css" />>
 	<link rel="stylesheet" href=<c:url value="/resources/css/bootstrap.min.css" />>
@@ -70,11 +72,11 @@
 
 	<div class="main">
 
-		<br> <b>Zgodnie z wczesniejszymi zapowiedziami, stara wersja
-			serwisu internetowego iPKO zostanie wylaczona w nocy z 3 na 4
-			kwietnia 2017.</b><br> Zachecamy - zacznij korzystac juz dzis z
-		nowego iPKO dostÄpnego pod adresem https://www.ipko.pl - wersja
-		demonstracyjna serwisu nowe iPKO - filmy instruktazowe <br> <b>
+		<br> <b>Zgodnie z wcześniejszymi zapowiedziami, stara wersja
+			serwisu internetowego iPKO zostanie wyłączona w nocy z 3 na 4
+			kwietnia 2017.</b><br> Zachęcamy - zacznij korzystać już dziś z
+		nowego iPKO dostępnego pod adresem https://www.ipko.pl - wersja
+		demonstracyjna serwisu nowe iPKO - filmy instruktażowe <br> <b>
 			Przypominamy kluczowe zalety serwisu nowe iPKO:<br>
 		</b> <br> <br>
 		
