@@ -34,25 +34,14 @@
 	<div class="main">
 
 		<br> <b>Zgodnie z wczesniejszymi zapowiedziami, stara wersja
-			serwisu internetowego iPKO zostanie wylaczona w nocy z 3 na 4
-			kwietnia 2017.</b><br> Zachecamy - zacznij korzystac juz dzis z
+			serwisu internetowego iPKO zostanie wylaczona w nocy z 3 na 4
+			kwietnia 2017.</b><br> Zachecamy - zacznij korzystac juz dzis z
 		nowego iPKO dostępnego pod adresem https://www.ipko.pl - wersja
 		demonstracyjna serwisu nowe iPKO - filmy instruktazowe <br> <b>
 			Przypominamy kluczowe zalety serwisu nowe iPKO:<br>
 		</b> <br> <br>
 		 
-		<c:forEach items="${clients}" var="client">
-			Client:
-			<br /><i>pesel:</i>  		${client.pesel} 
-			<br /><i>login:</i>  		${client.login} 
-			<br /><i>password:</i>  	${client.password}
-			<br /><i>first name:</i>  	${client.firstName} 
-			<br /><i>last name:</i>  	${client.lastName} 
-			<br /><i>e-mail:</i>  		${client.email}
-			<br /><i>phone:</i>  		${client.nrTel} 
-			<br /><i>birthday:</i>  	${client.birthday} 
-			<br />
-		</c:forEach>
+		
 		</center>
 
 	</div>
