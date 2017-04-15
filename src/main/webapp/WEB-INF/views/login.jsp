@@ -73,12 +73,8 @@
 	</div>
 
 	<div class="main">
-		<form:form method = "POST" action = "/addClient">
+		<form:form method = "POST" action = "/login">
          <table>
-            <tr>
-               <td><form:label path = "pesel">pesel</form:label></td>
-               <td><form:input path = "pesel" /></td>
-            </tr>
             <tr>
                <td><form:label path = "login">login</form:label></td>
                <td><form:input path = "login" /></td>
@@ -86,26 +82,6 @@
             <tr>
                <td><form:label path = "password">password</form:label></td>
                <td><form:input path = "password" /></td>
-            </tr>
-            <tr>
-               <td><form:label path = "firstName">firstName</form:label></td>
-               <td><form:input path = "firstName" /></td>
-            </tr>
-            <tr>
-               <td><form:label path = "lastName">lastName</form:label></td>
-               <td><form:input path = "lastName" /></td>
-            </tr>
-            <tr>
-               <td><form:label path = "email">email</form:label></td>
-               <td><form:input path = "email" /></td>
-            </tr>
-            <tr>
-               <td><form:label path = "nrTel">nrTel</form:label></td>
-               <td><form:input path = "nrTel" /></td>
-            </tr>
-            <tr>
-               <td><form:label path = "birthday">birthday</form:label></td>
-               <td><form:input path = "birthday" /></td>
             </tr>
             <tr>
                <td colspan = "2">

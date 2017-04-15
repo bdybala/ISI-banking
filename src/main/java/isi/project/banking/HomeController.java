@@ -8,6 +8,7 @@ import java.util.Locale;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +33,8 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(Locale locale, Model model,
+			HttpSession session) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
@@ -70,7 +72,13 @@ public class HomeController {
 //		cl.setBirthday(new Date());
 //		allClients.add(cl);
 		
-		
+		Client client = (Client) session.getAttribute("client");
+		try {
+			logger.info("Logged account: {}", client.getPesel());
+		} catch (NullPointerException e) {
+			// TODO Auto-generated catch block
+			logger.info("Logged account: NOT LOGGED");
+		}
 		model.addAttribute("clients", allClients);
 		em.close();
 		emf.close();

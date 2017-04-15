@@ -20,7 +20,7 @@
 		<nav id="header-nav" class="navbar navbar-default">
 		  <div class="container">
 			<div class="navbar-header">
-			  <a href="" class="pull-left visible-md visible-lg">
+			  <a href=<c:url value="/"/> class="pull-left visible-md visible-lg">
 				<div id="logo-img"></div>
 			 </a>
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
@@ -30,7 +30,7 @@
 				<span class="icon-bar"></span>
 			</button>
 			<div class="navbar-brand">
-				<a href=""><h1>ISIS BANK</h1></a>
+				<a href=<c:url value="/"/>><h1>ISIS BANK</h1></a>
 			</div>
 			
 			</div>
@@ -55,7 +55,7 @@
 	
 	<div class="pasek">
 		<ol id="menu">
-			<li><a href="/" img src ="/images/100x10.png" alt="Logo"/> 
+			<li><a href=<c:url value="/"/> img src ="/images/100x10.png" alt="Logo"/> 
 			<li><a href="#">Transakcje</a>
 			<li><a href="#">Przelewy</a>
 			<li><a href="#"> Karty </a>
@@ -79,6 +79,9 @@
 		demonstracyjna serwisu nowe iPKO - filmy instruktażowe <br> <b>
 			Przypominamy kluczowe zalety serwisu nowe iPKO:<br>
 		</b> <br> <br>
+		
+		<a href=<c:url value="/client"/>> Add client</a></b> <br>
+		<a href=<c:url value="/login"/>> Login as client</a></b> <br> <br>
 		
 		<c:forEach items="${clients}" var="client">
 			Client:

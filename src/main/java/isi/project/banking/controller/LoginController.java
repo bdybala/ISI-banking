@@ -1,7 +1,5 @@
 package isi.project.banking.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import javax.persistence.EntityManager;
@@ -11,11 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,37 +21,34 @@ import isi.project.banking.model.client.Client;
 import isi.project.banking.model.client.ClientService;
 
 @Controller
-public class ClientController {
+public class LoginController {
+
+private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
-	private static final Logger logger = LoggerFactory.getLogger(ClientController.class);
-	
-	@RequestMapping(value = "/client", method = RequestMethod.GET)
-	public ModelAndView client(Locale locale, Model model) {
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView client(Locale locale, Model model,
+			HttpSession session) {
 		logger.info("Welcome client! The client locale is {}.", locale);
 		
-		return new ModelAndView("client", "command", new Client());
+		return new ModelAndView("login", "command", new Client());
 	}
 	
-	@RequestMapping(value = "/addClient", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String addClient(@ModelAttribute Client client,
 			Locale locale, Model model,
 			HttpSession session) {
 		
-		logger.info("addClient! " + client);
+//		logger.info("logged in! #" + client.getLogin());
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
 		EntityManager em = emf.createEntityManager();
+		ClientService clientService = new ClientService(em);
 		
-		ClientService service = new ClientService(em);
-		service.createClient(client);
+		client = clientService.findByLogin(client.getLogin());
+		logger.info("logged in! #" + client.getPesel());
+		
+		session.setAttribute("client", client);
 		
 		return new HomeController().home(locale, model, session);
 	}
 
-	
-	@InitBinder
-    public void initBinder(WebDataBinder binder) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        sdf.setLenient(true);
-        binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
-    }
 }

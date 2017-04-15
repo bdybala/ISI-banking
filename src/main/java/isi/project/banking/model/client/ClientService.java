@@ -71,4 +71,12 @@ public class ClientService {
 		}
 		
 	}
+
+
+	public Client findByLogin(String login) {
+		// TODO Auto-generated method stub
+		Query query = em.createQuery("FROM Client where login=:login")
+				.setParameter("login", login);
+		return (Client) query.getSingleResult();
+	}
 }
