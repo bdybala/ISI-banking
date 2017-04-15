@@ -48,10 +48,27 @@ public class ClientService {
 		cl.setNrTel(nrTel);
 		cl.setBirthday(birthday);
 		
-		em.getTransaction().begin();
-		em.persist(cl);
-		em.getTransaction().commit();
-//		em.flush();
+		try {
+			em.getTransaction().begin();
+			em.persist(cl);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			//TODO error while commiting (e.g. PESEL exists in db)
+		}
 		return cl;
+	}
+
+
+	public void createClient(Client client) {
+		try {
+			em.getTransaction().begin();
+			em.persist(client);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			//TODO error while commiting (e.g. PESEL exists in db)			
+		}
+		
 	}
 }

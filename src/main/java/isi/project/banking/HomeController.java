@@ -1,7 +1,6 @@
 package isi.project.banking;
 
 import java.text.DateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -47,29 +46,29 @@ public class HomeController {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
 		EntityManager em = emf.createEntityManager();
 		
-//		ClientService ser = new ClientService(em);
-//		List<Client> allClients = ser.findAllClients();
+		ClientService ser = new ClientService(em);
+		List<Client> allClients = ser.findAllClients();
 		
-		List<Client> allClients = new ArrayList<Client>();
-		Client cl = new Client();
-		cl.setPesel("95112212345");
-		cl.setPassword("pass");
-		cl.setNrTel("22 444 44 44");
-		cl.setLogin("login1");
-		cl.setLastName("Kowalski");
-		cl.setFirstName("Jan");
-		cl.setBirthday(new Date());
-		allClients.add(cl);
-		
-		cl = new Client();
-		cl.setPesel("94112212345");
-		cl.setPassword("pass");
-		cl.setNrTel("22 444 44 44");
-		cl.setLogin("login2");
-		cl.setLastName("Cezary");
-		cl.setFirstName("Cezary");
-		cl.setBirthday(new Date());
-		allClients.add(cl);
+//		List<Client> allClients = new ArrayList<Client>();
+//		Client cl = new Client();
+//		cl.setPesel("95112212345");
+//		cl.setPassword("pass");
+//		cl.setNrTel("22 444 44 44");
+//		cl.setLogin("login1");
+//		cl.setLastName("Kowalski");
+//		cl.setFirstName("Jan");
+//		cl.setBirthday(new Date());
+//		allClients.add(cl);
+//		
+//		cl = new Client();
+//		cl.setPesel("94112212345");
+//		cl.setPassword("pass");
+//		cl.setNrTel("22 444 44 44");
+//		cl.setLogin("login2");
+//		cl.setLastName("Cezary");
+//		cl.setFirstName("Cezary");
+//		cl.setBirthday(new Date());
+//		allClients.add(cl);
 		
 		
 		model.addAttribute("clients", allClients);
