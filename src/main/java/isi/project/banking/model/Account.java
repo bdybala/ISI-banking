@@ -10,24 +10,26 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Repository;
 
-// COMMIT
+import isi.project.banking.model.client.Client;
 
 @Repository
 @Entity
 @Table(name="ACCOUNT")
 public class Account {
-
+	
 	@Id
 	private String accNr;
 	private Double balance;
 	private String pesel;
 	@ManyToOne
-	private Person person;
+	private Client client;
 	
 	@OneToMany(mappedBy="accNr")
 	private Set<Card> cards;
 	@OneToMany(mappedBy="accNr")
-	private Set<Loan> loans;
+	private Set<CashLoan> cashLoans;
+	@OneToMany(mappedBy="accNr")
+	private Set<MortgageLoan> mortgageLoans;
 	@OneToMany(mappedBy="accNr")
 	private Set<Investment> investments;
 	@OneToMany(mappedBy="accNrSender")
@@ -57,11 +59,11 @@ public class Account {
 	public void setPesel(String pesel) {
 		this.pesel = pesel;
 	}
-	public Person getPerson() {
-		return person;
+	public Client getClient() {
+		return client;
 	}
-	public void setPerson(Person person) {
-		this.person = person;
+	public void setClient(Client client) {
+		this.client = client;
 	}
 	public Set<Card> getCards() {
 		return cards;
@@ -69,11 +71,17 @@ public class Account {
 	public void setCards(Set<Card> cards) {
 		this.cards = cards;
 	}
-	public Set<Loan> getLoans() {
-		return loans;
+	public Set<CashLoan> getCashLoans() {
+		return cashLoans;
 	}
-	public void setLoans(Set<Loan> loans) {
-		this.loans = loans;
+	public void setCashLoans(Set<CashLoan> cashLoans) {
+		this.cashLoans = cashLoans;
+	}
+	public Set<MortgageLoan> getMortgageLoans() {
+		return mortgageLoans;
+	}
+	public void setMortgageLoans(Set<MortgageLoan> mortgageLoans) {
+		this.mortgageLoans = mortgageLoans;
 	}
 	public Set<Investment> getInvestments() {
 		return investments;

@@ -14,47 +14,39 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Entity
-@Table(name="LOAN")
-public class Loan {
+@Table(name="MORTGAGE_LOAN")
+public class MortgageLoan {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private int id;
-	@Column(name="provider_id")
-	private int providerId;
-	@Column(name="installments")
-	private int installments;
+	private Integer id;
+	private Integer installments;
 	private Double interest;
 	private Double sum;
-	@Column(name="grant_date")
+	@Column(name="GRANT_DATE")
 	private Date grantDate;
-	@Column(name="repayment_date")
+	@Column(name="REPAYMENT_DATE")
 	private Date repaymentDate;
-	private String type;
-	@Column(name="settled_interest")
+	@Column(name="SETTLED_INTEREST")
 	private Double settledInterest;
-	@Column(name="acc_nr")
+	@Column(name="ACC_NR")
 	private String accNr;
-	
+	private String provider;
+	@ManyToOne
+	private MortgageSupervisor mortgageSupervisor;
 	@ManyToOne
 	private Account account;
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	public int getProviderId() {
-		return providerId;
-	}
-	public void setProviderId(int providerId) {
-		this.providerId = providerId;
-	}
-	public int getInstallments() {
+	public Integer getInstallments() {
 		return installments;
 	}
-	public void setInstallments(int installments) {
+	public void setInstallments(Integer installments) {
 		this.installments = installments;
 	}
 	public Double getInterest() {
@@ -81,12 +73,6 @@ public class Loan {
 	public void setRepaymentDate(Date repaymentDate) {
 		this.repaymentDate = repaymentDate;
 	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
 	public Double getSettledInterest() {
 		return settledInterest;
 	}
@@ -98,6 +84,18 @@ public class Loan {
 	}
 	public void setAccNr(String accNr) {
 		this.accNr = accNr;
+	}
+	public String getProvider() {
+		return provider;
+	}
+	public void setProvider(String provider) {
+		this.provider = provider;
+	}
+	public MortgageSupervisor getMortgageSupervisor() {
+		return mortgageSupervisor;
+	}
+	public void setMortgageSupervisor(MortgageSupervisor mortgageSupervisor) {
+		this.mortgageSupervisor = mortgageSupervisor;
 	}
 	public Account getAccount() {
 		return account;

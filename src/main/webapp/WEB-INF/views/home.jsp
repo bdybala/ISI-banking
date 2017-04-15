@@ -40,10 +40,19 @@
 		demonstracyjna serwisu nowe iPKO - filmy instruktazowe <br> <b>
 			Przypominamy kluczowe zalety serwisu nowe iPKO:<br>
 		</b> <br> <br>
-		Facility: 
-		<br /><i>name:</i>  ${testFacility.name} 
-		<br /><i>address:</i>  ${testFacility.address} 
-		<br /><i>tel:</i>  ${testFacility.nrTel}
+		 
+		<c:forEach items="${clients}" var="client">
+			Client:
+			<br /><i>pesel:</i>  		${client.pesel} 
+			<br /><i>login:</i>  		${client.login} 
+			<br /><i>password:</i>  	${client.password}
+			<br /><i>first name:</i>  	${client.firstName} 
+			<br /><i>last name:</i>  	${client.lastName} 
+			<br /><i>e-mail:</i>  		${client.email}
+			<br /><i>phone:</i>  		${client.nrTel} 
+			<br /><i>birthday:</i>  	${client.birthday} 
+			<br />
+		</c:forEach>
 		</center>
 
 	</div>

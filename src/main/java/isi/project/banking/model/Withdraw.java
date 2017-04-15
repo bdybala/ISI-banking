@@ -16,10 +16,10 @@ import org.springframework.stereotype.Repository;
 @Entity
 @Table(name="WITHDRAW")
 public class Withdraw {
-
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private int id;
+	private Integer id;
 	private double amount;
 	@Column(name="order_date")
 	private Date orderDate;

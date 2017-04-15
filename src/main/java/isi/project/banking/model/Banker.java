@@ -5,33 +5,27 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Repository;
 
 @Repository
 @Entity
-@Table(name="PERSON")
-public class Person {
+@Table(name="BANKER")
+public class Banker {
 
 	@Id
 	private String pesel;
 	private String login;
 	private String password;
-	private String type;
+	@Column(name="FIRST_NAME")
 	private String firstName;
+	@Column(name="LAST_NAME")
 	private String lastName;
 	private String email;
-	@Column(name="nr_tel")
+	@Column(name="NR_TEL")
 	private String nrTel;
-	@Column(name="birthday")
 	private Date birthday;
-	@Column(name="facility_id", insertable=false, updatable=false)
-	private Integer facilityId;
-	
-	@ManyToOne
-	private Facility facility;
 	
 	public String getPesel() {
 		return pesel;
@@ -50,12 +44,6 @@ public class Person {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -86,17 +74,5 @@ public class Person {
 	}
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
-	}
-	public Integer getFacilityId() {
-		return facilityId;
-	}
-	public void setFacilityId(Integer facilityId) {
-		this.facilityId = facilityId;
-	}
-	public Facility getFacility() {
-		return facility;
-	}
-	public void setFacility(Facility facility) {
-		this.facility = facility;
 	}
 }

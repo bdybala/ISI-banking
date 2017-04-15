@@ -2,6 +2,7 @@ package isi.project.banking;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.persistence.EntityManager;
@@ -15,7 +16,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import isi.project.banking.model.Facility;
+import isi.project.banking.model.client.Client;
+import isi.project.banking.model.client.ClientService;
 import net.sf.cglib.proxy.Factory;
 
 /**
@@ -43,8 +45,15 @@ public class HomeController {
 		// hibernate test
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
 		EntityManager em = emf.createEntityManager();
-		Facility facility = em.find(Facility.class, 1);
-		model.addAttribute("testFacility", facility);
+		
+		ClientService ser = new ClientService(em);
+//		Client client = ser.createClient(
+//				"95010112345","login","password","Jan","Kowalski",
+//				"jkowal@gmail.com","22 444 44 44", new Date());
+		List<Client> allClients = ser.findAllClients();
+		
+		System.out.println(allClients.size());
+		model.addAttribute("clients", allClients);
 		em.close();
 		emf.close();
 		return "home";

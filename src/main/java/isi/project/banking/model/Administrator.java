@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 @Entity
 @Table(name="ADMINISTRATOR")
 public class Administrator {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
