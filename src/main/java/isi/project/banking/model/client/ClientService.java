@@ -79,4 +79,12 @@ public class ClientService {
 				.setParameter("login", login);
 		return (Client) query.getSingleResult();
 	}
+
+
+	public Client authenticate(String login, String password) {
+		Query query = em.createQuery(
+				"FROM Client WHERE login=:login AND password=:password")
+				.setParameter("login", login).setParameter("password", password);
+		return (Client) query.getSingleResult();
+	}
 }

@@ -11,6 +11,8 @@
 	<link href=<c:url value="https://fonts.googleapis.com/css?family=Oxygen:400,300,700" /> rel='stylesheet' type='text/css'>
     <link href=<c:url value="https://fonts.googleapis.com/css?family=Lora" /> rel='stylesheet' type='text/css'>
 	
+	
+
 </head>
 <body>
 
@@ -18,11 +20,17 @@
 		<nav id="header-nav" class="navbar navbar-default">
 		  <div class="container">
 			<div class="navbar-header">
-			  <a href="index.html" class="pull-left visible-md visible-lg">
+			  <a href=<c:url value="/"/> class="pull-left visible-md visible-lg">
 				<div id="logo-img"></div>
 			 </a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
 			<div class="navbar-brand">
-				<a href="index.html"><h1>ISIS BANK</h1></a>
+				<a href=<c:url value="/"/>><h1>ISIS BANK</h1></a>
 			</div>
 			
 			</div>
@@ -31,7 +39,7 @@
 			<ul id="nav-list" class="nav navbar-nav navbar-right">
 
             <li>
-              <a href=<c:url value="/login"/>>
+              <a href="spis.html">
                 <span class="glyphicon glyphicon-log-in"></span><br> Zaloguj sie</a>
             </li>
 
@@ -42,8 +50,29 @@
 		</nav>
 	</header>
 	
-	<div>
-			<br> <b>Zgodnie z wcześniejszymi zapowiedziami, stara wersja
+	
+	
+	
+	<div class="pasek">
+		<ol id="menu">
+			<li><a href=<c:url value="/"/> img src ="/images/100x10.png" alt="Logo"/> 
+			<li><a href="#">Transakcje</a>
+			<li><a href="#">Przelewy</a>
+			<li><a href="#"> Karty </a>
+			<li><a href="log.php"> Lokaty </a>
+			<li><a href="#"> Konta </a>
+			<li><a href="#"> Moje Konto </a>
+				<ul>
+					<li><a href="#">Moje dane</a>
+					<li><a href="#">Wyloguj</a>
+				</ul>
+		</ol>
+
+	</div>
+
+	<div class="main">
+
+		<br> <b>Zgodnie z wcześniejszymi zapowiedziami, stara wersja
 			serwisu internetowego iPKO zostanie wyłączona w nocy z 3 na 4
 			kwietnia 2017.</b><br> Zachęcamy - zacznij korzystać już dziś z
 		nowego iPKO dostępnego pod adresem https://www.ipko.pl - wersja
@@ -69,7 +98,24 @@
 		</c:forEach>
 
 	</div>
-	
+	<div id="left_menu">
+		<ol id="lmenu">
+			<li><a href="#"> Menu1 </a></li>
+			<li><a href="#">Menu2</a></li>
+			<li><a href="#">Menu3</a></li>
+			<li><a href="#"> Menu4 </a></li>
+			<li><a href="log.php"> Menu5 </a></li>
+			<li><a href="#"> Menu6 </a></li>
+			<li><a href="#"> Menu7</a></li>
+			<li><a href="#">Menu2</a></li>
+			<li><a href="#">Menu3</a></li>
+			<li><a href="#"> Menu4 </a></li>
+			<li><a href="log.php"> Menu5 </a></li>
+			<li><a href="#"> Menu6 </a></li>
+			<li><a href="#"> Menu7</a></li>
+
+		</ol>
+	</div>
 	<footer class="panel-footer">
 		<div class="container">
 		  <div class="row">

@@ -50,39 +50,21 @@ public class HomeController {
 		
 		ClientService ser = new ClientService(em);
 		List<Client> allClients = ser.findAllClients();
-		
-//		List<Client> allClients = new ArrayList<Client>();
-//		Client cl = new Client();
-//		cl.setPesel("95112212345");
-//		cl.setPassword("pass");
-//		cl.setNrTel("22 444 44 44");
-//		cl.setLogin("login1");
-//		cl.setLastName("Kowalski");
-//		cl.setFirstName("Jan");
-//		cl.setBirthday(new Date());
-//		allClients.add(cl);
-//		
-//		cl = new Client();
-//		cl.setPesel("94112212345");
-//		cl.setPassword("pass");
-//		cl.setNrTel("22 444 44 44");
-//		cl.setLogin("login2");
-//		cl.setLastName("Cezary");
-//		cl.setFirstName("Cezary");
-//		cl.setBirthday(new Date());
-//		allClients.add(cl);
+		model.addAttribute("clients", allClients);
+		em.close();
+		emf.close();
 		
 		Client client = (Client) session.getAttribute("client");
 		try {
 			logger.info("Logged account: {}", client.getPesel());
+			model.addAttribute("loggedClient", client);
+			return "user_account";
 		} catch (NullPointerException e) {
 			// TODO Auto-generated catch block
 			logger.info("Logged account: NOT LOGGED");
+			return "index";
 		}
-		model.addAttribute("clients", allClients);
-		em.close();
-		emf.close();
-		return "index";
+		
 	}
 	
 }

@@ -38,12 +38,14 @@ private static final Logger logger = LoggerFactory.getLogger(LoginController.cla
 			Locale locale, Model model,
 			HttpSession session) {
 		
-//		logger.info("logged in! #" + client.getLogin());
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
 		EntityManager em = emf.createEntityManager();
 		ClientService clientService = new ClientService(em);
 		
-		client = clientService.findByLogin(client.getLogin());
+		logger.info("logging in: l:{} p:{}", client.getLogin(), client.getPassword());
+		
+		
+		client = clientService.authenticate(client.getLogin(), client.getPassword());
 		logger.info("logged in! #" + client.getPesel());
 		
 		session.setAttribute("client", client);

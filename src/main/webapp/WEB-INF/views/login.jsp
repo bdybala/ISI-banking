@@ -1,7 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form"%>
 
 <!doctype html>
 <html lang="en">
@@ -12,10 +11,9 @@
 	<link rel="stylesheet" href=<c:url value="/resources/css/bootstrap.min.css" />>
 	<link href=<c:url value="https://fonts.googleapis.com/css?family=Oxygen:400,300,700" /> rel='stylesheet' type='text/css'>
     <link href=<c:url value="https://fonts.googleapis.com/css?family=Lora" /> rel='stylesheet' type='text/css'>
-	
-	
 
 </head>
+
 <body>
 
 	<header>
@@ -33,83 +31,56 @@
 			</button>
 			<div class="navbar-brand">
 				<a href=<c:url value="/"/>><h1>ISIS BANK</h1></a>
+			</div>		
 			</div>
-			
-			</div>
-			
-			<div id="collapsable-nav" class="collapse navbar-collapse">
-			<ul id="nav-list" class="nav navbar-nav navbar-right">
-
-            <li>
-              <a href="spis.html">
-                <span class="glyphicon glyphicon-log-in"></span><br> Zaloguj sie</a>
-            </li>
-
-				
-			</ul>
-         </div><!-- .collapse .navbar-collapse -->
 		  </div><!-- container -->
 		</nav>
 	</header>
-	
-	
-	
-	
-	<div class="pasek">
-		<ol id="menu">
-			<li><a href=<c:url value="/"/> img src ="/images/100x10.png" alt="Logo"/>
-			<li><a href="#">Transakcje</a>
-			<li><a href="#">Przelewy</a>
-			<li><a href="#"> Karty </a>
-			<li><a href="log.php"> Lokaty </a>
-			<li><a href="#"> Konta </a>
-			<li><a href="#"> Moje Konto </a>
-				<ul>
-					<li><a href="#">Moje dane</a>
-					<li><a href="#">Wyloguj</a>
-				</ul>
-		</ol>
-
-	</div>
-
-	<div class="main">
-		<form:form method = "POST" action = "/login">
-         <table>
-            <tr>
-               <td><form:label path = "login">login</form:label></td>
-               <td><form:input path = "login" /></td>
-            </tr>
-            <tr>
-               <td><form:label path = "password">password</form:label></td>
-               <td><form:input path = "password" /></td>
-            </tr>
-            <tr>
-               <td colspan = "2">
-                  <input type = "submit" value = "Submit"/>
-               </td>
-            </tr>
-         </table>  
-      </form:form>
-		
-		
-	</div>
-	<div id="left_menu">
-		<ol id="lmenu">
-			<li><a href="#"> Menu1 </a></li>
-			<li><a href="#">Menu2</a></li>
-			<li><a href="#">Menu3</a></li>
-			<li><a href="#"> Menu4 </a></li>
-			<li><a href="log.php"> Menu5 </a></li>
-			<li><a href="#"> Menu6 </a></li>
-			<li><a href="#"> Menu7</a></li>
-			<li><a href="#">Menu2</a></li>
-			<li><a href="#">Menu3</a></li>
-			<li><a href="#"> Menu4 </a></li>
-			<li><a href="log.php"> Menu5 </a></li>
-			<li><a href="#"> Menu6 </a></li>
-			<li><a href="#"> Menu7</a></li>
-
-		</ol>
+	<div class="container">
+    	<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="#" class="active" id="login-form-link">Zaloguj sie</a>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="login-form" action=<c:url value="/login"/> method="post" role="form" style="display: block;">
+									<div class="form-group">
+										<input type="text" name="login" id="login" tabindex="1" class="form-control" placeholder="Identyfikator" value="">
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Haslo">
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Zaloguj sie">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="text-center">
+													<a href="recover_password.html" tabindex="5" class="forgot-password">Zapomniales hasla?</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<footer class="panel-footer">
 		<div class="container">
@@ -128,6 +99,5 @@
 		  <div class="text-center">&copy; Copyright ISIS BANK DEVELOPEMENT</div>
 		</div>
 	</footer>
-	
-	</body>
+</body>
 </html>
