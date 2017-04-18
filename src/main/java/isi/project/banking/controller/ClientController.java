@@ -30,19 +30,19 @@ public class ClientController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(ClientController.class);
 	
-	@RequestMapping(value = "/client", method = RequestMethod.GET)
-	public ModelAndView client(Locale locale, Model model) {
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public ModelAndView register(Locale locale, Model model) {
 		logger.info("Welcome client! The client locale is {}.", locale);
 		
-		return new ModelAndView("client", "command", new Client());
+		return new ModelAndView("form_register", "command", new Client());
 	}
-	
-	@RequestMapping(value = "/addClient", method = RequestMethod.POST)
-	public String addClient(@ModelAttribute Client client,
+
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public String register(@ModelAttribute Client client,
 			Locale locale, Model model,
-			HttpSession session) {
-		
-		logger.info("addClient! " + client);
+			HttpSession session){
+
+		logger.info("register! " + client);
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
 		EntityManager em = emf.createEntityManager();
 		
@@ -51,7 +51,6 @@ public class ClientController {
 		
 		return new HomeController().home(locale, model, session);
 	}
-
 	
 	@InitBinder
     public void initBinder(WebDataBinder binder) {

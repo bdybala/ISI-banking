@@ -7,6 +7,7 @@
   background-color: #F0FFFF;
   border-radius: 0;
   border: 0;
+  margin: 0;
 }
 #logo-img {
   background: url('../images/100x100.png') no-repeat;
@@ -51,23 +52,6 @@
 
 
 /*INDEX MAIN CONTENT */
-.main {
-	padding: 2%;
-	font-size: 100%;
-	width: 100%;
-	float: right;
-	left: 12.5%;
-	position: relative;
-	background-color: #efefef;
-    border:solid;
-    border-width: thin;
-    border-color: darkgrey;
-}
-.cont{
-	width: 100%;
-	height: auto;
-    position: relative;
-}
 
 /* END INDEX MAIN CONTENT */
 
@@ -156,11 +140,43 @@
 
 
 /*ACCOUNT*/
-
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
 
 /*END ACCOUNT*/
+/**TRANSFER*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+/*END TRANSFER*/
+
+/*FORM*/
+.form-main-content{	
+	margin: 15px;
+}
+input[type=date]::-webkit-inner-spin-button, 
+input[type=date]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
 
 
+/*END FORM*/
 
 
 
@@ -186,11 +202,5 @@
   color: #557c3e;
   font-size: .8em;
   line-height: 1.8;
-}
-#testimonials {
-  font-style: italic;
-}
-#testimonials p:nth-child(2) {
-  margin-top: 25px;
 }
 /* END FOOTER */
