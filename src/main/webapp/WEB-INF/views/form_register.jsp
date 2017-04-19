@@ -39,62 +39,45 @@
 	<div class="form-main-content container">
 		<p class="text-center">WNIOSEK O ZALOZENIA KONTA</p>
 
-		<form id="register-form" action=<c:url value="/register"/> method="post" role="form" style="display: block;">
-			<div class="form-group">
-			  <label for="firstName">Imie:</label>
-			  <input type="text" class="form-control" id="firstName" required>
-			</div>		
-			<div class="form-group">
-			  <label for="secondName">Drugie imie:</label>
-			  <input type="text" class="form-control" id="secondName">
-			</div>
-			<div class="form-group">
-			  <label for="lastName">Nazwisko:</label>
-			  <input type="text" class="form-control" id="lastName" required>
-			</div>
-			<div class="form-group">
-			  <label for="pesel">Pesel:</label>
-			  <input type="number" class="form-control" id="pesel" required pattern="[0-9]{11}" maxlength="11">
-			</div>
-			<div class="form-group">
-			  <label for="email">Adres e-mail:</label>
-			  <input type="email" class="form-control" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
-			</div>
-			<div class="form-group">
-			  <label for="phoneNumber">Telefon kontaktowy:</label>
-			  <input type="number" class="form-control" id="phoneNumber" required maxlength="9">
-			</div>
-			<div class="form-group col-sm-6">
-			  <label for="address">Miasto:</label>
-			  <input type="text" class="form-control" id="address" required>
-			</div>
-			<div class="form-group col-sm-2">
-			  <label for="cityNumber">Kod pocztowy:</label>
-			  <input type="number" class="form-control" id="cityNumber" pattern="[0-9]{3}" required>
-			</div>
-			<br>
-			<div class="form-group col-sm-6">
-			  <label for="street">Ulica:</label>
-			  <input type="text" class="form-control" id="street" required>
-			</div>		
-			<div class="form-group col-sm-3">
-			  <label for="houseNumber">Numer domu:</label>
-			  <input type="text" class="form-control" id="houseNumber" required>
-			</div>
-			<div class="form-group col-sm-3">
-			  <label for="apartmentNumber">Numer mieszkania:</label>
-			  <input type="text" class="form-control" id="apartmentNumber">
-			</div>
-			<div class="form-group col-sm-3">
-			  <label for="birthDate">Data urodzenia:</label>
-			  <input type="date" class="form-control" id="birthDate" min="1900-01-01">
-			</div>
-			<div class="form-group"> 
-				<div class="col-sm-offset-5 col-sm-6">
-					<button type="submit" class="btn btn-default" name="transferSubmitButton" onclick="registerSubmit"><a href="confirmRegistration.html">Potwierdz</a></button>
-				</div>
-			</div>
-		</form>
+		<form:form method="POST" action="/register">
+			<table>
+				<tr>
+					<td><form:label path="pesel">pesel</form:label></td>
+					<td><form:input path="pesel" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="login">login</form:label></td>
+					<td><form:input path="login" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="password">password</form:label></td>
+					<td><form:input path="password" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="firstName">firstName</form:label></td>
+					<td><form:input path="firstName" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="lastName">lastName</form:label></td>
+					<td><form:input path="lastName" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="email">email</form:label></td>
+					<td><form:input path="email" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="nrTel">nrTel</form:label></td>
+					<td><form:input path="nrTel" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="birthday">birthday</form:label></td>
+					<td><form:input path="birthday" /></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="Submit" /></td>
+				</tr>
+			</table>
+		</form:form>
 
 	</div>
 
