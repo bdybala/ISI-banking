@@ -36,6 +36,11 @@ public class Client {
 	@OneToMany
 	private Set<Account> accounts;
 	
+	@Override
+	public String toString() {
+		return "Client [pesel=" + pesel + ", login=" + login + ", password=" + password + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", email=" + email + ", nrTel=" + nrTel + ", birthday=" + birthday + "]";
+	}
 	public String getPesel() {
 		return pesel;
 	}
