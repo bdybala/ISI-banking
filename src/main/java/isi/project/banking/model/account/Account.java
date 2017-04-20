@@ -42,6 +42,7 @@ public class Account {
 	@Column(name = "OPEN_DATE")
 	private Date openDate;
 	private String pesel;
+	private String name;
 	@ManyToOne
 	@JoinColumn(name = "PESEL", insertable = false)
 	private Client client;
@@ -63,9 +64,12 @@ public class Account {
 	@OneToMany(mappedBy="accNr")
 	private Set<Withdraw> withdrawals;
 	
-	public Account(String pesel) {
+	public Account(String pesel, String name) {
 		super();
 		this.pesel = pesel;
+		this.name = name;
+		
+		// default values:
 		this.accNr = "";
 		this.balance = 0.;
 		this.dayLimit = 0.;
@@ -111,6 +115,12 @@ public class Account {
 	}
 	public void setPesel(String pesel) {
 		this.pesel = pesel;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public Client getClient() {
 		return client;

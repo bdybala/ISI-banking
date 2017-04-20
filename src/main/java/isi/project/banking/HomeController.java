@@ -56,11 +56,9 @@ public class HomeController {
 		
 		Client client = (Client) session.getAttribute("client");
 		try {
-			AccountService as = new AccountService(em);
 			
 			logger.info("Logged account: {}", client.getPesel());
 			model.addAttribute("loggedClient", client);
-			model.addAttribute("loggedAccounts", as.findAccountsByPesel( client.getPesel() ));
 			return "user_account";
 		} catch (NullPointerException e) {
 			// TODO Auto-generated catch block

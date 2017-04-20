@@ -51,7 +51,7 @@ public class ClientController {
 		ClientService cs = new ClientService(em);
 		cs.createClient(client);
 		AccountService as = new AccountService(em);
-		as.createAccount(new Account(client.getPesel()));
+		as.createAccount(new Account(client.getPesel(), "eKonto"));
 		
 		return new HomeController().home(locale, model, session);
 	}

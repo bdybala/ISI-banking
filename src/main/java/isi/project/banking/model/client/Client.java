@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -33,7 +34,7 @@ public class Client {
 	private Date birthday;
 	@OneToMany
 	private Set<Message> messages;
-	@OneToMany
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="client")
 	private Set<Account> accounts;
 	
 	@Override
