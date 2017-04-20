@@ -24,4 +24,16 @@ public class AccountService {
 				.setParameter("pesel", pesel);
 		return query.getResultList();
 	}
+	
+	public void createAccount(Account account) {
+		try {
+			em.getTransaction().begin();
+			em.persist(account);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Error while commiting
+			e.printStackTrace();
+		}
+	}
+	
 }

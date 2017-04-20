@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import isi.project.banking.HomeController;
+import isi.project.banking.model.account.Account;
+import isi.project.banking.model.account.AccountService;
 import isi.project.banking.model.client.Client;
 import isi.project.banking.model.client.ClientService;
 
@@ -46,8 +48,10 @@ public class ClientController {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
 		EntityManager em = emf.createEntityManager();
 		
-		ClientService service = new ClientService(em);
-		service.createClient(client);
+		ClientService cs = new ClientService(em);
+		cs.createClient(client);
+		AccountService as = new AccountService(em);
+		as.createAccount(new Account(client.getPesel()));
 		
 		return new HomeController().home(locale, model, session);
 	}

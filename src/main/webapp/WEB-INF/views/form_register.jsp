@@ -62,22 +62,19 @@
 										<input type="text" name="pesel" id="pesel" tabindex="3" class="form-control" placeholder="Pesel" required pattern="[0-9]{11}" maxlength="11">
 									</div>
 									<div class="form-group">
-										<input type="text" name="firstName" id="firstName" tabindex="4" class="form-control" placeholder="Imie" required>
+										<input type="text" name="firstName" id="firstName" tabindex="4" class="form-control" placeholder="Imiona" required>
 									</div>
 									<div class="form-group">
-										<input type="text" name="secondName" id="secondName" tabindex="5" class="form-control" placeholder="Imie">
+										<input type="text" name="lastName" id="lastName" tabindex="5" class="form-control" placeholder="Nazwisko" required>
 									</div>
 									<div class="form-group">
-										<input type="text" name="lastName" id="lastName" tabindex="" class="form-control" placeholder="Nazwisko" required>
+										<input type="email" name="email" id="email" tabindex="6" class="form-control" placeholder="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
 									</div>
 									<div class="form-group">
-										<input type="email" name="email" id="email" tabindex="" class="form-control" placeholder="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+										<input type="number" name="nrTel" id="nrTel" tabindex="7" class="form-control" placeholder="Nr telefonu" required pattern="[0-9]{9}" maxlength="9">
 									</div>
 									<div class="form-group">
-										<input type="number" name="nrTel" id="nrTel" tabindex="" class="form-control" placeholder="Nr telefonu" required pattern="[0-9]{9}" maxlength="9">
-									</div>
-									<div class="form-group">
-										<input type="date" name="birthday" id="birthday" tabindex="" class="form-control" placeholder="Data urodzenia" >
+										<input type="date" name="birthday" id="birthday" tabindex="8" class="form-control" placeholder="Data urodzenia" >
 									</div>
 									<div class="form-group">
 										<div class="row">

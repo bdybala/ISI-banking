@@ -69,7 +69,6 @@ public class ClientService {
 			e.printStackTrace();
 			//TODO error while commiting (e.g. PESEL exists in db)			
 		}
-		
 	}
 
 

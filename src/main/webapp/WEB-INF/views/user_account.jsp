@@ -114,6 +114,9 @@
 			<c:forEach items="${loggedAccounts}" var="account">
 			<br /><i>accNr:</i>  		${account.accNr} 
 			<br /><i>balance:</i>  		${account.balance}
+			<br /><i>dayLimit:</i>  	${account.dayLimit} 
+			<br /><i>interest:</i>  	${account.interest} 
+			<br /><i>openDate:</i>  	${account.openDate} 
 			<br /><i>pesel:</i>  		${account.pesel} 
 			<br />
 			<br />

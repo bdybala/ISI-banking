@@ -3,14 +3,18 @@ package isi.project.banking.model.account;
 import java.util.Date;
 import java.util.Set;
 
+import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.stereotype.Repository;
 
 import isi.project.banking.model.Card;
@@ -27,6 +31,7 @@ import isi.project.banking.model.client.Client;
 @Table(name="ACCOUNT")
 public class Account {
 	
+
 	@Id
 	@Column(name = "ACC_NR")
 	private String accNr;
@@ -38,7 +43,7 @@ public class Account {
 	private Date openDate;
 	private String pesel;
 	@ManyToOne
-	@JoinColumn(name = "PESEL")
+	@JoinColumn(name = "PESEL", insertable = false)
 	private Client client;
 	
 	@OneToMany(mappedBy="accNr")
@@ -57,6 +62,19 @@ public class Account {
 	private Set<Deposit> deposits;
 	@OneToMany(mappedBy="accNr")
 	private Set<Withdraw> withdrawals;
+	
+	public Account(String pesel) {
+		super();
+		this.pesel = pesel;
+		this.accNr = "";
+		this.balance = 0.;
+		this.dayLimit = 0.;
+		this.interest = 0.;
+		this.openDate = new Date();
+	}
+	public Account() {
+		super();
+	}
 	
 	public String getAccNr() {
 		return accNr;
