@@ -59,36 +59,30 @@
 										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Haslo">
 									</div>
 									<div class="form-group">
-										<input type="text" name="pesel" id="pesel" tabindex="2" class="form-control" placeholder="Pesel">
+										<input type="text" name="pesel" id="pesel" tabindex="3" class="form-control" placeholder="Pesel" required pattern="[0-9]{11}" maxlength="11">
 									</div>
 									<div class="form-group">
-										<input type="text" name="firstName" id="firstName" tabindex="2" class="form-control" placeholder="Imiona">
+										<input type="text" name="firstName" id="firstName" tabindex="4" class="form-control" placeholder="Imie" required>
 									</div>
 									<div class="form-group">
-										<input type="text" name="lastName" id="lastName" tabindex="2" class="form-control" placeholder="Nazwisko">
+										<input type="text" name="secondName" id="secondName" tabindex="5" class="form-control" placeholder="Imie">
 									</div>
 									<div class="form-group">
-										<input type="text" name="email" id="email" tabindex="2" class="form-control" placeholder="E-mail">
+										<input type="text" name="lastName" id="lastName" tabindex="" class="form-control" placeholder="Nazwisko" required>
 									</div>
 									<div class="form-group">
-										<input type="text" name="nrTel" id="nrTel" tabindex="2" class="form-control" placeholder="Nr telefonu">
+										<input type="email" name="email" id="email" tabindex="" class="form-control" placeholder="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
 									</div>
 									<div class="form-group">
-										<input type="text" name="birthday" id="birthday" tabindex="2" class="form-control" placeholder="Data urodzenia">
+										<input type="number" name="nrTel" id="nrTel" tabindex="" class="form-control" placeholder="Nr telefonu" required pattern="[0-9]{9}" maxlength="9">
+									</div>
+									<div class="form-group">
+										<input type="date" name="birthday" id="birthday" tabindex="" class="form-control" placeholder="Data urodzenia" >
 									</div>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Zarejestruj się">
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-lg-12">
-												<div class="text-center">
-													<a href="recover_password.html" tabindex="5" class="forgot-password">Zapomniales hasla?</a>
-												</div>
+												<input type="submit" name="login-submit" id="login-submit" tabindex="9" class="form-control btn btn-login" value="Zarejestruj się">
 											</div>
 										</div>
 									</div>
