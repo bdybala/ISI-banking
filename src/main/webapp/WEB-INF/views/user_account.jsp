@@ -33,7 +33,7 @@
 			<ul id="nav-list" class="nav navbar-nav navbar-right">
 
             <li>
-              <a href="logOut.html">
+              <a href=<c:url value="/logout"/>>
                 <span class="glyphicon glyphicon-log-out"></span><br> Wyloguj sie</a>
             </li>
 

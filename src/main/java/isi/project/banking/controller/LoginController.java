@@ -52,5 +52,15 @@ private static final Logger logger = LoggerFactory.getLogger(LoginController.cla
 		
 		return new HomeController().home(locale, model, session);
 	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(Locale locale, Model model, HttpSession session) {
+		
+		Client client = (Client) session.getAttribute("client");
+		logger.info("logging out: l:{}", client.getLogin());
+		
+		session.removeAttribute("client");
+		return new HomeController().home(locale, model, session);
+	}
 
 }
