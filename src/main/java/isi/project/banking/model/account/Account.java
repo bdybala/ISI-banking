@@ -1,5 +1,6 @@
 package isi.project.banking.model.account;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -30,6 +31,11 @@ public class Account {
 	@Column(name = "ACC_NR")
 	private String accNr;
 	private Double balance;
+	@Column(name = "DAY_LIMIT")
+	private Double dayLimit;
+	private Double interest;
+	@Column(name = "OPEN_DATE")
+	private Date openDate;
 	private String pesel;
 	@ManyToOne
 	@JoinColumn(name = "PESEL")
@@ -63,6 +69,24 @@ public class Account {
 	}
 	public void setBalance(Double balance) {
 		this.balance = balance;
+	}
+	public Double getDayLimit() {
+		return dayLimit;
+	}
+	public void setDayLimit(Double dayLimit) {
+		this.dayLimit = dayLimit;
+	}
+	public Double getInterest() {
+		return interest;
+	}
+	public void setInterest(Double interest) {
+		this.interest = interest;
+	}
+	public Date getOpenDate() {
+		return openDate;
+	}
+	public void setOpenDate(Date openDate) {
+		this.openDate = openDate;
 	}
 	public String getPesel() {
 		return pesel;
