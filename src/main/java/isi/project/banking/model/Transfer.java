@@ -12,6 +12,8 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Repository;
 
+import isi.project.banking.model.account.Account;
+
 @Repository
 @Entity
 @Table(name="TRANSFER")

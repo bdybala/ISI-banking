@@ -11,8 +11,8 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Repository;
 
-import isi.project.banking.model.Account;
 import isi.project.banking.model.Message;
+import isi.project.banking.model.account.Account;
 
 @Repository
 @Entity

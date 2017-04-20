@@ -1,15 +1,24 @@
-package isi.project.banking.model;
+package isi.project.banking.model.account;
 
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Repository;
 
+import isi.project.banking.model.Card;
+import isi.project.banking.model.CashLoan;
+import isi.project.banking.model.Deposit;
+import isi.project.banking.model.Investment;
+import isi.project.banking.model.MortgageLoan;
+import isi.project.banking.model.Transfer;
+import isi.project.banking.model.Withdraw;
 import isi.project.banking.model.client.Client;
 
 @Repository
@@ -18,10 +27,12 @@ import isi.project.banking.model.client.Client;
 public class Account {
 	
 	@Id
+	@Column(name = "ACC_NR")
 	private String accNr;
 	private Double balance;
 	private String pesel;
 	@ManyToOne
+	@JoinColumn(name = "PESEL")
 	private Client client;
 	
 	@OneToMany(mappedBy="accNr")

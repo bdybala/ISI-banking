@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import isi.project.banking.model.account.AccountService;
 import isi.project.banking.model.client.Client;
 import isi.project.banking.model.client.ClientService;
 import net.sf.cglib.proxy.Factory;
@@ -51,18 +52,23 @@ public class HomeController {
 		ClientService ser = new ClientService(em);
 		List<Client> allClients = ser.findAllClients();
 		model.addAttribute("clients", allClients);
-		em.close();
-		emf.close();
+		
 		
 		Client client = (Client) session.getAttribute("client");
 		try {
+			AccountService as = new AccountService(em);
+			
 			logger.info("Logged account: {}", client.getPesel());
 			model.addAttribute("loggedClient", client);
+			model.addAttribute("loggedAccounts", as.findAccountsByPesel( client.getPesel() ));
 			return "user_account";
 		} catch (NullPointerException e) {
 			// TODO Auto-generated catch block
 			logger.info("Logged account: NOT LOGGED");
 			return "index";
+		} finally {
+			em.close();
+			emf.close();
 		}
 		
 	}

@@ -36,49 +36,69 @@
 		</nav>
 	</header>
 
-	<div class="form-main-content container">
-		<p class="text-center">WNIOSEK O ZALOZENIA KONTA</p>
-
-		<form:form method="POST" action="/register">
-			<table>
-				<tr>
-					<td><form:label path="pesel">pesel</form:label></td>
-					<td><form:input path="pesel" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="login">login</form:label></td>
-					<td><form:input path="login" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="password">password</form:label></td>
-					<td><form:input path="password" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="firstName">firstName</form:label></td>
-					<td><form:input path="firstName" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="lastName">lastName</form:label></td>
-					<td><form:input path="lastName" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="email">email</form:label></td>
-					<td><form:input path="email" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="nrTel">nrTel</form:label></td>
-					<td><form:input path="nrTel" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="birthday">birthday</form:label></td>
-					<td><form:input path="birthday" /></td>
-				</tr>
-				<tr>
-					<td colspan="2"><input type="submit" value="Submit" /></td>
-				</tr>
-			</table>
-		</form:form>
-
+	<div class="container">
+    	<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="#" class="active" id="login-form-link">Zarejestruj się</a>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="login-form" action=<c:url value="/register"/> method="post" role="form" style="display: block;">
+									<div class="form-group">
+										<input type="text" name="login" id="login" tabindex="1" class="form-control" placeholder="Login" value="">
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Haslo">
+									</div>
+									<div class="form-group">
+										<input type="text" name="pesel" id="pesel" tabindex="2" class="form-control" placeholder="Pesel">
+									</div>
+									<div class="form-group">
+										<input type="text" name="firstName" id="firstName" tabindex="2" class="form-control" placeholder="Imiona">
+									</div>
+									<div class="form-group">
+										<input type="text" name="lastName" id="lastName" tabindex="2" class="form-control" placeholder="Nazwisko">
+									</div>
+									<div class="form-group">
+										<input type="text" name="email" id="email" tabindex="2" class="form-control" placeholder="E-mail">
+									</div>
+									<div class="form-group">
+										<input type="text" name="nrTel" id="nrTel" tabindex="2" class="form-control" placeholder="Nr telefonu">
+									</div>
+									<div class="form-group">
+										<input type="text" name="birthday" id="birthday" tabindex="2" class="form-control" placeholder="Data urodzenia">
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Zarejestruj się">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="text-center">
+													<a href="recover_password.html" tabindex="5" class="forgot-password">Zapomniales hasla?</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 

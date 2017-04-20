@@ -9,7 +9,7 @@
 		<description>JPA Hibernate persistence for ISIS Bank</description>
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
-		<class>isi.project.banking.model.Account</class>
+		<class>isi.project.banking.model.account.Account</class>
 		<class>isi.project.banking.model.Administrator</class>
 		<class>isi.project.banking.model.Advisor</class>
 		<class>isi.project.banking.model.Banker</class>

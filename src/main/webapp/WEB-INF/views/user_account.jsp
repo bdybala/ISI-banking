@@ -108,6 +108,16 @@
 			<i>E-mail:</i> ${loggedClient.email} <br />
 			<i>Phone:</i> ${loggedClient.nrTel} <br />
 			<i>Birthday:</i> ${loggedClient.birthday} <br />
+			<br /><br />
+			<i>Accounts:</i> ${loggedAccounts} <br />
+			
+			<c:forEach items="${loggedAccounts}" var="account">
+			<br /><i>accNr:</i>  		${account.accNr} 
+			<br /><i>balance:</i>  		${account.balance}
+			<br /><i>pesel:</i>  		${account.pesel} 
+			<br />
+			<br />
+		</c:forEach>
 		</div>
 	  </div>
 	</div>
