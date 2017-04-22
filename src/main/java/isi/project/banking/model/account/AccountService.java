@@ -19,6 +19,7 @@ public class AccountService {
 		return em.find(Account.class, accNr);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Account> findAccountsByPesel(String pesel) {
 		Query query = em.createQuery("FROM Account where pesel=:pesel")
 				.setParameter("pesel", pesel);

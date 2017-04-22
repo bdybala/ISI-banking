@@ -100,27 +100,18 @@
 		</div>
 		<div class="col-sm-10 text-left"> 
 		  <h1>Welcome</h1>
-		  <p>OGOLNE INFORMACJE O KONTACH</p>
+		  <p>NASZA OFERTA LOKAT:</p>
 		  <hr>
-		  Logged as:<br />
-			<i>PESEL:</i> ${loggedClient.pesel} <br />
-			<i>Login:</i> ${loggedClient.login} <br /> 
-			<i>First name:</i> ${loggedClient.firstName} <br />
-			<i>Last name:</i> ${loggedClient.lastName} <br />
-			<i>E-mail:</i> ${loggedClient.email} <br />
-			<i>Phone:</i> ${loggedClient.nrTel} <br />
-			<i>Birthday:</i> ${loggedClient.birthday} <br />
-			<br /><br />
-			<i>Accounts:</i> ${loggedClient.accounts} <br />
 			
-			<c:forEach items="${loggedClient.accounts}" var="account">
-				<br /><i>name:</i>  		${account.name} 
-				<br /><i>accNr:</i>  		${account.accNr} 
-				<br /><i>balance:</i>  		${account.balance}
-				<br /><i>dayLimit:</i>  	${account.dayLimit} 
-				<br /><i>interest:</i>  	${account.interest} 
-				<br /><i>openDate:</i>  	${account.openDate} 
-				<br /><i>pesel:</i>  		${account.pesel}
+			<c:forEach items="${offerInvestments}" var="offerInvestment">
+				<br /><i>id:</i>  			${offerInvestment.id} 
+				<br /><i>name:</i>  		${offerInvestment.name} 
+				<br /><i>interest:</i>  	${offerInvestment.interest}
+				<br /><i>interestType:</i>  ${offerInvestment.interestType} 
+				<br /><i>duration:</i>  	${offerInvestment.duration} 
+				<br /><i>minSum:</i>  		${offerInvestment.minSum} 
+				<br /><i>maxSum:</i>  		${offerInvestment.maxSum}
+				<br /><i>author:</i>  		${offerInvestment.manager.firstName} ${offerInvestment.manager.lastName}
 				<br />
 				<br />
 			</c:forEach>

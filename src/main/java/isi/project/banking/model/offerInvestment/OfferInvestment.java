@@ -1,14 +1,17 @@
-package isi.project.banking.model;
+package isi.project.banking.model.offerInvestment;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Repository;
+
+import isi.project.banking.model.Manager;
 
 @Repository
 @Entity
@@ -29,6 +32,7 @@ public class OfferInvestment {
 	private Double maxSum;
 	private String author;
 	@ManyToOne
+	@JoinColumn(name="AUTHOR", insertable=false)
 	private Manager manager;
 	
 	public Integer getId() {

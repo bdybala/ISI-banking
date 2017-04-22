@@ -22,9 +22,10 @@ public class ClientService {
 		return em.find(Client.class, pesel);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Client> findAllClients() {
 		Query query = em.createQuery("FROM Client");
-		return (List<Client>) query.getResultList();
+		return query.getResultList();
 	}
 	
 	

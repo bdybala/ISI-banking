@@ -3,6 +3,9 @@ package isi.project.banking.controller;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import isi.project.banking.model.client.Client;
+import isi.project.banking.model.offerInvestment.OfferInvestmentService;
 
 @Controller
 public class OfferController {
@@ -24,27 +28,31 @@ public class OfferController {
 		
 		Client client = (Client) session.getAttribute("client");
 		try {
-			
 			logger.info("User: {} checking investments offer", client.getLogin());
 			model.addAttribute("loggedClient", client);
-			
-			// last session access (in miliseconds)
-			Date currentDate = new Date();
-			if (currentDate.after(new Date(session.getLastAccessedTime())))
-				model.addAttribute("lastAccessTimeInMs", currentDate.getTime());
-			else
-				model.addAttribute("lastAccessTimeInMs", session.getLastAccessedTime());
-
-			// timeout period (in seconds)
-			model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
-			
-			return "offer-investments";
 			
 		} catch (NullPointerException e) {
 			// TODO Auto-generated catch block
 			logger.info("Logged account: NOT LOGGED");
 			return "index";
 		}
+
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
+		EntityManager em = emf.createEntityManager();
+		OfferInvestmentService ois = new OfferInvestmentService(em);
+		// offer investments
+		model.addAttribute("offerInvestments", ois.findAllOfferInvestments());
+		
+		// last session access (in miliseconds)
+		Date currentDate = new Date();
+		if (currentDate.after(new Date(session.getLastAccessedTime())))
+			model.addAttribute("lastAccessTimeInMs", currentDate.getTime());
+		else
+			model.addAttribute("lastAccessTimeInMs", session.getLastAccessedTime());
+
+		// timeout period (in seconds)
+		model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
+		return "offer-investments";
 		
 	}
 

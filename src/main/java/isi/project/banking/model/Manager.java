@@ -5,11 +5,14 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Repository;
+
+import isi.project.banking.model.offerInvestment.OfferInvestment;
 
 @Repository
 @Entity
@@ -30,7 +33,7 @@ public class Manager {
 	private Date birthday;
 	@OneToMany
 	private Set<OfferCashLoan> cashLoanOffers;
-	@OneToMany
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="manager")
 	private Set<OfferInvestment> investmentOffers;
 	@OneToMany
 	private Set<OfferMortgageLoan> mortgageLoanOffers;
