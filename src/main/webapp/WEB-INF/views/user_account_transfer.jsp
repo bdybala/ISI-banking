@@ -1,13 +1,17 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form"%>
+
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
 	<title>ISIS BANK</title>
-	<link rel="stylesheet" href="css/styles.css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
-
+	<link rel="stylesheet" href=<c:url value="/resources/css/styles.css" />>
+	<link rel="stylesheet" href=<c:url value="/resources/css/bootstrap.min.css" />>
+	<link href=<c:url value="https://fonts.googleapis.com/css?family=Oxygen:400,300,700" /> rel='stylesheet' type='text/css'>
+    <link href=<c:url value="https://fonts.googleapis.com/css?family=Lora" /> rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -16,11 +20,11 @@
 		<nav id="header-nav" class="navbar navbar-default">
 		  <div class="container">
 			<div class="navbar-header">
-			  <a href="index.html" class="pull-left visible-md visible-lg">
+			  <a href=<c:url value="/" /> class="pull-left visible-md visible-lg">
 				<div id="logo-img"></div>
 			 </a>
 			<div class="navbar-brand">
-				<a href="index.html"><h1>ISIS BANK</h1></a>
+				<a href=<c:url value="/" />><h1>ISIS BANK</h1></a>
 			</div>
 			
 			</div>
@@ -40,11 +44,11 @@
 		</nav>
 	</header>
 	
-	<div>
+<div>
 		<nav class="navbar navbar-inverse">
 		  <div class="container-fluid">
 			<ul class="nav navbar-nav">
-			  <li><a href="user_account.html">MOJ BANK</a></li>
+			  <li><a href=<c:url value="/"/>>MOJ BANK</a></li>
 			  <li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Konta
 				<span class="caret"></span></a>
@@ -52,12 +56,11 @@
 				  <li><a href="user_account_ekonto.html">eKonto</a></li>
 				  <li class="divider"></li>
 				  <li><a href="#">eKontoSaver</a></li>
-				  <li class="divider"></li>
-				  <li><a href="#">eKontoCHUJWIECO</a></li>
 				</ul>
 			  </li>
 			  <li><a href="user_account_transfer.html">Wykonaj przelew</a></li>
 			  <li><a href="#">Lokaty</a></li>
+			  
 			  <li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Karty
 				<span class="caret"></span></a>
@@ -144,9 +147,10 @@
 		  <div class="text-center">&copy; Copyright ISIS BANK DEVELOPEMENT</div>
 		</div>
 	</footer>
-	<script src="js/jquery-2.1.4.min.js"></script>
-	<script src="js/script.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src=<c:url value="/resources/js/jquery-2.1.4.min.js" />></script>
+	<script src=<c:url value="/resources/js/script.js" />></script>
+	<script src=<c:url value="/resources/js/bootstrap.min.js" />></script>
+	<script src=<c:url value="/resources/js/sessionTimeoutTimer.js" />></script>
 
 </body>
 </html>
