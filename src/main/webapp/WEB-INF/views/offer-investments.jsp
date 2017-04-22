@@ -54,9 +54,12 @@
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Konta
 				<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-				  <li><a href="user_account_ekonto.html">eKonto</a></li>
-				  <li class="divider"></li>
-				  <li><a href="#">eKontoSaver</a></li>
+						<!-- dropdown menu: accounts -->
+					<c:forEach items="${loggedClient.accounts}" var="account">
+						<li><a href="#"> ${account.name}</a></li>
+						<li class="divider"></li>
+					</c:forEach>
+				  <li><a href="#">nowe konto</a></li>
 				</ul>
 			  </li>
 			  <li><a href="user_account_transfer.html">Wykonaj przelew</a></li>
