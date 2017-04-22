@@ -27,38 +27,47 @@ import net.sf.cglib.proxy.Factory;
  */
 @Controller
 public class HomeController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model,
-			HttpSession session) {
+	public String home(Locale locale, Model model, HttpSession session) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
+
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
+
 		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		// hibernate 
+
+		model.addAttribute("serverTime", formattedDate);
+
+		// hibernate
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
 		EntityManager em = emf.createEntityManager();
-		
+
 		ClientService ser = new ClientService(em);
 		List<Client> allClients = ser.findAllClients();
 		model.addAttribute("clients", allClients);
-		
-		
+
 		Client client = (Client) session.getAttribute("client");
 		try {
-			
+
 			logger.info("Logged account: {}", client.getPesel());
 			model.addAttribute("loggedClient", client);
+
+			// last session access (in miliseconds)
+			Date currentDate = new Date();
+			if (currentDate.after(new Date(session.getLastAccessedTime())))
+				model.addAttribute("lastAccessTimeInMs", currentDate.getTime());
+			else
+				model.addAttribute("lastAccessTimeInMs", session.getLastAccessedTime());
+
+			// timeout period (in seconds)
+			model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
+
 			return "user_account";
 		} catch (NullPointerException e) {
 			// TODO Auto-generated catch block
@@ -68,7 +77,7 @@ public class HomeController {
 			em.close();
 			emf.close();
 		}
-		
+
 	}
-	
+
 }

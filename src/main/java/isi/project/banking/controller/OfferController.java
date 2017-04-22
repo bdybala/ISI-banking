@@ -1,5 +1,6 @@
 package isi.project.banking.controller;
 
+import java.util.Date;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -26,6 +27,17 @@ public class OfferController {
 			
 			logger.info("User: {} checking investments offer", client.getLogin());
 			model.addAttribute("loggedClient", client);
+			
+			// last session access (in miliseconds)
+			Date currentDate = new Date();
+			if (currentDate.after(new Date(session.getLastAccessedTime())))
+				model.addAttribute("lastAccessTimeInMs", currentDate.getTime());
+			else
+				model.addAttribute("lastAccessTimeInMs", session.getLastAccessedTime());
+
+			// timeout period (in seconds)
+			model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
+			
 			return "offer-investments";
 			
 		} catch (NullPointerException e) {
@@ -44,6 +56,17 @@ public class OfferController {
 			
 			logger.info("User: {} checking loans offer", client.getLogin());
 			model.addAttribute("loggedClient", client);
+			
+			// last session access (in miliseconds)
+			Date currentDate = new Date();
+			if (currentDate.after(new Date(session.getLastAccessedTime())))
+				model.addAttribute("lastAccessTimeInMs", currentDate.getTime());
+			else
+				model.addAttribute("lastAccessTimeInMs", session.getLastAccessedTime());
+
+			// timeout period (in seconds)
+			model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
+			
 			return "offer-loans";
 			
 		} catch (NullPointerException e) {

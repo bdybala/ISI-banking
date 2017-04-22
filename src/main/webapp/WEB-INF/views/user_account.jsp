@@ -14,7 +14,7 @@
 
 </head>
 
-<body>
+<body onload="sessionTimeout(${lastAccessTimeInMs},${sessionTimeOutPeriodInMs});">
 
 	<header>
 		<nav id="header-nav" class="navbar navbar-default">
@@ -112,16 +112,24 @@
 			<i>Accounts:</i> ${loggedClient.accounts} <br />
 			
 			<c:forEach items="${loggedClient.accounts}" var="account">
-			<br /><i>name:</i>  		${account.name} 
-			<br /><i>accNr:</i>  		${account.accNr} 
-			<br /><i>balance:</i>  		${account.balance}
-			<br /><i>dayLimit:</i>  	${account.dayLimit} 
-			<br /><i>interest:</i>  	${account.interest} 
-			<br /><i>openDate:</i>  	${account.openDate} 
-			<br /><i>pesel:</i>  		${account.pesel}
-			<br />
-			<br />
-		</c:forEach>
+				<br /><i>name:</i>  		${account.name} 
+				<br /><i>accNr:</i>  		${account.accNr} 
+				<br /><i>balance:</i>  		${account.balance}
+				<br /><i>dayLimit:</i>  	${account.dayLimit} 
+				<br /><i>interest:</i>  	${account.interest} 
+				<br /><i>openDate:</i>  	${account.openDate} 
+				<br /><i>pesel:</i>  		${account.pesel}
+				<br />
+				<br />
+			</c:forEach>
+			
+			<br /> 
+			timeLeftToSessionTimeout
+			<div id ="timeLeftToSessionTimeout">
+				timeLeftToSessionTimeout
+			</div>
+			
+			
 		</div>
 	  </div>
 	</div>
@@ -146,6 +154,7 @@
 	<script src=<c:url value="/resources/js/jquery-2.1.4.min.js" />></script>
 	<script src=<c:url value="/resources/js/script.js" />></script>
 	<script src=<c:url value="/resources/js/bootstrap.min.js" />></script>
+	<script src=<c:url value="/resources/js/sessionTimeoutTimer.js" />></script>
 
 </body>
 </html>
