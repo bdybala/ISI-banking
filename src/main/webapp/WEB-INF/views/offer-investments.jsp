@@ -99,8 +99,6 @@
 		  <p><a href=<c:url value="/offer-loans"/>>Kredyty</a></p>
 		</div>
 		<div class="col-sm-10 text-left"> 
-		  <h1>Welcome</h1>
-		  <p>NASZA OFERTA LOKAT:</p>
 		  
 		  <!-- Page Content -->
     <div class="container">
