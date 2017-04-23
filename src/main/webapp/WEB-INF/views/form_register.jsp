@@ -43,7 +43,7 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-6">
-								<a href="#" class="active" id="register-form-link">Zarejestruj się</a>
+								<a href="#" class="active" id="login-form-link">Zarejestruj się</a>
 							</div>
 						</div>
 						<hr>
@@ -51,7 +51,7 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="register-form" action=<c:url value="/register"/> method="post" role="form" style="display: block;">
+								<form id="login-form" action=<c:url value="/register"/> method="post" role="form" style="display: block;">
 									<div class="form-group">
 										<input type="text" name="login" id="login" tabindex="1" class="form-control" placeholder="Login" value="">
 									</div>
@@ -79,7 +79,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="register-submit" id="register-submit" tabindex="9" class="form-control btn btn-register" value="Zarejestruj się">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="9" class="form-control btn btn-login" value="Zarejestruj się">
 											</div>
 										</div>
 									</div>
