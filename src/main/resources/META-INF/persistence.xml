@@ -22,11 +22,11 @@
 		<class>isi.project.banking.model.Investment</class>
 		<class>isi.project.banking.model.Manager</class>
 		<class>isi.project.banking.model.Message</class>
-		<class>isi.project.banking.model.offerLoan.MortgageLoan</class>
+		<class>isi.project.banking.model.MortgageLoan</class>
 		<class>isi.project.banking.model.MortgageSupervisor</class>
 		<class>isi.project.banking.model.offerLoan.OfferCashLoan</class>
 		<class>isi.project.banking.model.offerInvestment.OfferInvestment</class>
-		<class>isi.project.banking.model.OfferMortgageLoan</class>
+		<class>isi.project.banking.model.offerLoan.OfferMortgageLoan</class>
 		<class>isi.project.banking.model.Request</class>
 		<class>isi.project.banking.model.Transfer</class>
 		<class>isi.project.banking.model.Withdraw</class>
