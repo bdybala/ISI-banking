@@ -53,9 +53,9 @@
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Karty
 				<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-				  <li><a href="#">Debetowe</a></li>
+				  <li><a href=<c:url value="/card"/>>Debetowe</a></li>
 				  <li class="divider"></li>
-				  <li><a href="#">Kredytowe</a></li>
+				  <li><<a href=<c:url value="/card"/>>Kredytowe</a></li>
 				</ul>
 			  </li>
 			  <li class="dropdown">

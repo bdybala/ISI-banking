@@ -13,7 +13,7 @@
 		<class>isi.project.banking.model.Administrator</class>
 		<class>isi.project.banking.model.Advisor</class>
 		<class>isi.project.banking.model.Banker</class>
-		<class>isi.project.banking.model.Card</class>
+		<class>isi.project.banking.model.card.Card</class>
 		<class>isi.project.banking.model.CashLoan</class>
 		<class>isi.project.banking.model.CashSupervisor</class>
 		<class>isi.project.banking.model.Chat</class>

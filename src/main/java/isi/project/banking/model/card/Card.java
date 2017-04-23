@@ -1,8 +1,9 @@
-package isi.project.banking.model;
+package isi.project.banking.model.card;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -25,6 +26,7 @@ public class Card {
 	private String cvc;
 	private String pin;
 	@ManyToOne
+	@JoinColumn(name = "acc_nr", insertable = false, updatable=false)
 	private Account account;
 
 	public String getCardNr() {
