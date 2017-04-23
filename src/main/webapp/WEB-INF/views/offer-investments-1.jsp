@@ -99,59 +99,51 @@
 		  <p><a href=<c:url value="/offer-loans"/>>Kredyty</a></p>
 		</div>
 		<div class="col-sm-10 text-left"> 
-		  <h1>Welcome</h1>
-		  <p>NASZA OFERTA LOKAT:</p>
 		  
 		  <!-- Page Content -->
-    <div class="container">
-
-        <!-- Page Header -->
-        <div class="row">
-            <div class="col-lg-12">
-					  <h1>Lokaty</h1>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Projects Row -->
-        <div class="row">
-            <div class="col-md-6 portfolio-item">
-                <a href=<c:url value="/offer-investments-1"/>>
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-                <h3>
-                    <a href=<c:url value="/offer-investments-1"/>>Wysoki procent</a>
-                </h3>
-				<p>Kwota 500 zł 10 000 zł</br>
-					Okres lokaty 3 miesiące</br>
-					oferta dla nowych Klientów</p>
-            </div>
-            <div class="col-md-6 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-                <h3>
-                    <a href="#">Lokata 1</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Projects Row -->
-        <div class="row">
-            <div class="col-md-6 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-                <h3>
-                    <a href="#">Zapytaj doradce o kredyt</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-        </div>
-        <!-- /.row -->
-	</div>
+		  <div class="container">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<div class="panel panel-login">
+								<div class="panel-heading">
+									<div class="row">
+										<div class="col-xs-6">
+											<a href="#" class="active" id="login-form-link">Lokata na wysoki procent</a>
+										</div>
+									</div>
+									<hr>
+								</div>
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-lg-12">
+											<form id="investment-form" action=<c:url value="/auth"/> method="post" role="form" style="display: block;">
+												<p>Lokata na 2%</br>
+												Czas trwania: 3 miesiące
+												</p>
+												<div class="form-group">
+													<input type="number" name="offer-amount" id="offer-amount" tabindex="1" class="form-control" placeholder="Kwota" value="">
+												</div>
+												<p>Rachunek: 			
+													<c:forEach items="${loggedClient.accounts}" var="account">
+														<br /><i>name:</i>  		${account.name} 
+														<br /><i>accNr:</i>  		${account.accNr} 
+														<br /><i>balance:</i>  		${account.balance}
+													</c:forEach></p>
+												<div class="form-group">
+													<div class="row">
+														<div class="col-sm-6 col-sm-offset-3">
+															<input type="submit" name="offer-submit" id="offer-submit" tabindex="4" class="form-control btn btn-offer" value="Potwierdz">
+														</div>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			
 		  
 			<!--  
