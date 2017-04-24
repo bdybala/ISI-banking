@@ -60,18 +60,17 @@
 									class="img-responsive" src="http://placehold.it/700x400" alt="">
 								</a>
 								<h3>
-									<a href=<c:url value="/offer-investments-1"/>>${offerInvestment.name}</a>
+									<a href=<c:url value="/offer-investments-1?offerInvestmentId=${offerInvestment.id}"/>>${offerInvestment.name}</a>
 								</h3>
 								<p>
-									<br />
-									<i>id:</i> ${offerInvestment.id} <br />
-									<i>name:</i> ${offerInvestment.name} <br />
-									<i>interest:</i> ${offerInvestment.interest} <br />
-									<i>interestType:</i> ${offerInvestment.interestType} <br />
-									<i>duration:</i> ${offerInvestment.duration} <br />
-									<i>minSum:</i> ${offerInvestment.minSum} <br />
-									<i>maxSum:</i> ${offerInvestment.maxSum} <br />
-									<i>author:</i> ${offerInvestment.manager.firstName}
+									<br /> <i>id:</i> ${offerInvestment.id} <br /> <i>name:</i>
+									${offerInvestment.name} <br /> <i>interest:</i>
+									${offerInvestment.interest} <br /> <i>interestType:</i>
+									${offerInvestment.interestType} <br /> <i>duration:</i>
+									${offerInvestment.duration} <br /> <i>minSum:</i>
+									${offerInvestment.minSum} <br /> <i>maxSum:</i>
+									${offerInvestment.maxSum} <br /> <i>author:</i>
+									${offerInvestment.manager.firstName}
 									${offerInvestment.manager.lastName}
 								</p>
 							</div>
@@ -98,21 +97,6 @@
 					<!-- /.row -->
 				</div>
 
-
-				<!--  
-			<c:forEach items="${offerInvestments}" var="offerInvestment">
-				<br /><i>id:</i>  			${offerInvestment.id} 
-				<br /><i>name:</i>  		${offerInvestment.name} 
-				<br /><i>interest:</i>  	${offerInvestment.interest}
-				<br /><i>interestType:</i>  ${offerInvestment.interestType} 
-				<br /><i>duration:</i>  	${offerInvestment.duration} 
-				<br /><i>minSum:</i>  		${offerInvestment.minSum} 
-				<br /><i>maxSum:</i>  		${offerInvestment.maxSum}
-				<br /><i>author:</i>  		${offerInvestment.manager.firstName} ${offerInvestment.manager.lastName}
-				<br />
-				<br />
-			</c:forEach>
-			-->
 				<br /> timeLeftToSessionTimeout
 				<div id="timeLeftToSessionTimeout">timeLeftToSessionTimeout</div>
 

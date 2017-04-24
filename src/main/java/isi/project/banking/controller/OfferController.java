@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,15 +23,15 @@ import isi.project.banking.model.offerInvestment.OfferInvestmentService;
 public class OfferController {
 
 	private static final Logger logger = LoggerFactory.getLogger(OfferController.class);
-	
+
 	@RequestMapping(value = "/offer-investments", method = RequestMethod.GET)
 	public String investments(Locale locale, Model model, HttpSession session) {
-		
+
 		Client client = (Client) session.getAttribute("client");
 		try {
-			logger.info("User: {} checking investments offer", client.getLogin());
+			logger.info("l:{} checking investments offer", client.getLogin());
 			model.addAttribute("loggedClient", client);
-			
+
 		} catch (NullPointerException e) {
 			// TODO Auto-generated catch block
 			logger.info("Logged account: NOT LOGGED");
@@ -42,18 +43,17 @@ public class OfferController {
 		OfferInvestmentService ois = new OfferInvestmentService(em);
 		// offer investments
 		model.addAttribute("offerInvestments", ois.findAllOfferInvestments());
-		
+
 		// last session access (in miliseconds)
 		Date currentDate = new Date();
 		if (currentDate.after(new Date(session.getLastAccessedTime())))
 			model.addAttribute("lastAccessTimeInMs", currentDate.getTime());
 		else
 			model.addAttribute("lastAccessTimeInMs", session.getLastAccessedTime());
-
 		// timeout period (in seconds)
 		model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
 		return "offer-investments";
-		
+
 	}
 
 	@RequestMapping(value = "/offer-loans", method = RequestMethod.GET)
@@ -61,27 +61,58 @@ public class OfferController {
 
 		Client client = (Client) session.getAttribute("client");
 		try {
-			
-			logger.info("User: {} checking loans offer", client.getLogin());
+
+			logger.info("l:{} checking loans offer", client.getLogin());
 			model.addAttribute("loggedClient", client);
-			
+
 			// last session access (in miliseconds)
 			Date currentDate = new Date();
 			if (currentDate.after(new Date(session.getLastAccessedTime())))
 				model.addAttribute("lastAccessTimeInMs", currentDate.getTime());
 			else
 				model.addAttribute("lastAccessTimeInMs", session.getLastAccessedTime());
-
 			// timeout period (in seconds)
 			model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
-			
+
 			return "offer-loans";
-			
+
 		} catch (NullPointerException e) {
 			// TODO Auto-generated catch block
 			logger.info("Logged account: NOT LOGGED");
 			return "index";
 		}
 	}
-	
+
+	@RequestMapping(value = "/offer-investments-1", method = RequestMethod.GET)
+	public String offer1(Locale locale, Model model, HttpSession session, 
+			@ModelAttribute("offerInvestmentId") int offerInvestmentId){
+
+		Client client = (Client) session.getAttribute("client");
+		try {
+			logger.info("l:{} checking #{} investment offer", client.getLogin(), offerInvestmentId);
+			model.addAttribute("loggedClient", client);
+		} catch (NullPointerException e) {
+			// TODO Auto-generated catch block
+			logger.info("Logged account: NOT LOGGED");
+			return "index";
+		}
+		// last session access (in miliseconds)
+		Date currentDate = new Date();
+		if (currentDate.after(new Date(session.getLastAccessedTime())))
+			model.addAttribute("lastAccessTimeInMs", currentDate.getTime());
+		else
+			model.addAttribute("lastAccessTimeInMs", session.getLastAccessedTime());
+		// timeout period (in seconds)
+		model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
+
+		
+		// specific investment offer
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
+		EntityManager em = emf.createEntityManager();
+		OfferInvestmentService ois = new OfferInvestmentService(em);
+		model.addAttribute("investmentOfferShown", ois.findOfferInvestment(offerInvestmentId));
+		
+		return "/offer-investments-1";
+	}
+
 }
