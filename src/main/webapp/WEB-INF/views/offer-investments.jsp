@@ -55,29 +55,64 @@
 					<div class="row">
 
 						<c:forEach items="${offerInvestments}" var="offerInvestment">
+						<p>
 							<div class="col-md-6 portfolio-item">
 								<a href=<c:url value="/offer-investments-1"/>> <img
 									class="img-responsive" src="http://placehold.it/700x400" alt="">
 								</a>
 								<h3>
-									<a href=<c:url value="/offer-investments-1?offerInvestmentId=${offerInvestment.id}"/>>${offerInvestment.name}</a>
+									<a
+										href=<c:url value="/offer-investments-1#?offerInvestmentId=${offerInvestment.id}"/>>${offerInvestment.name}</a>
 								</h3>
 								<p>
-									<br /> <i>id:</i> ${offerInvestment.id} <br /> <i>name:</i>
-									${offerInvestment.name} <br /> <i>interest:</i>
-									${offerInvestment.interest} <br /> <i>interestType:</i>
-									${offerInvestment.interestType} <br /> <i>duration:</i>
-									${offerInvestment.duration} <br /> <i>minSum:</i>
-									${offerInvestment.minSum} <br /> <i>maxSum:</i>
-									${offerInvestment.maxSum} <br /> <i>author:</i>
-									${offerInvestment.manager.firstName}
-									${offerInvestment.manager.lastName}
-								</p>
-							</div>
+								<table class="table table-striped">
+									<tbody>
+
+										<tr>
+
+											<td><i>id:</i></td>
+											<td>${offerInvestment.id}</td>
+										</tr>
+										<tr>
+
+											<td><i>name:</i></td>
+											<td>${offerInvestment.name}</td>
+										</tr>
+										<tr>
+
+											<td><i>interest:</i></td>
+											<td>${offerInvestment.interest}</td>
+										</tr>
+
+										<td><i>interestType:</i></td>
+										<td>${offerInvestment.interestType}</td>
+										</tr>
+
+										<td><i>duration:</i></td>
+										<td>${offerInvestment.duration}</td>
+										</tr>
+
+										<td><i>minSum:</i></td>
+										<td>${offerInvestment.minSum}</td>
+										</tr>
+
+										<td><i>maxSum:</i></td>
+										<td>${offerInvestment.maxSum}</td>
+										</tr>
+
+								
+
+
+
+									</tbody>
+								</table>
+									</p>
+									</div>	
 						</c:forEach>
 
 
 					</div>
+					
 					<!-- /.row -->
 
 					<!-- Projects Row -->
