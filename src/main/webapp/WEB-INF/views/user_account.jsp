@@ -32,30 +32,95 @@
 		  <h1>Welcome</h1>
 		  <p>OGOLNE INFORMACJE O KONTACH</p>
 		  <hr>
-		  Logged as:<br />
-			<i>PESEL:</i> ${loggedClient.pesel} <br />
-			<i>Login:</i> ${loggedClient.login} <br /> 
-			<i>First name:</i> ${loggedClient.firstName} <br />
-			<i>Last name:</i> ${loggedClient.lastName} <br />
-			<i>E-mail:</i> ${loggedClient.email} <br />
-			<i>Phone:</i> ${loggedClient.nrTel} <br />
-			<i>Birthday:</i> ${loggedClient.birthday} <br />
+	<table class = "table table-striped">
+			<tbody>
+			
+			    <tr>
+    
+      <td><i>Pesel:</i> </td>
+      <td>${loggedClient.pesel}</td>
+       </tr>
+       			    <tr>
+      
+      <td><i>Login:</i></td>
+      <td>${loggedClient.login}</td>
+       </tr>
+       			    <tr>
+    
+      <td><i>First Name:</i></td>
+      <td>${loggedClient.firstName}</td>
+       </tr>
+         
+      <td><i>Last Name:</i></td>
+      <td>${loggedClient.lastName}</td>
+       </tr>
+           
+      <td><i>Email:</i></td>
+      <td>${loggedClient.email}</td>
+       </tr>
+         
+      <td><i>Numer telefonu:</i></td>
+      <td>${loggedClient.nrTel}</td>
+       </tr>
+         
+      <td><i>Birthday:</i></td>
+      <td>${loggedClient.birthday}</td>
+       </tr>
+     
+       
+       
+			</tbody>
+			</table>
+			
+			
 			<br /><br />
+		
+		
+		
 			<i>Accounts:</i> ${loggedClient.accounts} <br />
+					<c:forEach items="${loggedClient.accounts}" var="account">
+			<table class = "table table-bordered">
+			<tbody>
 			
-			<c:forEach items="${loggedClient.accounts}" var="account">
-				<br /><i>name:</i>  		${account.name} 
-				<br /><i>accNr:</i>  		${account.accNr} 
-				<br /><i>balance:</i>  		${account.balance}
-				<br /><i>dayLimit:</i>  	${account.dayLimit} 
-				<br /><i>interest:</i>  	${account.interest} 
-				<br /><i>openDate:</i>  	${account.openDate} 
-				<br /><i>pesel:</i>  		${account.pesel}
+			    <tr>
+    
+      <td><i>Name:</i> </td>
+      <td>${account.name}</td>
+       </tr>
+       			    <tr>
+      
+      <td><i>Account Number:</i></td>
+      <td>${account.accNr}</td>
+       </tr>
+       			    <tr>
+    
+      <td><i>Balance:</i></td>
+      <td>${account.balance}</td>
+       </tr>
+         
+      <td><i>Day Limit:</i></td>
+      <td>${account.dayLimit}</td>
+       </tr>
+           
+      <td><i>Interest:</i></td>
+      <td>${account.interest}</td>
+       </tr>
+         
+      <td><i>Open Date:</i></td>
+      <td>${account.openDate}</td>
+       </tr>
+         
+      <td><i>Pesel:</i></td>
+      <td>${account.pesel}</td>
+       </tr>
+     
+       
+       
+			</tbody>
+			</table>
 				<br />
-				<br />
-			</c:forEach>
-			
-			<br /> 
+			</c:forEach>		
+		
 			timeLeftToSessionTimeout
 			<div id ="timeLeftToSessionTimeout">
 				timeLeftToSessionTimeout
