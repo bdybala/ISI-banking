@@ -103,16 +103,49 @@
 		  <p>Lista kart:</p>
 		  <hr>
 			
+	<div class="row">
+
+			
+			
+					
 			<c:forEach items="${card}" var="card">
-				<br /><i>cardNr:</i>  			${card.cardNr} 
-				<br /><i>accNr:</i>  		${card.accNr} 
-				<br /><i>name:</i>  	${card.name}
-				<br /><i>status:</i>  ${card.status} 
-				<br /><i>account:</i>  	${card.account} 
-				
-				<br />
-				<br />
+			
+			<table class = "table table-striped">
+			<tbody>
+			
+			    <tr>
+    
+      <td><i>cardNr:</i> </td>
+      <td>${card.cardNr}</td>
+       </tr>
+       			    <tr>
+      
+      <td><i>accNr:</i></td>
+      <td>${card.accNr}</td>
+       </tr>
+       			    <tr>
+    
+      <td><i>name:</i></td>
+      <td>${card.name}</td>
+       </tr>
+       
+         <td><i>status:</i></td>
+      <td>${card.status}</td>
+       </tr>
+       
+         <td><i>account:</i></td>
+      <td>${card.account}</td>
+       </tr>
+         
+     <br />
+     <br />
+       
+       
+			</tbody>
+			</table>
+			
 			</c:forEach>
+			
 			
 			<br /> 
 			timeLeftToSessionTimeout

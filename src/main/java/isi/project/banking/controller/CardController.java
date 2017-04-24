@@ -42,7 +42,7 @@ public class CardController {
 		EntityManager em = emf.createEntityManager();
 		CardService ois = new CardService(em);
 		// offer investments
-		model.addAttribute("offerInvestments", ois.findAllCard());
+		model.addAttribute("card", ois.findAllCard());
 		
 		// last session access (in miliseconds)
 		Date currentDate = new Date();
