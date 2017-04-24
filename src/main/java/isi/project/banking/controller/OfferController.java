@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import isi.project.banking.model.client.Client;
 import isi.project.banking.model.offerInvestment.OfferInvestmentService;
+import isi.project.banking.model.offerLoan.OfferCashLoanService;
+import isi.project.banking.model.offerLoan.OfferMortgageLoanService;
 
 @Controller
 public class OfferController {
@@ -56,33 +58,6 @@ public class OfferController {
 
 	}
 
-	@RequestMapping(value = "/offer-loans", method = RequestMethod.GET)
-	public String loans(Locale locale, Model model, HttpSession session) {
-
-		Client client = (Client) session.getAttribute("client");
-		try {
-
-			logger.info("l:{} checking loans offer", client.getLogin());
-			model.addAttribute("loggedClient", client);
-
-			// last session access (in miliseconds)
-			Date currentDate = new Date();
-			if (currentDate.after(new Date(session.getLastAccessedTime())))
-				model.addAttribute("lastAccessTimeInMs", currentDate.getTime());
-			else
-				model.addAttribute("lastAccessTimeInMs", session.getLastAccessedTime());
-			// timeout period (in seconds)
-			model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
-
-			return "offer-loans";
-
-		} catch (NullPointerException e) {
-			// TODO Auto-generated catch block
-			logger.info("Logged account: NOT LOGGED");
-			return "index";
-		}
-	}
-
 	@RequestMapping(value = "/offer-investments-1", method = RequestMethod.GET)
 	public String offer1(Locale locale, Model model, HttpSession session, 
 			@ModelAttribute("offerInvestmentId") int offerInvestmentId){
@@ -105,14 +80,50 @@ public class OfferController {
 		// timeout period (in seconds)
 		model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
 
-		
+
 		// specific investment offer
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
 		EntityManager em = emf.createEntityManager();
 		OfferInvestmentService ois = new OfferInvestmentService(em);
 		model.addAttribute("investmentOfferShown", ois.findOfferInvestment(offerInvestmentId));
-		
+
 		return "/offer-investments-1";
 	}
+
+	@RequestMapping(value = "/offer-loans", method = RequestMethod.GET)
+	public String loans(Locale locale, Model model, HttpSession session) {
+
+		Client client = (Client) session.getAttribute("client");
+		try {
+			logger.info("l:{} checking loans offer", client.getLogin());
+			model.addAttribute("loggedClient", client);
+		} catch (NullPointerException e) {
+			// TODO Auto-generated catch block
+			logger.info("Logged account: NOT LOGGED");
+			return "index";
+		}
+
+		// last session access (in miliseconds)
+		Date currentDate = new Date();
+		if (currentDate.after(new Date(session.getLastAccessedTime())))
+			model.addAttribute("lastAccessTimeInMs", currentDate.getTime());
+		else
+			model.addAttribute("lastAccessTimeInMs", session.getLastAccessedTime());
+		// timeout period (in seconds)
+		model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
+
+		// loans offer
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
+		EntityManager em = emf.createEntityManager();
+
+		OfferMortgageLoanService omls = new OfferMortgageLoanService(em);
+		OfferCashLoanService ocls = new OfferCashLoanService(em);
+		model.addAttribute("offerMortgageLoans", omls.findAllOfferMortgageLoan());
+		model.addAttribute("offerCashLoans", ocls.findAllOfferCashLoan());
+		
+		
+		return "offer-loans";
+	}
+
 
 }

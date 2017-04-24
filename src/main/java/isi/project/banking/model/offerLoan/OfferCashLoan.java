@@ -29,10 +29,10 @@ public class OfferCashLoan {
 	private Double minSum;
 	@Column(name="MAX_SUM")
 	private Double maxSum;
-	@Column(name="MIN_INTERESTS")
-	private Integer minInterests;
-	@Column(name="MAX_INTERESTS")
-	private Integer maxInterests;
+	@Column(name="MIN_INSTALLMENTS")
+	private Integer minInstallments;
+	@Column(name="MAX_INSTALLMENTS")
+	private Integer maxInstallments;
 	private String author;
 	@ManyToOne
 	@JoinColumn(name="AUTHOR", insertable=false)
@@ -74,17 +74,17 @@ public class OfferCashLoan {
 	public void setMaxSum(Double maxSum) {
 		this.maxSum = maxSum;
 	}
-	public Integer getMinInterests() {
-		return minInterests;
+	public Integer getMinInstallments() {
+		return minInstallments;
 	}
-	public void setMinInterests(Integer minInterests) {
-		this.minInterests = minInterests;
+	public void setMinInstallments(Integer minInstallments) {
+		this.minInstallments = minInstallments;
 	}
-	public Integer getMaxInterests() {
-		return maxInterests;
+	public Integer getMaxInstallments() {
+		return maxInstallments;
 	}
-	public void setMaxInterests(Integer maxInterests) {
-		this.maxInterests = maxInterests;
+	public void setMaxInstallments(Integer maxInstallments) {
+		this.maxInstallments = maxInstallments;
 	}
 	public String getAuthor() {
 		return author;
@@ -97,5 +97,5 @@ public class OfferCashLoan {
 	}
 	public void setManager(Manager manager) {
 		this.manager = manager;
-	}
+	}	
 }
