@@ -67,7 +67,7 @@
 				  <li><a href="#">Hipoteczny</a></li>
 				</ul>
 			  </li>
-			  <li><a href="#">Ustawienia konta</a></li>
+			  <li><a href=<c:url value="/change-password"/>>Ustawienia konta</a></li>
 			  <li><a href="#">Porozmawiaj z doradca</a>
 			  </li>
 			</ul>

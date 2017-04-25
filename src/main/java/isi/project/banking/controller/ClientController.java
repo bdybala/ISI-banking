@@ -26,6 +26,7 @@ import isi.project.banking.model.account.Account;
 import isi.project.banking.model.account.AccountService;
 import isi.project.banking.model.client.Client;
 import isi.project.banking.model.client.ClientService;
+import net.sf.cglib.core.Local;
 
 @Controller
 public class ClientController {
@@ -54,6 +55,13 @@ public class ClientController {
 		as.createAccount(new Account(client.getPesel(), "eKonto"));
 		
 		return new HomeController().home(locale, model, session);
+	}
+	@RequestMapping(value = "/change-password")
+	public String passwordChange(@ModelAttribute Client client,
+			Locale locale, Model model,
+			HttpSession session){
+		
+		return "change-password";
 	}
 	
 	@InitBinder
