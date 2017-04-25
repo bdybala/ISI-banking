@@ -19,6 +19,7 @@
 
 	
 	<jsp:include page="Header.jsp" />
+	<jsp:include page="user-navbar.jsp" />
 	
 								<form id="login-form" action=<c:url value="/change-password"/> method="post" role="form" style="display: block;">
 									<div class="form-group">

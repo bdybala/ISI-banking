@@ -17,7 +17,7 @@
 
 <body onload="sessionTimeout(${lastAccessTimeInMs},${sessionTimeOutPeriodInMs});">
 
-<jsp:include page="Header.jsp" />
+
 	<div class="form-main-content container">
 		<p class="text-center">Wprowadz kod dostarczony SMS'em</p>
 		<input type="text" id="authenicationCode"></br>

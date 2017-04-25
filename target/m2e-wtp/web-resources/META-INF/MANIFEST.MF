@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Built-By: Sect0r
-Build-Jdk: 1.8.0_111
+Built-By: Michal
+Build-Jdk: 1.8.0_121
 Created-By: Maven Integration for Eclipse
 

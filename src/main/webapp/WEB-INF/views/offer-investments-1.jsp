@@ -24,6 +24,7 @@
 	onload="sessionTimeout(${lastAccessTimeInMs},${sessionTimeOutPeriodInMs});">
 
 	<jsp:include page="Header.jsp" />
+	<jsp:include page="user-navbar.jsp" />
 
 	<div class="container-fluid text-center">
 		<div class="row content">

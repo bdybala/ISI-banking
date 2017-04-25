@@ -24,12 +24,12 @@
 			  <a href=<c:url value="/"/> class="pull-left visible-md visible-lg">
 				<div id="logo-img"></div>
 			 </a>
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+<!-- 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
 				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
-			</button>
+			</button> -->
 			<div class="navbar-brand">
 				<a href=<c:url value="/"/>><h1>ISIS BANK</h1></a>
 			</div>		

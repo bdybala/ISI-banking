@@ -19,6 +19,7 @@
 
 	
 	<jsp:include page="Header.jsp" />
+	<jsp:include page="user-navbar.jsp" />
 	
 	
 	<div class="container-fluid text-center">    
