@@ -19,7 +19,7 @@
 		<class>isi.project.banking.model.Chat</class>
 		<class>isi.project.banking.model.client.Client</class>
 		<class>isi.project.banking.model.Deposit</class>
-		<class>isi.project.banking.model.Investment</class>
+		<class>isi.project.banking.model.investment.Investment</class>
 		<class>isi.project.banking.model.Manager</class>
 		<class>isi.project.banking.model.Message</class>
 		<class>isi.project.banking.model.MortgageLoan</class>

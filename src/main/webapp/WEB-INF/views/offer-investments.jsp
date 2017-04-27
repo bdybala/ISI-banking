@@ -56,14 +56,17 @@
 					<div class="row">
 
 						<c:forEach items="${offerInvestments}" var="offerInvestment">
-						<p>
+							<p>
 							<div class="col-md-6 portfolio-item">
-								<a href=<c:url value="/offer-investments-1"/>> <img
-									class="img-responsive" src="http://placehold.it/700x400" alt="">
+								<a
+									href=<c:url value="/offer-investments-1?offerInvestmentId=${offerInvestment.id}"/>>
+									<img class="img-responsive" src="http://placehold.it/700x400"
+									alt="" />
 								</a>
 								<h3>
 									<a
-										href=<c:url value="/offer-investments-1#?offerInvestmentId=${offerInvestment.id}"/>>${offerInvestment.name}</a>
+										href=<c:url value="/offer-investments-1?offerInvestmentId=${offerInvestment.id}"/>>${offerInvestment.name}
+									</a>
 								</h3>
 								<p>
 								<table class="table table-striped">
@@ -101,19 +104,16 @@
 										<td>${offerInvestment.maxSum}</td>
 										</tr>
 
-								
-
-
 
 									</tbody>
 								</table>
-									</p>
-									</div>	
+								</p>
+							</div>
 						</c:forEach>
 
 
 					</div>
-					
+
 					<!-- /.row -->
 
 					<!-- Projects Row -->

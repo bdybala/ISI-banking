@@ -1,4 +1,4 @@
-package isi.project.banking.model;
+package isi.project.banking.model.investment;
 
 import java.util.Date;
 
@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Repository;
@@ -20,7 +22,8 @@ import isi.project.banking.model.account.Account;
 public class Investment {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="investment_id_seq_gen")
+	@SequenceGenerator(name="investment_id_seq_gen", sequenceName="INVESTMENT_ID_SEQ",allocationSize=1)
 	private int id;
 	@Column(name="acc_nr")
 	private String accNr;
@@ -29,8 +32,11 @@ public class Investment {
 	@Column(name="close_date")
 	private Date closeDate;
 	private Double interest;
+	private Double balance;
+	private String name;
 	
 	@ManyToOne
+	@JoinColumn(name="ACC_NR", insertable=false)
 	private Account account;
 	
 	public int getId() {
@@ -63,10 +69,22 @@ public class Investment {
 	public void setInterest(Double interest) {
 		this.interest = interest;
 	}
+	public Double getBalance() {
+		return balance;
+	}
+	public void setBalance(Double balance) {
+		this.balance = balance;
+	}
 	public Account getAccount() {
 		return account;
 	}
 	public void setAccount(Account account) {
 		this.account = account;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 }
