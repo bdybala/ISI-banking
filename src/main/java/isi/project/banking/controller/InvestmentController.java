@@ -72,4 +72,29 @@ public class InvestmentController {
 		
 		return new HomeController().home(locale, model, session);
 	}
+	
+	@RequestMapping(value="/investments", method=RequestMethod.GET)
+	public String investments(Locale locale, Model model, HttpSession session) {
+		
+		Client client = (Client) session.getAttribute("client");
+		try {
+			logger.info("l: {} checking his investments", client.getLogin());
+			model.addAttribute("loggedClient", client);
+		} catch (NullPointerException e) {
+			// TODO Auto-generated catch block
+			logger.info("Logged account: NOT LOGGED");
+			return "index";
+		}
+		// last session access (in miliseconds)
+		Date currentDate = new Date();
+		if (currentDate.after(new Date(session.getLastAccessedTime())))
+			model.addAttribute("lastAccessTimeInMs", currentDate.getTime());
+		else
+			model.addAttribute("lastAccessTimeInMs", session.getLastAccessedTime());
+		// timeout period (in seconds)
+		model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
+		
+		
+		return "investments";
+	}
 }

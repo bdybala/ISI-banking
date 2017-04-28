@@ -19,7 +19,7 @@
 				</ul>
 			  </li>
 			  <li><a href="user_account_transfer.html">Wykonaj przelew</a></li>
-			  <li><a href=<c:url value="/offer-investments"/>>Lokaty</a></li>
+			  <li><a href=<c:url value="/investments"/>>Lokaty</a></li>
 			  
 			  <li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Karty
