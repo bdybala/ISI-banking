@@ -17,26 +17,7 @@
 
 <body>
 
-	<header>
-		<nav id="header-nav" class="navbar navbar-default">
-		  <div class="container">
-			<div class="navbar-header">
-			  <a href=<c:url value="/"/> class="pull-left visible-md visible-lg">
-				<div id="logo-img"></div>
-			 </a>
-<!-- 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button> -->
-			<div class="navbar-brand">
-				<a href=<c:url value="/"/>><h1>ISIS BANK</h1></a>
-			</div>		
-			</div>
-		  </div><!-- container -->
-		</nav>
-	</header>
+	<jsp:include page="Header.jsp" />
 	<div class="container">
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
@@ -83,22 +64,6 @@
 			</div>
 		</div>
 	</div>
-	<footer class="panel-footer">
-		<div class="container">
-		  <div class="row">
-			<section id="hours" class="col-sm-4">
-			  <span>Otwarty: </span><br>
-			  Pon-Piatek: 8:00 - 20:00<br>
-			  Sobota: 9:00 - 18:00<br>
-			</section>
-			<section id="address" class="col-sm-4">
-			  <span>Adres:</span><br>
-			  Rynek główny<br>
-			  Kraków, Polska
-			</section>
-		  </div>
-		  <div class="text-center">&copy; Copyright ISIS BANK DEVELOPEMENT</div>
-		</div>
-	</footer>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>

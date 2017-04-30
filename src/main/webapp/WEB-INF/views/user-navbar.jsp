@@ -39,8 +39,15 @@
 				  <li><a href=<c:url value="/offer-loans"/>>Hipoteczny</a></li>
 				</ul>
 			  </li>
-			  <li><a href=<c:url value="/change-password"/>>Ustawienia konta</a></li>
-			  <li><a href="#">Porozmawiaj z doradca</a>
+			  	  <li ><a href="#">Porozmawiaj z doradca</a>	  </li>
+			   <li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Zalogowany jako ${loggedClient.firstName} ${loggedClient.lastName}
+				<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+				  <li><a href=<c:url value="/#"/>>Ustawienia konta</a></li>
+				  <li class="divider"></li>
+				  <li><a href=<c:url value="/logout"/>>Wyloguj się</a></li>
+				</ul>
 			  </li>
 			</ul>
 		  </div>

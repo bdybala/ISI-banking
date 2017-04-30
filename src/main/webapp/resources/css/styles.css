@@ -2,32 +2,43 @@
 	font-family: cz; 
 	src: url('../fonts/cz.ttf'); 
 	} 
+html{
+	font-family: 'cz';
+}
+
 /** HEADER **/
 #header-nav {
-  background-color: #F0FFFF;
+  background-color: #E7E7E7;
   border-radius: 0;
   border: 0;
   margin: 0;
 }
 #logo-img {
-  background: url('../images/100x100.png') no-repeat;
+  background: url('../images/logo.png') no-repeat;
   width: 100px;
   height: 100px;
   margin: 10px 15px 10px 0;
 }
-.navbar-brand {
-  padding-top: 25px;
+.navbar-brand a {
+  font-family: 'cz';
+  color: black;
+  text-decoration: none;
+  font-size: 1.8em;
+  margin-top: 37px;
+     
 }
-.navbar-brand h1 { 
-  font-family: 'Lora', serif;
-  color: #00008B;
-  font-size: 1.5em;
-  text-transform: uppercase;
-  text-shadow: 1px 1px 1px #222;
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: .75;
+.navbar-brand  {
+
+	margin-top: 37px;
+     
 }
+#nav ul li a {
+
+	color: red;
+     
+}
+
+
 #nav-list {
   margin-top: 10px;
 }
@@ -48,6 +59,7 @@
   clear: both;
   margin-top: -30px;
 }
+
 /**END HEADER**/
 
 
