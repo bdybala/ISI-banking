@@ -14,10 +14,10 @@
     <link href=<c:url value="https://fonts.googleapis.com/css?family=Lora" /> rel='stylesheet' type='text/css'>
 
 </head>
-
+	<jsp:include page="Header.jsp" />
 <body>
 
-	<jsp:include page="Header.jsp" />
+
 	<div class="container">
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
