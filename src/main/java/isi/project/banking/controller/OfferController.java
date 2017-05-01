@@ -39,13 +39,6 @@ public class OfferController {
 			logger.info("Logged account: NOT LOGGED");
 			return "index";
 		}
-
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
-		EntityManager em = emf.createEntityManager();
-		OfferInvestmentService ois = new OfferInvestmentService(em);
-		// offer investments
-		model.addAttribute("offerInvestments", ois.findAllOfferInvestments());
-
 		// last session access (in miliseconds)
 		Date currentDate = new Date();
 		if (currentDate.after(new Date(session.getLastAccessedTime())))
@@ -54,6 +47,15 @@ public class OfferController {
 			model.addAttribute("lastAccessTimeInMs", session.getLastAccessedTime());
 		// timeout period (in seconds)
 		model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
+
+
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
+		EntityManager em = emf.createEntityManager();
+		OfferInvestmentService ois = new OfferInvestmentService(em);
+		// offer investments
+		model.addAttribute("offerInvestments", ois.findAllOfferInvestments());
+
+
 		return "offer-investments";
 
 	}
@@ -120,8 +122,8 @@ public class OfferController {
 		OfferCashLoanService ocls = new OfferCashLoanService(em);
 		model.addAttribute("offerMortgageLoans", omls.findAllOfferMortgageLoan());
 		model.addAttribute("offerCashLoans", ocls.findAllOfferCashLoan());
-		
-		
+
+
 		return "offer-loans";
 	}
 

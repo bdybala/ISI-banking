@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,12 +20,12 @@ import org.springframework.stereotype.Repository;
 
 import isi.project.banking.model.CashLoan;
 import isi.project.banking.model.Deposit;
-import isi.project.banking.model.Investment;
 import isi.project.banking.model.MortgageLoan;
 import isi.project.banking.model.Transfer;
 import isi.project.banking.model.Withdraw;
 import isi.project.banking.model.card.Card;
 import isi.project.banking.model.client.Client;
+import isi.project.banking.model.investment.Investment;
 
 @Repository
 @Entity
@@ -53,7 +54,7 @@ public class Account {
 	private Set<CashLoan> cashLoans;
 	@OneToMany(mappedBy="accNr")
 	private Set<MortgageLoan> mortgageLoans;
-	@OneToMany(mappedBy="accNr")
+	@OneToMany(mappedBy="accNr", fetch=FetchType.LAZY)
 	private Set<Investment> investments;
 	@OneToMany(mappedBy="accNrSender")
 	private Set<Transfer> transfersFrom;

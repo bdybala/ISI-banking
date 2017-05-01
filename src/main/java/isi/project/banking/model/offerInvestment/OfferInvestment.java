@@ -22,7 +22,7 @@ public class OfferInvestment {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer id;
 	private String name;
-	private Integer interest;
+	private Double interest;
 	@Column(name="INTEREST_TYPE")
 	private String interestType;
 	private Integer duration;
@@ -47,10 +47,10 @@ public class OfferInvestment {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getInterest() {
+	public Double getInterest() {
 		return interest;
 	}
-	public void setInterest(Integer interest) {
+	public void setInterest(Double interest) {
 		this.interest = interest;
 	}
 	public String getInterestType() {

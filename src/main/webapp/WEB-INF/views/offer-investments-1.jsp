@@ -28,7 +28,7 @@
 
 	<div class="container-fluid text-center">
 		<div class="row content">
-		
+
 			<!-- Left navbar -->
 			<div class="col-sm-2 sidenav">
 				<p>OFERTA</p>
@@ -39,7 +39,7 @@
 					<a href=<c:url value="/offer-loans"/>>Kredyty</a>
 				</p>
 			</div>
-			
+
 			<div class="col-sm-10 text-left">
 
 				<!-- Page Content -->
@@ -51,8 +51,7 @@
 									<div class="row">
 										<div class="col-xs-6">
 											<a href="#" class="active" id="login-form-link">
-												${investmentOfferShown.name}
-											</a>
+												${investmentOfferShown.name} </a>
 										</div>
 									</div>
 									<hr>
@@ -60,18 +59,26 @@
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-lg-12">
-											<form id="investment-form" action=<c:url value="/auth"/>
+											<form id="investment-form" 
+											action=<c:url value="/put-up-investment"/>
 												method="post" role="form" style="display: block;">
 												<p>
-													Lokata na ${investmentOfferShown.interest}% 
-													${investmentOfferShown.interestType}</br> 
-													Czas trwania: ${investmentOfferShown.duration} miesiące
+													Lokata na ${investmentOfferShown.interest}% ${investmentOfferShown.interestType}
+													<br /> Czas trwania: ${investmentOfferShown.duration} miesiące
 												</p>
 												<div class="form-group">
-													<!-- TODO slider  ${investmentOfferShown.minSum} - ${investmentOfferShown.maxSum} -->
-													<input type="number" name="offer-amount" id="offer-amount"
+													<!-- TODO slider in range: ${investmentOfferShown.minSum} - ${investmentOfferShown.maxSum} -->
+													<input type="number" name="balance" id="balance"
 														tabindex="1" class="form-control" placeholder="Kwota"
-														value="">
+														value="" />
+													<!-- TODO choose AccNr from account lists ${loggedClient.accounts} -->
+													<input type="text" name="accNr" tabindex="2" 
+														class="form-control" placeholder="Numer konta"
+														value="" />
+													<input type="hidden" name="offerInvestmentId" value=${param.offerInvestmentId} />
+													<input type="hidden" name="investmentDuration" value=${investmentOfferShown.duration} />
+													<input type="hidden" name="interest" value=${investmentOfferShown.interest} />
+													<input type="hidden" name="name" value="${investmentOfferShown.name}" />${investmentOfferShown.name}
 												</div>
 												<p>
 													Rachunek:
