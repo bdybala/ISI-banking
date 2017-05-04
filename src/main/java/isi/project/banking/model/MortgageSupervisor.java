@@ -11,6 +11,8 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Repository;
 
+import isi.project.banking.model.mortgageLoan.MortgageLoan;
+
 @Repository
 @Entity
 @Table(name="MORTGAGE_SUPERVISOR")

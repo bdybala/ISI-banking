@@ -14,7 +14,7 @@
 		<class>isi.project.banking.model.Advisor</class>
 		<class>isi.project.banking.model.Banker</class>
 		<class>isi.project.banking.model.card.Card</class>
-		<class>isi.project.banking.model.CashLoan</class>
+		<class>isi.project.banking.model.cashLoan.CashLoan</class>
 		<class>isi.project.banking.model.CashSupervisor</class>
 		<class>isi.project.banking.model.Chat</class>
 		<class>isi.project.banking.model.client.Client</class>
@@ -22,7 +22,7 @@
 		<class>isi.project.banking.model.investment.Investment</class>
 		<class>isi.project.banking.model.Manager</class>
 		<class>isi.project.banking.model.Message</class>
-		<class>isi.project.banking.model.MortgageLoan</class>
+		<class>isi.project.banking.model.mortgageLoan.MortgageLoan</class>
 		<class>isi.project.banking.model.MortgageSupervisor</class>
 		<class>isi.project.banking.model.offerLoan.OfferCashLoan</class>
 		<class>isi.project.banking.model.offerInvestment.OfferInvestment</class>

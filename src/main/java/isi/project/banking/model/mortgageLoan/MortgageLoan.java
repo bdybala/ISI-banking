@@ -1,4 +1,4 @@
-package isi.project.banking.model;
+package isi.project.banking.model.mortgageLoan;
 
 import java.util.Date;
 
@@ -7,11 +7,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Repository;
 
+import isi.project.banking.model.MortgageSupervisor;
 import isi.project.banking.model.account.Account;
 
 @Repository
@@ -35,8 +37,10 @@ public class MortgageLoan {
 	private String accNr;
 	private String provider;
 	@ManyToOne
+	@JoinColumn(name="PROVIDER", insertable=false, updatable=false)
 	private MortgageSupervisor mortgageSupervisor;
 	@ManyToOne
+	@JoinColumn(name="ACC_NR", insertable=false, updatable=false)
 	private Account account;
 	
 	public Integer getId() {

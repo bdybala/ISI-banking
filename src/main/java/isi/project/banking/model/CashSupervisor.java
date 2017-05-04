@@ -11,6 +11,8 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Repository;
 
+import isi.project.banking.model.cashLoan.CashLoan;
+
 @Repository
 @Entity
 @Table(name="CASH_SUPERVISOR")

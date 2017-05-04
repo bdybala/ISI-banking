@@ -18,14 +18,14 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.stereotype.Repository;
 
-import isi.project.banking.model.CashLoan;
 import isi.project.banking.model.Deposit;
-import isi.project.banking.model.MortgageLoan;
 import isi.project.banking.model.Transfer;
 import isi.project.banking.model.Withdraw;
 import isi.project.banking.model.card.Card;
+import isi.project.banking.model.cashLoan.CashLoan;
 import isi.project.banking.model.client.Client;
 import isi.project.banking.model.investment.Investment;
+import isi.project.banking.model.mortgageLoan.MortgageLoan;
 
 @Repository
 @Entity
