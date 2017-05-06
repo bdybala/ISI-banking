@@ -57,7 +57,7 @@ public class InvestmentController {
 		InvestmentService is = new InvestmentService(em);
 		
 		investment.setOpenDate(new Date());
-		Date closeDate = new Date(investment.getOpenDate().getTime() + (long)investmentDuration*86400000);
+		Date closeDate = new Date((long) (investment.getOpenDate().getTime() + (long)investmentDuration*86400000));
 		investment.setCloseDate(closeDate);
 		is.createInvestment(investment);
 		System.out.println(

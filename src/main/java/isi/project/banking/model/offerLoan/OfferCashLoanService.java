@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import isi.project.banking.model.offerInvestment.OfferInvestment;
+
 public class OfferCashLoanService {
 
 	EntityManager em;

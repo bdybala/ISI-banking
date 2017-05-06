@@ -26,6 +26,7 @@ import isi.project.banking.model.account.Account;
 import isi.project.banking.model.account.AccountService;
 import isi.project.banking.model.client.Client;
 import isi.project.banking.model.client.ClientService;
+import net.sf.cglib.core.Local;
 
 @Controller
 public class ClientController {
