@@ -109,13 +109,20 @@
 			<version>1.2</version>
 		</dependency>
 	
-		<!-- Test -->
+	<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.7</version>
-			<scope>test</scope>
+    		<artifactId>junit</artifactId>
+    		<version>4.12</version>
 		</dependency>
+
+
+	<!-- Mockito -->
+	<dependency>
+          <groupId>org.mockito</groupId>
+          <artifactId>mockito-all</artifactId>
+          <version>1.9.5</version>
+      </dependency>
 
 		<!-- jdbc + Hibernate -->
 		<dependency>

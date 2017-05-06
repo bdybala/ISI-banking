@@ -17,10 +17,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import isi.project.banking.model.account.AccountService;
 import isi.project.banking.model.client.Client;
 import isi.project.banking.model.client.ClientService;
-import net.sf.cglib.proxy.Factory;
 
 /**
  * Handles requests for the application home page.
