@@ -1,18 +1,21 @@
 package isi.project.banking.model.account;
 
+import java.sql.SQLSyntaxErrorException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 public class AccountService {
 
 	
-	EntityManager em;
+	EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
+	EntityManager em = emf.createEntityManager();
 
 	public AccountService(EntityManager em) {
-		super();
-		this.em = em;
+		
 	}
 	
 	public Account findAccount(String accNr) {
@@ -24,6 +27,18 @@ public class AccountService {
 		Query query = em.createQuery("FROM Account where pesel=:pesel")
 				.setParameter("pesel", pesel);
 		return query.getResultList();
+	}
+	
+	public void update(Account account) {
+		try {
+		//em.getTransaction().begin();
+		em.merge(account);
+		//em.flush();
+		//em.getTransaction().commit();
+		}
+		catch(Exception e) {
+			
+		}
 	}
 	
 	public void createAccount(Account account) {

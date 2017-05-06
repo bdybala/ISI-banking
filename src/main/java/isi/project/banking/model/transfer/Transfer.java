@@ -1,4 +1,4 @@
-package isi.project.banking.model;
+package isi.project.banking.model.transfer;
 
 import java.util.Date;
 

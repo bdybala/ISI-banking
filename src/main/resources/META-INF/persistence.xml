@@ -28,7 +28,7 @@
 		<class>isi.project.banking.model.offerInvestment.OfferInvestment</class>
 		<class>isi.project.banking.model.offerLoan.OfferMortgageLoan</class>
 		<class>isi.project.banking.model.Request</class>
-		<class>isi.project.banking.model.Transfer</class>
+		<class>isi.project.banking.model.transfer.Transfer</class>
 		<class>isi.project.banking.model.Withdraw</class>
 		
 		<properties>

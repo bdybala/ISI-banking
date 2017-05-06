@@ -28,7 +28,7 @@
 		</div>
 		<div class="col-sm-8 text-left"> 
 		  <h1>Przelew</h1>
-			<form class="form-horizontal" action=<c:url value="/auth"/> method="post" role="form">
+			<form class="form-horizontal" action=<c:url value="/transfer"/> method="post" role="form">
 			<div class="form-group">
 				<div class="col-sm-8"> 
 					<select class="col-sm-4"><!--  pobieranie z serwera kont ktore nalezy wyswietlic  -->
@@ -39,7 +39,7 @@
 			</div>
 			<div class="form-group" >
 				<div class="col-sm-8">
-				  <input type="number" class="form-control" id="nrKonta" placeholder="Wpisz numer konta" name="transferAccNo" maxlength="26" required> 
+				  <input type="text" class="form-control" id="accNrReceiver" placeholder="Wpisz numer konta" name="accNrReceiver" maxlength="26" required> 
 			</div>
 			</div>
 			  <div class="form-group">
@@ -49,7 +49,7 @@
 			</div>
 			  <div class="form-group">
 				<div class="col-sm-8"> 
-				  <input type="text" class="form-control" id="transfer_amount" placeholder="0,00" name="transferAmount" required">
+				  <input type="number" class="form-control" id="amount" name="amount" required">
 			  </div>
 			  <div class="form-group"> 
 				<div class="col-sm-offset-2 col-sm-8">
