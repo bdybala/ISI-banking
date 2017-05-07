@@ -5,10 +5,12 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<ul class="nav navbar-nav">
-				<li><a href=<c:url value="/"/>>MOJ BANK</a></li>
-				<!-- Konta -->
+									<li><a href=<c:url value="/logout" />> <span
+							class="glyphicon glyphicon-home"></span>
+					</a></li>
+				<!-- Rachunki -->
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Konta <span class="caret"></span></a>
+					data-toggle="dropdown" href="#">Rachunki <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<!-- dropdown menu: accounts -->
 						<c:forEach items="${loggedClient.accounts}" var="account">
@@ -17,8 +19,8 @@
 						</c:forEach>
 						<li><a href="#">nowe konto</a></li>
 					</ul></li>
-				<!-- Przelewy -->
-				<li><a href="user_account_transfer.html">Wykonaj przelew</a></li>
+				<!-- Transakcje -->
+				<li><a href="user_account_transfer.html">Transakcje</a></li>
 				<!-- Lokaty -->
 				<li><a href=<c:url value="/investments"/>>Lokaty</a></li>
 				<!-- Karty -->
@@ -32,7 +34,7 @@
 				<!-- Kredyty -->
 				<li><a href=<c:url value="/loans"/>>Kredyty</a></li>
 
-				<li><a href="#">Porozmawiaj z doradcą</a></li>
+
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Zalogowany jako
 						${loggedClient.firstName} ${loggedClient.lastName} <span
@@ -40,9 +42,10 @@
 				</a>
 					<ul class="dropdown-menu">
 						<li><a href=<c:url value="/#"/>>Ustawienia konta</a></li>
-						<li class="divider"></li>
-						<li><a href=<c:url value="/logout"/>>Wyloguj się</a></li>
 					</ul></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li id="contact"><a href="#">Kontakt z doradcą</a></li>
 			</ul>
 		</div>
 	</nav>

@@ -12,8 +12,21 @@
 					<a href=<c:url value="/"/>> Investment Group</a>
 				</div>
 			</div>
+			<div id="collapsable-nav" class="collapse navbar-collapse">
+				<ul id="nav-list" class="nav navbar-nav navbar-right">
+				<li>Czas do konca sesji: <p id="timeLeftToSessionTimeout"> </li>
+					<li><a href=<c:url value="/logout" />> <span
+							class="glyphicon glyphicon-log-out"></span><br> Wyloguj się
+					</a></li>
+
+				</ul>
+			</div>
+			<!-- .collapse .navbar-collapse -->
+				
+
 		</div>
 		<!-- container -->
 	</nav>
 </header>
+<script src=<c:url value="/resources/js/sessionTimeoutTimer.js" />></script>
 

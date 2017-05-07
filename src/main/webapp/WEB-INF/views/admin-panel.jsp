@@ -6,55 +6,60 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>ISIS BANK</title>
-	<link rel="stylesheet" href=<c:url value="/resources/css/styles.css" />>
-	<link rel="stylesheet" href=<c:url value="/resources/css/bootstrap.min.css" />>
-	<link href=<c:url value="https://fonts.googleapis.com/css?family=Oxygen:400,300,700" /> rel='stylesheet' type='text/css'>
-    <link href=<c:url value="https://fonts.googleapis.com/css?family=Lora" /> rel='stylesheet' type='text/css'>
+<meta charset="UTF-8">
+<title>ISIS BANK</title>
+<link rel="stylesheet" href=<c:url value="/resources/css/styles.css" />>
+<link rel="stylesheet"
+	href=<c:url value="/resources/css/bootstrap.min.css" />>
+<link
+	href=<c:url value="https://fonts.googleapis.com/css?family=Oxygen:400,300,700" />
+	rel='stylesheet' type='text/css'>
+<link
+	href=<c:url value="https://fonts.googleapis.com/css?family=Lora" />
+	rel='stylesheet' type='text/css'>
 
 </head>
 
 <body>
-<jsp:include page="Header.jsp" />
-<div>
+	<jsp:include page="Header.jsp" />
+	<div>
 		<nav class="navbar navbar-inverse">
-		  <div class="container-fluid">
-			<ul class="nav navbar-nav">
-			  <li>
-			  <a href=<c:url value="/"/>>WIDOK GLOWNY</a></li>
-			  <li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Konta Klienta
-				<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href=<c:url value="/admin/block-user"/>>Zablokuj</a></li>
-				  	<li class="divider"></li>
-				  	<li><<a href=<c:url value="/admin/edit-user"/>>Edytuj</a></li>
-				  	<li class="divider"></li>
-				  	<li><<a href=<c:url value="/admin/log-history-user"/>>Historia logow</a></li>
+			<div class="container-fluid">
+				<ul class="nav navbar-nav">
+					<li><a href=<c:url value="/"/>>WIDOK GLOWNY</a></li>
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="#">Konta Klienta <span
+							class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href=<c:url value="/admin/block-user"/>>Zablokuj</a></li>
+							<li class="divider"></li>
+							<li><<a href=<c:url value="/admin/edit-user"/>>Edytuj</a></li>
+							<li class="divider"></li>
+							<li><<a href=<c:url value="/admin/log-history-user"/>>Historia
+									logow</a></li>
+						</ul></li>
+					<li><a href=<c:url value="/admin/eset-password"/>>Resetowanie
+							hasel</a></li>
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="#">Konta pracownika <span
+							class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href=<c:url value="/admin/block-employee"/>>Zablokuj</a></li>
+							<li class="divider"></li>
+							<li><<a href=<c:url value="/admin/edit-employee"/>>Edytuj</a></li>
+							<li class="divider"></li>
+							<li><<a href=<c:url value="/admin/log-history-employee"/>>Historia
+									logow</a></li>
+						</ul></li>
+					</li>
 				</ul>
-			  </li>
-			  <li><a href=<c:url value="/admin/eset-password"/>>Resetowanie hasel</a></li>
-			  <li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Konta pracownika
-				<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href=<c:url value="/admin/block-employee"/>>Zablokuj</a></li>
-				  	<li class="divider"></li>
-				  	<li><<a href=<c:url value="/admin/edit-employee"/>>Edytuj</a></li>
-				  	<li class="divider"></li>
-				  	<li><<a href=<c:url value="/admin/log-history-employee"/>>Historia logow</a></li>
-				</ul>
-			  </li>
-			  </li>
-			</ul>
-		  </div>
+			</div>
 		</nav>
 	</div>
-	
-	
 
-			
-	
+
+
+
+
 </body>
 </html>
