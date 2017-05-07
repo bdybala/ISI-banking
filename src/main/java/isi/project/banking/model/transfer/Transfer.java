@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Repository;
@@ -20,7 +22,8 @@ import isi.project.banking.model.account.Account;
 public class Transfer {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="transfer_id_seq_gen")
+	@SequenceGenerator(name="transfer_id_seq_gen", sequenceName="TRANSFER_ID_SEQ",allocationSize=1)
 	private Integer id;
 	private double amount;
 	@Column(name="order_date")
@@ -33,8 +36,10 @@ public class Transfer {
 	private String accNrReceiver;
 	
 	@ManyToOne
+	@JoinColumn(name = "acc_nr_sender", insertable = false, updatable = false)
 	private Account sender;
 	@ManyToOne
+	@JoinColumn(name = "acc_nr_receiver", insertable = false, updatable = false)
 	private Account receiver;
 	
 	public int getId() {

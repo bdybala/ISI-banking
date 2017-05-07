@@ -45,7 +45,7 @@ public class Account {
 	private String pesel;
 	private String name;
 	@ManyToOne
-	@JoinColumn(name = "PESEL", insertable = false)
+	@JoinColumn(name = "PESEL", insertable = false, updatable = false)
 	private Client client;
 	
 	@OneToMany(mappedBy="accNr")

@@ -20,12 +20,14 @@ public class TransferService {
 		AccountService as = new AccountService(em);
 		Account anr = as.findAccount(transfer.getAccNrReceiver());
 		Account ans = as.findAccountsByPesel(pesel).get(0);
+		transfer.setAccNrSender(ans.getAccNr());
 		System.out.println(ans.getPesel());
 		ans.setBalance(ans.getBalance() - transfer.getAmount());
 		anr.setBalance(anr.getBalance() + transfer.getAmount());
-		//as.update(ans);
-		//as.update(anr);
-		//create(transfer);
+		
+		as.update(ans);
+		as.update(anr);
+		create(transfer);
 	}
 	
 	void create(Transfer t) {

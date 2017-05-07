@@ -31,10 +31,10 @@ public class AccountService {
 	
 	public void update(Account account) {
 		try {
-		//em.getTransaction().begin();
-		em.merge(account);
-		//em.flush();
-		//em.getTransaction().commit();
+			em.getTransaction().begin();
+			em.merge(account);
+			em.getTransaction().commit();
+			em.close();
 		}
 		catch(Exception e) {
 			
