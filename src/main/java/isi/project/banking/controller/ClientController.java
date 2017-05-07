@@ -56,14 +56,17 @@ public class ClientController {
 		
 		return new HomeController().home(locale, model, session);
 	}
+	//TODO
 	@RequestMapping(value = "/change-password")
+	public String passwordChange(HttpSession session, Locale locale, Model model){
 		
 		return "client/change-password";
 	}
-	
+	//TODO
 	@RequestMapping(value = "/user-settings")
 	public String userSettings(HttpSession session, Locale locale, Model model){
 		Client client = (Client) session.getAttribute("client");
+		
 		model.addAttribute("loggedClient", client);
 		return "client/user-settings";
 	}

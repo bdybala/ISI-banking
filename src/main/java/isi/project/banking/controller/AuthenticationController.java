@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AuthenticationController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(OfferController.class);
-	
+	//TODO
 	@RequestMapping(value = "/auth")
 	public String auth(Locale locale, Model model, HttpSession session){
 		

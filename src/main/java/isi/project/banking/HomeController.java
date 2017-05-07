@@ -79,6 +79,7 @@ public class HomeController {
 		}
 
 	}
+	//TODO
 	@RequestMapping(value = "/invest", method = RequestMethod.GET)
 	public String investments(Locale locale, Model model, HttpSession session) {
 		return "main-investments";

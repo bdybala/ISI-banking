@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/admin")
 class AdminController {
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
-	
+	//TODO
 	@RequestMapping(value = "/")
 	public String admin(Locale locale, Model model, HttpSession session){
 		
