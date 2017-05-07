@@ -31,7 +31,6 @@
 					<div class="navbar-brand">
 						<a href=<c:url value="/" />><h1>ISIS BANK</h1></a>
 					</div>
-
 				</div>
 
 				<div id="collapsable-nav" class="collapse navbar-collapse">
@@ -73,7 +72,6 @@
 				<div class="container">
 					<div class="carousel-caption">
 						<h1>Załóż konto w naszym banku.</h1>
-
 						<p>
 							<a class="btn btn-lg btn-primary"
 								href=<c:url value="/register" /> role="button">Załóż konto</a>
@@ -88,7 +86,7 @@
 					<div class="carousel-caption">
 						<h1>Oferta lokat.</h1>
 						<p>
-							<a class="btn btn-lg btn-primary" href="#" role="button">Learn
+							<a class="btn btn-lg btn-primary" href=<c:url value="/invest" /> role="button">Learn
 								more</a>
 						</p>
 					</div>

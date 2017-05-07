@@ -47,7 +47,7 @@
 						class="caret"></span>
 				</a>
 					<ul class="dropdown-menu">
-						<li><a href=<c:url value="/#"/>>Ustawienia konta</a></li>
+						<li><a href=<c:url value="/user-settings"/>>Ustawienia konta</a></li>
 					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
