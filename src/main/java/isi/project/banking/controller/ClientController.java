@@ -61,7 +61,7 @@ public class ClientController {
 			Locale locale, Model model,
 			HttpSession session){
 		
-		return "change-password";
+		return "client/change-password";
 	}
 	
 	@InitBinder

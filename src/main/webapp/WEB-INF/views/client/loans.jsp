@@ -24,7 +24,7 @@
 	onload="sessionTimeout(${lastAccessTimeInMs},${sessionTimeOutPeriodInMs});">
 
 
-	<jsp:include page="Header.jsp" />
+<jsp:include page="user-header.jsp" />
 	<jsp:include page="user-navbar.jsp" />
 
 
@@ -40,8 +40,8 @@
 				</p>
 			</div>
 			<div class="col-sm-10 text-left">
-				<h1>Welcome</h1>
-				<p>OGOLNE INFORMACJE O KONTACH</p>
+				<h1>KREDYTY</h1>
+				<p>Lista kredytów</p>
 				<hr>
 				<table class="table table-striped">
 					<tbody>
@@ -79,27 +79,41 @@
 
 				<br /> <br /> <i>Accounts:</i> ${loggedClient.accounts} <br />
 				<c:forEach items="${loggedClient.accounts}" var="account">
-					<c:forEach items="${account.investments}" var="investment">
-						<i>id: </i> ${investment.id} <br />
-						<i>name: </i> ${investment.name} <br />
-						<i>openDate: </i> ${investment.openDate} <br />
-						<i>closeDate: </i> ${investment.closeDate} <br />
-						<i>interest: </i> ${investment.interest} <br />
-						<i>balance: </i> ${investment.balance} <br />
-						<i>accNr: </i> ${investment.accNr} <br />
+					MortgageLoans: <br />
+					<c:forEach items="${account.mortgageLoans}" var="loan">
+						<i>id: </i> ${loan.id} <br />
+						<i>installments: </i> ${loan.installments} <br />
+						<i>interest: </i> ${loan.interest} <br />
+						<i>sum: </i> ${loan.sum} <br />
+						<i>grantDate: </i> ${loan.grantDate} <br />
+						<i>repaymentDate: </i> ${loan.repaymentDate} <br />
+						<i>settledInterest: </i> ${loan.settledInterest} <br />
+						<i>accNr: </i> ${loan.accNr} <br />
+						<i>provider: </i> ${loan.provider} <br /> <br />
+					</c:forEach>
+					CashLoans: <br />
+					<c:forEach items="${account.cashLoans}" var="loan">
+						<i>id: </i> ${loan.id} <br />
+						<i>installments: </i> ${loan.installments} <br />
+						<i>interest: </i> ${loan.interest} <br />
+						<i>sum: </i> ${loan.sum} <br />
+						<i>grantDate: </i> ${loan.grantDate} <br />
+						<i>repaymentDate: </i> ${loan.repaymentDate} <br />
+						<i>settledInterest: </i> ${loan.settledInterest} <br />
+						<i>accNr: </i> ${loan.accNr} <br />
+						<i>provider: </i> ${loan.provider} <br /> <br />
 					</c:forEach>
 				</c:forEach>
 
 
-				timeLeftToSessionTimeout
-				<div id="timeLeftToSessionTimeout">timeLeftToSessionTimeout</div>
+
 
 
 			</div>
 		</div>
 	</div>
 
-	<jsp:include page="footer.jsp" />
+
 
 	<script src=<c:url value="/resources/js/jquery-2.1.4.min.js" />></script>
 	<script src=<c:url value="/resources/js/script.js" />></script>

@@ -17,7 +17,7 @@
 
 <body onload="sessionTimeout(${lastAccessTimeInMs},${sessionTimeOutPeriodInMs});">
 
-<jsp:include page="Header.jsp" />
+<jsp:include page="user-header.jsp" />
 <jsp:include page="user-navbar.jsp" />
 	
 	<div class="container-fluid text-center">    
@@ -77,10 +77,7 @@
 			
 			
 			<br /> 
-			timeLeftToSessionTimeout
-			<div id ="timeLeftToSessionTimeout">
-				timeLeftToSessionTimeout
-			</div>
+
 			
 			
 		</div>

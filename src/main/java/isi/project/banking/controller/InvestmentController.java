@@ -95,6 +95,6 @@ public class InvestmentController {
 		model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
 		
 		
-		return "investments";
+		return "client/investments";
 	}
 }

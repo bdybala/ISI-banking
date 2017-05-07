@@ -20,26 +20,12 @@
 
 </head>
 
-<body
-	onload="sessionTimeout(${lastAccessTimeInMs},${sessionTimeOutPeriodInMs});">
-
-	<jsp:include page="Header.jsp" />
-	<jsp:include page="user-navbar.jsp" />
-
+<body>
+	<jsp:include page="main-header.jsp" />
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<div class="col-sm-2 sidenav">
-				<p>OFERTA</p>
-				<p>
-					<a href=<c:url value="/offer-investments"/>>Lokaty</a>
-				</p>
-				<p>
-					<a href=<c:url value="/offer-loans"/>>Kredyty</a>
-				</p>
-			</div>
-			<div class="col-sm-10 text-left">
-				<h1>Welcome</h1>
-				<p>NASZA OFERTA LOKAT:</p>
+
+			<div class="col-lg-12 text-center">
 
 				<!-- Page Content -->
 				<div class="container">
@@ -59,13 +45,13 @@
 							<p>
 							<div class="col-md-6 portfolio-item">
 								<a
-									href=<c:url value="/offer-investments-1?offerInvestmentId=${offerInvestment.id}"/>>
+									href=<c:url value="${offerInvestment.id}"/>>
 									<img class="img-responsive" src="http://placehold.it/700x400"
 									alt="" />
 								</a>
 								<h3>
 									<a
-										href=<c:url value="/offer-investments-1?offerInvestmentId=${offerInvestment.id}"/>>${offerInvestment.name}
+										href=<c:url value="${offerInvestment.id}"/>>${offerInvestment.name}
 									</a>
 								</h3>
 								<p>
@@ -132,19 +118,22 @@
 					</div>
 					<!-- /.row -->
 				</div>
+				
+				
+				<h1>DODAC 2 PRZYCISKI</h1>
 
-				<br /> timeLeftToSessionTimeout
-				<div id="timeLeftToSessionTimeout">timeLeftToSessionTimeout</div>
+
 
 
 			</div>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp" />
+
 	<script src=<c:url value="/resources/js/jquery-2.1.4.min.js" />></script>
 	<script src=<c:url value="/resources/js/script.js" />></script>
 	<script src=<c:url value="/resources/js/bootstrap.min.js" />></script>
 	<script src=<c:url value="/resources/js/sessionTimeoutTimer.js" />></script>
 
+	<jsp:include page="footer.jsp" />
 </body>
 </html>

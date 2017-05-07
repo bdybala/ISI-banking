@@ -68,7 +68,7 @@ public class HomeController {
 			// timeout period (in seconds)
 			model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
 
-			return "user_account";
+			return "client/user_account";
 		} catch (NullPointerException e) {
 			// TODO Auto-generated catch block
 			logger.info("Logged account: NOT LOGGED");
@@ -79,5 +79,11 @@ public class HomeController {
 		}
 
 	}
+	@RequestMapping(value = "/invest", method = RequestMethod.GET)
+	public String investments(Locale locale, Model model, HttpSession session) {
+		return "main-investments";
+	}
+	
+	
 
 }

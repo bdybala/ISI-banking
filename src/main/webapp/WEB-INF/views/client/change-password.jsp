@@ -18,7 +18,7 @@
 <body onload="sessionTimeout(${lastAccessTimeInMs},${sessionTimeOutPeriodInMs});">
 
 	
-	<jsp:include page="Header.jsp" />
+<jsp:include page="user-header.jsp" />
 	<jsp:include page="user-navbar.jsp" />
 	
 								<form id="login-form" action=<c:url value="/change-password"/> method="post" role="form" style="display: block;">
@@ -34,11 +34,8 @@
 									<input type="submit" name="changePasswordSubmit" id="changePasswordSubmit" tabindex="4" class="form-control btn btn-login" value="Zmien haslo">
 									</form>
 	
-			<div id ="timeLeftToSessionTimeout">
-				timeLeftToSessionTimeout
-			</div>
 			
-	<jsp:include page="footer.jsp" />
+
 	
 </body>
 </html>

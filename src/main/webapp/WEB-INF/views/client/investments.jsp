@@ -40,113 +40,67 @@
 				</p>
 			</div>
 			<div class="col-sm-10 text-left">
-
-				<%-- <table class="table table-striped">
+				<h1>Welcome</h1>
+				<p>OGOLNE INFORMACJE O KONTACH</p>
+				<hr>
+				<table class="table table-striped">
 					<tbody>
-
 						<tr>
-
 							<td><i>Pesel:</i></td>
 							<td>${loggedClient.pesel}</td>
 						</tr>
 						<tr>
-
 							<td><i>Login:</i></td>
 							<td>${loggedClient.login}</td>
 						</tr>
 						<tr>
-
 							<td><i>First Name:</i></td>
 							<td>${loggedClient.firstName}</td>
 						</tr>
-
-						<td><i>Last Name:</i></td>
-						<td>${loggedClient.lastName}</td>
+						<tr>
+							<td><i>Last Name:</i></td>
+							<td>${loggedClient.lastName}</td>
 						</tr>
-
-						<td><i>Email:</i></td>
-						<td>${loggedClient.email}</td>
+						<tr>
+							<td><i>Email:</i></td>
+							<td>${loggedClient.email}</td>
 						</tr>
-
-						<td><i>Numer telefonu:</i></td>
-						<td>${loggedClient.nrTel}</td>
+						<tr>
+							<td><i>Numer telefonu:</i></td>
+							<td>${loggedClient.nrTel}</td>
 						</tr>
-
-						<td><i>Birthday:</i></td>
-						<td>${loggedClient.birthday}</td>
+						<tr>
+							<td><i>Birthday:</i></td>
+							<td>${loggedClient.birthday}</td>
 						</tr>
-
-
-
 					</tbody>
-				</table> --%>
+				</table>
 
 
-
-				<%-- <br /> <i>Accounts:</i> ${loggedClient.accounts} <br /> --%>
-				<div class="balance-info text-center">
-					<c:forEach items="${loggedClient.accounts}" var="account">
-						<p>
-
-							<tr>
-								<td>${account.name}</td>
-							</tr>
-							- dostępne środki<b>
-								<tr>
-									<td>${account.balance}</td>
-								</tr>
-							</b> PLN <br />
-						</p>
-				</div>
-				<br />
+				<br /> <br /> <i>Accounts:</i> ${loggedClient.accounts} <br />
+				<c:forEach items="${loggedClient.accounts}" var="account">
+					<c:forEach items="${account.investments}" var="investment">
+						<i>id: </i> ${investment.id} <br />
+						<i>name: </i> ${investment.name} <br />
+						<i>openDate: </i> ${investment.openDate} <br />
+						<i>closeDate: </i> ${investment.closeDate} <br />
+						<i>interest: </i> ${investment.interest} <br />
+						<i>balance: </i> ${investment.balance} <br />
+						<i>accNr: </i> ${investment.accNr} <br />
+					</c:forEach>
 				</c:forEach>
-				
-				<div>
-					Historia operacji
-				</div>
-				<%-- <tr>
-
-								<td><i>Name:</i></td>
-								<td>${account.name}</td>
-							</tr>
-							<tr>
-
-								<td><i>Account Number:</i></td>
-								<td>${account.accNr}</td>
-							</tr>
-							<tr>
-
-								<td><i>Balance:</i></td>
-								<td>${account.balance}</td>
-							</tr>
-
-							<td><i>Day Limit:</i></td>
-							<td>${account.dayLimit}</td>
-							</tr>
-
-							<td><i>Interest:</i></td>
-							<td>${account.interest}</td>
-							</tr>
-
-							<td><i>Open Date:</i></td>
-							<td>${account.openDate}</td>
-							</tr>
-
-							<td><i>Pesel:</i></td>
-							<td>${account.pesel}</td>
-							</tr>
-
- --%>
-
 
 
 
 			</div>
 		</div>
 	</div>
+
+
 	<script src=<c:url value="/resources/js/jquery-2.1.4.min.js" />></script>
 	<script src=<c:url value="/resources/js/script.js" />></script>
 	<script src=<c:url value="/resources/js/bootstrap.min.js" />></script>
+	<script src=<c:url value="/resources/js/sessionTimeoutTimer.js" />></script>
 
 </body>
 </html>

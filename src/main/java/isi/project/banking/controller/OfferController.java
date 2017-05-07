@@ -56,7 +56,7 @@ public class OfferController {
 		model.addAttribute("offerInvestments", ois.findAllOfferInvestments());
 
 
-		return "offer-investments";
+		return "client/offer-investments";
 
 	}
 
@@ -89,7 +89,7 @@ public class OfferController {
 		OfferInvestmentService ois = new OfferInvestmentService(em);
 		model.addAttribute("investmentOfferShown", ois.findOfferInvestment(offerInvestmentId));
 
-		return "/offer-investments-1";
+		return "client/offer-investments-1";
 	}
 
 	@RequestMapping(value = "/offer-loans", method = RequestMethod.GET)
@@ -124,7 +124,7 @@ public class OfferController {
 		model.addAttribute("offerCashLoans", ocls.findAllOfferCashLoan());
 
 
-		return "offer-loans";
+		return "client/offer-loans";
 	}
 
 

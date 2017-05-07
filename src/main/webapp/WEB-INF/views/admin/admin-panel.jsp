@@ -21,7 +21,7 @@
 </head>
 
 <body>
-	<jsp:include page="Header.jsp" />
+	<jsp:include page="admin-header.jsp" />
 	<div>
 		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">

@@ -18,7 +18,7 @@ class AdminController {
 	@RequestMapping(value = "/")
 	public String admin(Locale locale, Model model, HttpSession session){
 		
-		return "/admin-panel";
+		return "admin/admin-panel";
 	}
 
 }

@@ -23,7 +23,7 @@
 <body
 	onload="sessionTimeout(${lastAccessTimeInMs},${sessionTimeOutPeriodInMs});">
 
-	<jsp:include page="Header.jsp" />
+<jsp:include page="user-header.jsp" />
 	<jsp:include page="user-navbar.jsp" />
 
 	<div class="container-fluid text-center">
@@ -124,29 +124,13 @@
 				<br />
 			</c:forEach>
 			-->
-				<br /> timeLeftToSessionTimeout
-				<div id="timeLeftToSessionTimeout">timeLeftToSessionTimeout</div>
+
 
 
 			</div>
 		</div>
 	</div>
 
-	<footer class="panel-footer">
-		<div class="container">
-			<div class="row">
-				<section id="hours" class="col-sm-6">
-					<span>Otwarty: </span><br> Pon-Piatek: 8:00 - 20:00<br>
-					Sobota: 9:00 - 18:00<br>
-				</section>
-				<section id="address" class="col-sm-6">
-					<span>Adres:</span><br> Rynek główny<br> Kraków, Polska
-				</section>
-			</div>
-			<div class="text-center">&copy; Copyright ISIS BANK
-				DEVELOPEMENT</div>
-		</div>
-	</footer>
 	<script src=<c:url value="/resources/js/jquery-2.1.4.min.js" />></script>
 	<script src=<c:url value="/resources/js/script.js" />></script>
 	<script src=<c:url value="/resources/js/bootstrap.min.js" />></script>

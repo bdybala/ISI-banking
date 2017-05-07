@@ -41,6 +41,6 @@ public class LoanController {
 		model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
 		
 		
-		return "loans";
+		return "client/loans";
 	}
 }

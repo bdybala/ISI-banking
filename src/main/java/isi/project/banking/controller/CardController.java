@@ -53,7 +53,7 @@ public class CardController {
 
 		// timeout period (in seconds)
 		model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
-		return "card";
+		return "client/card";
 		
 	}
 

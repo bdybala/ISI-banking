@@ -20,16 +20,22 @@
 						<li><a href="#">nowe konto</a></li>
 					</ul></li>
 				<!-- Transakcje -->
-				<li><a href="user_account_transfer.html">Transakcje</a></li>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#"> Transakcje <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="user_account_transfer.html"> Przelew jednorazowy</a></li>
+						<li class="divider"></li>
+						<li><a href="#"> Zlecenie stałe</a></li>
+					</ul></li>
 				<!-- Lokaty -->
-				<li><a href=<c:url value="/investments"/>>Lokaty</a></li>
+				<li><a href=<c:url value="/investments"/>> Lokaty</a></li>
 				<!-- Karty -->
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Karty <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href=<c:url value="/card"/>>Debetowe</a></li>
+						<li><a href=<c:url value="/card"/>> Debetowe</a></li>
 						<li class="divider"></li>
-						<li><<a href=<c:url value="/card"/>>Kredytowe</a></li>
+						<li><a href=<c:url value="/card"/>> Kredytowe</a></li>
 					</ul></li>
 				<!-- Kredyty -->
 				<li><a href=<c:url value="/loans"/>>Kredyty</a></li>
