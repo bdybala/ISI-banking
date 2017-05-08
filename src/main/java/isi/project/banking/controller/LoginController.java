@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import isi.project.banking.HomeController;
+import isi.project.banking.auth.SmsSender;
 import isi.project.banking.model.client.Client;
 import isi.project.banking.model.client.ClientService;
 
@@ -49,6 +50,9 @@ private static final Logger logger = LoggerFactory.getLogger(LoginController.cla
 		logger.info("logged in! #" + client.getPesel());
 		
 		session.setAttribute("client", client);
+		
+		// test
+		// SmsSender s = new SmsSender("Yes!", "608595488");
 		
 		return new HomeController().home(locale, model, session);
 	}
