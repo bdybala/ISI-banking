@@ -7,8 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Repository;
 
@@ -17,27 +20,32 @@ import isi.project.banking.model.account.Account;
 @Repository
 @Entity
 @Table(name="WITHDRAW")
-public class Withdraw {
+public class Withdraw extends AbstractTransaction {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private Integer id;
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="transaction_id_seq_gen")
+	@SequenceGenerator(name="transaction_id_seq_gen", sequenceName="TRANSACTION_ID_SEQ",allocationSize=1)
+	private int id;
+	@Column(name="amount")
 	private double amount;
 	@Column(name="order_date")
 	private Date orderDate;
 	@Column(name="execution_date")
 	private Date executionDate;
 	@Column(name="acc_nr")
-	private String accNr;
+	private String accNrSender;
+	@Transient
+	private String accNrReceiver;
 	
 	@ManyToOne
+	@JoinColumn(name="ACC_NR", updatable=false, insertable=false)
 	private Account account;
 	
-	public int getId() {
-		return id;
-	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getId() {
+		return id;
 	}
 	public double getAmount() {
 		return amount;
@@ -58,15 +66,27 @@ public class Withdraw {
 		this.executionDate = executionDate;
 	}
 	public String getAccNr() {
-		return accNr;
+		return accNrSender;
 	}
 	public void setAccNr(String accNr) {
-		this.accNr = accNr;
+		this.accNrSender = accNr;
 	}
 	public Account getAccount() {
 		return account;
 	}
 	public void setAccount(Account account) {
 		this.account = account;
+	}
+	public String getAccNrSender() {
+		return accNrSender;
+	}
+	public void setAccNrSender(String accNrSender) {
+		this.accNrSender = accNrSender;
+	}
+	public String getAccNrReceiver() {
+		return accNrReceiver;
+	}
+	public void setAccNrReceiver(String accNrReceiver) {
+		this.accNrReceiver = accNrReceiver;
 	}
 }

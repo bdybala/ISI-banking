@@ -1,6 +1,7 @@
 package isi.project.banking;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -17,9 +18,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import isi.project.banking.model.AbstractTransaction;
+import isi.project.banking.model.account.Account;
 import isi.project.banking.model.account.AccountService;
 import isi.project.banking.model.client.Client;
 import isi.project.banking.model.client.ClientService;
+import isi.project.banking.model.transfer.Transfer;
+import isi.project.banking.model.transfer.TransferService;
 import net.sf.cglib.proxy.Factory;
 
 /**
@@ -68,6 +73,15 @@ public class HomeController {
 			// timeout period (in seconds)
 			model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
 
+			// transfer history
+			List<List<AbstractTransaction>> transferHistory = new ArrayList<List<AbstractTransaction>>();
+			AccountService transferService = new AccountService();
+			for(Account account: client.getAccounts()) {
+				transferHistory.add(transferService.getTransactionsFromAccount(account));
+			}
+			model.addAttribute("transferHistory", transferHistory);
+			
+			
 			return "client/user_account";
 		} catch (NullPointerException e) {
 			// TODO Auto-generated catch block

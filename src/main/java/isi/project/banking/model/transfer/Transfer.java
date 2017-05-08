@@ -14,16 +14,17 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Repository;
 
+import isi.project.banking.model.AbstractTransaction;
 import isi.project.banking.model.account.Account;
 
 @Repository
 @Entity
 @Table(name="TRANSFER")
-public class Transfer {
+public class Transfer extends AbstractTransaction{
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="transfer_id_seq_gen")
-	@SequenceGenerator(name="transfer_id_seq_gen", sequenceName="TRANSFER_ID_SEQ",allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="transaction_id_seq_gen")
+	@SequenceGenerator(name="transaction_id_seq_gen", sequenceName="TRANSACTION_ID_SEQ",allocationSize=1)
 	private Integer id;
 	private double amount;
 	@Column(name="order_date")

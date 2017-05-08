@@ -3,13 +3,11 @@ package isi.project.banking.model.transfer;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Service;
 
 import isi.project.banking.model.account.Account;
 import isi.project.banking.model.account.AccountService;
-import isi.project.banking.model.client.Client;
 
 @Service
 public class TransferService {

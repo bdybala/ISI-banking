@@ -104,10 +104,24 @@
 				<div>
 					<div class="panel panel-primary">
 						<div class="panel-heading">Historia operacji</div>
-
+						<!-- TODO: widok dla pobranych transakcji -->
 						<c:forEach items="${loggedClient.accounts}" var="account">
 							<div class="panel-body"></div>
 							<!-- Pobieranie histrorii operacji -->
+							<b>Transfers ALL:</b></br>
+							
+							<c:forEach items="${transferHistory }" var="accountTransfers">
+								<c:forEach items="${accountTransfers }" var="transfer">
+									id: ${transfer.id} </br>
+									amount: ${transfer.amount} </br>
+									orderDate: ${transfer.orderDate} </br>
+									executionDate: ${transfer.executionDate} </br>
+									accNrSender: ${transfer.accNrSender} </br>
+									accNrReceiver: ${transfer.accNrReceiver} </br>
+									</br>
+								</c:forEach>
+							</c:forEach>
+							
 					</div>
 					<br />
 					</c:forEach>
