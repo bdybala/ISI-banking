@@ -26,8 +26,6 @@
 
 	<jsp:include page="user-header.jsp" />
 	<jsp:include page="user-navbar.jsp" />
-
-
 	<div class="container-fluid text-center">
 		<div class="row content">
 			<div class="col-sm-2 sidenav">
@@ -43,11 +41,11 @@
 				<h1>Twoje lokaty</h1>
 
 				<hr>
-			<br />
-		
+				<br />
+
 				<c:forEach items="${loggedClient.accounts}" var="account">
 					<c:forEach items="${account.investments}" var="investment">
-					
+
 						<table class="table table-striped" style="width: 700px">
 							<tbody>
 								<tr>
@@ -74,25 +72,20 @@
 									<td><i>Data zakończnenia:</i></td>
 									<td>${investment.closeDate}</td>
 								</tr>
-														<tr>
+								<tr>
 									<td><i>Numer rachunku:</i></td>
 									<td>${investment.accNr}</td>
 								</tr>
-							
+
 							</tbody>
 						</table>
 						<br>
 						<br>
 					</c:forEach>
 				</c:forEach>
-
-
-
 			</div>
 		</div>
 	</div>
-
-
 	<script src=<c:url value="/resources/js/jquery-2.1.4.min.js" />></script>
 	<script src=<c:url value="/resources/js/script.js" />></script>
 	<script src=<c:url value="/resources/js/bootstrap.min.js" />></script>
