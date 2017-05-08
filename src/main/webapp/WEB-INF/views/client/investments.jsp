@@ -40,53 +40,49 @@
 				</p>
 			</div>
 			<div class="col-sm-10 text-left">
-				<h1>Welcome</h1>
-				<p>OGOLNE INFORMACJE O KONTACH</p>
+				<h1>Twoje lokaty</h1>
+
 				<hr>
-				<table class="table table-striped">
-					<tbody>
-						<tr>
-							<td><i>Pesel:</i></td>
-							<td>${loggedClient.pesel}</td>
-						</tr>
-						<tr>
-							<td><i>Login:</i></td>
-							<td>${loggedClient.login}</td>
-						</tr>
-						<tr>
-							<td><i>First Name:</i></td>
-							<td>${loggedClient.firstName}</td>
-						</tr>
-						<tr>
-							<td><i>Last Name:</i></td>
-							<td>${loggedClient.lastName}</td>
-						</tr>
-						<tr>
-							<td><i>Email:</i></td>
-							<td>${loggedClient.email}</td>
-						</tr>
-						<tr>
-							<td><i>Numer telefonu:</i></td>
-							<td>${loggedClient.nrTel}</td>
-						</tr>
-						<tr>
-							<td><i>Birthday:</i></td>
-							<td>${loggedClient.birthday}</td>
-						</tr>
-					</tbody>
-				</table>
-
-
-				<br /> <br /> <i>Accounts:</i> ${loggedClient.accounts} <br />
+			<br />
+		
 				<c:forEach items="${loggedClient.accounts}" var="account">
 					<c:forEach items="${account.investments}" var="investment">
-						<i>id: </i> ${investment.id} <br />
-						<i>name: </i> ${investment.name} <br />
-						<i>openDate: </i> ${investment.openDate} <br />
-						<i>closeDate: </i> ${investment.closeDate} <br />
-						<i>interest: </i> ${investment.interest} <br />
-						<i>balance: </i> ${investment.balance} <br />
-						<i>accNr: </i> ${investment.accNr} <br />
+					
+						<table class="table table-striped" style="width: 700px">
+							<tbody>
+								<tr>
+									<td><i>Nazwa lokaty:</i></td>
+									<td>${investment.name}</td>
+								</tr>
+								<tr>
+									<td><i>Id:</i></td>
+									<td>${investment.id}</td>
+								</tr>
+								<tr>
+									<td><i>Oprocentowanie:</i></td>
+									<td>${investment.interest}%</td>
+								</tr>
+								<tr>
+									<td><i>Balans:</i></td>
+									<td>${investment.balance}</td>
+								</tr>
+								<tr>
+									<td><i>Data przyznania:</i></td>
+									<td>${investment.openDate}</td>
+								</tr>
+								<tr>
+									<td><i>Data zakończnenia:</i></td>
+									<td>${investment.closeDate}</td>
+								</tr>
+														<tr>
+									<td><i>Numer rachunku:</i></td>
+									<td>${investment.accNr}</td>
+								</tr>
+							
+							</tbody>
+						</table>
+						<br>
+						<br>
 					</c:forEach>
 				</c:forEach>
 

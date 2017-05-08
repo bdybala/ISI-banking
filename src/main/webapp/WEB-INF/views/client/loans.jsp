@@ -24,7 +24,7 @@
 	onload="sessionTimeout(${lastAccessTimeInMs},${sessionTimeOutPeriodInMs});">
 
 
-<jsp:include page="user-header.jsp" />
+	<jsp:include page="user-header.jsp" />
 	<jsp:include page="user-navbar.jsp" />
 
 
@@ -40,68 +40,109 @@
 				</p>
 			</div>
 			<div class="col-sm-10 text-left">
-				<h1>KREDYTY</h1>
-				<p>Lista kredytów</p>
+				<h1>Twoje kredyty</h1>
+
 				<hr>
-				<table class="table table-striped">
-					<tbody>
-						<tr>
-							<td><i>Pesel:</i></td>
-							<td>${loggedClient.pesel}</td>
-						</tr>
-						<tr>
-							<td><i>Login:</i></td>
-							<td>${loggedClient.login}</td>
-						</tr>
-						<tr>
-							<td><i>First Name:</i></td>
-							<td>${loggedClient.firstName}</td>
-						</tr>
-						<tr>
-							<td><i>Last Name:</i></td>
-							<td>${loggedClient.lastName}</td>
-						</tr>
-						<tr>
-							<td><i>Email:</i></td>
-							<td>${loggedClient.email}</td>
-						</tr>
-						<tr>
-							<td><i>Numer telefonu:</i></td>
-							<td>${loggedClient.nrTel}</td>
-						</tr>
-						<tr>
-							<td><i>Birthday:</i></td>
-							<td>${loggedClient.birthday}</td>
-						</tr>
-					</tbody>
-				</table>
-
-
-				<br /> <br /> <i>Accounts:</i> ${loggedClient.accounts} <br />
+			<br />
 				<c:forEach items="${loggedClient.accounts}" var="account">
-					MortgageLoans: <br />
+					<h3>Kredyty hipoteczne:</h3>
+					<hr>
+					<br>
+
 					<c:forEach items="${account.mortgageLoans}" var="loan">
-						<i>id: </i> ${loan.id} <br />
-						<i>installments: </i> ${loan.installments} <br />
-						<i>interest: </i> ${loan.interest} <br />
-						<i>sum: </i> ${loan.sum} <br />
-						<i>grantDate: </i> ${loan.grantDate} <br />
-						<i>repaymentDate: </i> ${loan.repaymentDate} <br />
-						<i>settledInterest: </i> ${loan.settledInterest} <br />
-						<i>accNr: </i> ${loan.accNr} <br />
-						<i>provider: </i> ${loan.provider} <br /> <br />
+
+
+						<table class="table table-striped" style="width: 700px">
+							<tbody>
+								<tr>
+									<td><i>Id:</i></td>
+									<td>${loan.id}</td>
+								</tr>
+								<tr>
+									<td><i>Raty:</i></td>
+									<td>${loan.installments}</td>
+								</tr>
+								<tr>
+									<td><i>Oprocentowanie:</i></td>
+									<td>${loan.interest}%</td>
+								</tr>
+								<tr>
+									<td><i>Suma:</i></td>
+									<td>${loan.sum}</td>
+								</tr>
+								<tr>
+									<td><i>Data przyznania:</i></td>
+									<td>${loan.grantDate}</td>
+								</tr>
+								<tr>
+									<td><i>Data zakończnenia:</i></td>
+									<td>${loan.repaymentDate}</td>
+								</tr>
+								<tr>
+									<td><i>Rozliczone odsetki:</i></td>
+									<td>${loan.settledInterest}</td>
+								</tr>
+								<tr>
+									<td><i>Numer rachunku:</i></td>
+									<td>${loan.accNr}</td>
+								</tr>
+								<tr>
+									<td><i>Provider:</i></td>
+									<td>${loan.provider}</td>
+								</tr>
+							</tbody>
+						</table>
+						<br>
+						<br>
+
 					</c:forEach>
-					CashLoans: <br />
+
+					<h3>Pożyczki gotówkowe:</h3>
+					<hr>
+					<br>
 					<c:forEach items="${account.cashLoans}" var="loan">
-						<i>id: </i> ${loan.id} <br />
-						<i>installments: </i> ${loan.installments} <br />
-						<i>interest: </i> ${loan.interest} <br />
-						<i>sum: </i> ${loan.sum} <br />
-						<i>grantDate: </i> ${loan.grantDate} <br />
-						<i>repaymentDate: </i> ${loan.repaymentDate} <br />
-						<i>settledInterest: </i> ${loan.settledInterest} <br />
-						<i>accNr: </i> ${loan.accNr} <br />
-						<i>provider: </i> ${loan.provider} <br /> <br />
+						<table class="table table-striped" style="width: 700px">
+							<tbody>
+								<tr>
+									<td><i>Id:</i></td>
+									<td>${loan.id}</td>
+								</tr>
+								<tr>
+									<td><i>Raty:</i></td>
+									<td>${loan.installments}</td>
+								</tr>
+								<tr>
+									<td><i>Oprocentowanie:</i></td>
+									<td>${loan.interest}%</td>
+								</tr>
+								<tr>
+									<td><i>Suma:</i></td>
+									<td>${loan.sum}</td>
+								</tr>
+								<tr>
+									<td><i>Data przyznania:</i></td>
+									<td>${loan.grantDate}</td>
+								</tr>
+								<tr>
+									<td><i>Data zakończnenia:</i></td>
+									<td>${loan.repaymentDate}</td>
+								</tr>
+								<tr>
+									<td><i>Rozliczone odsetki:</i></td>
+									<td>${loan.settledInterest}</td>
+								</tr>
+								<tr>
+									<td><i>Numer rachunku:</i></td>
+									<td>${loan.accNr}</td>
+								</tr>
+								<tr>
+									<td><i>Provider:</i></td>
+									<td>${loan.provider}</td>
+								</tr>
+							</tbody>
+						</table>
+						<br>
+						<br>
 					</c:forEach>
 				</c:forEach>
 
