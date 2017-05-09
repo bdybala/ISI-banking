@@ -27,7 +27,7 @@ public class OfferController {
 	private static final Logger logger = LoggerFactory.getLogger(OfferController.class);
 
 	@RequestMapping(value = "/offer-investments", method = RequestMethod.GET)
-	public String investments(Locale locale, Model model, HttpSession session) {
+	public String investments( Model model, HttpSession session) {
 
 		Client client = (Client) session.getAttribute("client");
 		try {
