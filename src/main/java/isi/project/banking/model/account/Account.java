@@ -60,9 +60,9 @@ public class Account {
 	private Set<Transfer> transfersFrom;
 	@OneToMany(mappedBy="accNrReceiver")
 	private Set<Transfer> transfersTo;
-	@OneToMany(mappedBy="accNrReceiver")
+	@OneToMany(mappedBy="accNr")
 	private Set<Deposit> deposits;
-	@OneToMany(mappedBy="accNrSender")
+	@OneToMany(mappedBy="accNr")
 	private Set<Withdraw> withdrawals;
 	
 	public Account(String pesel, String name) {

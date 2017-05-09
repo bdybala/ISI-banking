@@ -44,7 +44,7 @@
 			</div>
 			  <div class="form-group">
 				<div class="col-sm-8"> 
-				  <input type="text" class="form-control" id="transfer_title" placeholder="Wpisz tytuł" name="transferTitle" required maxlength="45">
+				  <input type="text" class="form-control" id="title" placeholder="Wpisz tytuł" name="title" required maxlength="250">
 				</div>
 			</div>
 			  <div class="form-group">

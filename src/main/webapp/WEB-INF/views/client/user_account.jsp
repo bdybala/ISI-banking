@@ -108,17 +108,49 @@
 						<c:forEach items="${loggedClient.accounts}" var="account">
 							<div class="panel-body"></div>
 							<!-- Pobieranie histrorii operacji -->
-							<b>Transfers ALL:</b></br>
-							
 							<c:forEach items="${transferHistory }" var="accountTransfers">
 								<c:forEach items="${accountTransfers }" var="transfer">
-									id: ${transfer.id} </br>
-									amount: ${transfer.amount} </br>
-									orderDate: ${transfer.orderDate} </br>
-									executionDate: ${transfer.executionDate} </br>
-									accNrSender: ${transfer.accNrSender} </br>
-									accNrReceiver: ${transfer.accNrReceiver} </br>
-									</br>
+								
+								
+								<c:set var="className" value="${transfer.getClass().getName()}"/>
+									<c:choose>
+										<c:when test = "${className == 'isi.project.banking.model.transfer.Transfer'}">
+											<c:set var="clientAccNr" value="${account.accNr}"/>
+								<c:set var="senderAccNr" value="${transfer.accNrSender}"/>
+											<c:choose>												
+												<c:when test = "${clientAccNr == senderAccNr}">
+													<span style="color:red">Przelew wychodzacy</span>
+												</c:when>
+												<c:otherwise>
+													<span style="color:green">Przelew przychodzacy</span>
+												</c:otherwise>
+											</c:choose>
+											</br>
+											Kwota: ${transfer.amount} </br>
+											Data zamowienia: ${transfer.orderDate} </br>
+											Data realizacji: ${transfer.executionDate} </br>
+											Nr konta nadawcy: ${transfer.accNrSender} </br>
+											Nr konta odbiorcy: ${transfer.accNrReceiver} </br>
+											tytul: ${transfer.title} </br>
+											</br>
+										</c:when>
+										<c:otherwise>
+											<c:choose>												
+												<c:when test = "${className == 'isi.project.banking.model.transfer.Deposit'}">
+													<span style="color:green">Wplata</span>
+												</c:when>
+												<c:otherwise>
+													<span style="color:red">Wyplata</span>
+												</c:otherwise>
+											</c:choose>
+											</br>
+											Kwota: ${transfer.amount} </br>
+											Data zamowienia: ${transfer.orderDate} </br>
+											Data realizacji: ${transfer.executionDate} </br>
+											</br>
+										</c:otherwise>
+									</c:choose>
+									
 								</c:forEach>
 							</c:forEach>
 							

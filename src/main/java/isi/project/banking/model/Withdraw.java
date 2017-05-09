@@ -33,10 +33,7 @@ public class Withdraw extends AbstractTransaction {
 	@Column(name="execution_date")
 	private Date executionDate;
 	@Column(name="acc_nr")
-	private String accNrSender;
-	@Transient
-	private String accNrReceiver;
-	
+	private String accNr;
 	@ManyToOne
 	@JoinColumn(name="ACC_NR", updatable=false, insertable=false)
 	private Account account;
@@ -66,27 +63,15 @@ public class Withdraw extends AbstractTransaction {
 		this.executionDate = executionDate;
 	}
 	public String getAccNr() {
-		return accNrSender;
+		return accNr;
 	}
 	public void setAccNr(String accNr) {
-		this.accNrSender = accNr;
+		this.accNr = accNr;
 	}
 	public Account getAccount() {
 		return account;
 	}
 	public void setAccount(Account account) {
 		this.account = account;
-	}
-	public String getAccNrSender() {
-		return accNrSender;
-	}
-	public void setAccNrSender(String accNrSender) {
-		this.accNrSender = accNrSender;
-	}
-	public String getAccNrReceiver() {
-		return accNrReceiver;
-	}
-	public void setAccNrReceiver(String accNrReceiver) {
-		this.accNrReceiver = accNrReceiver;
 	}
 }

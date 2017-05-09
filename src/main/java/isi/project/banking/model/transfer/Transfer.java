@@ -35,6 +35,7 @@ public class Transfer extends AbstractTransaction{
 	private String accNrSender;
 	@Column(name="acc_nr_receiver")
 	private String accNrReceiver;
+	private String title;
 	
 	@ManyToOne
 	@JoinColumn(name = "acc_nr_sender", insertable = false, updatable = false)
@@ -90,5 +91,11 @@ public class Transfer extends AbstractTransaction{
 	}
 	public void setReceiver(Account receiver) {
 		this.receiver = receiver;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 }
