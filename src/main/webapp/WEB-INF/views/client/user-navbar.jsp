@@ -5,7 +5,7 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<ul class="nav navbar-nav">
-									<li><a href=<c:url value="/logout" />> <span
+									<li><a href=<c:url value="/" />> <span
 							class="glyphicon glyphicon-home"></span>
 					</a></li>
 				<!-- Rachunki -->
