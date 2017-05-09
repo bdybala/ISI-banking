@@ -17,12 +17,12 @@
 
 <body onload="sessionTimeout(${lastAccessTimeInMs},${sessionTimeOutPeriodInMs});">
 
-
-	<div class="form-main-content container">
-		<p class="text-center">Wprowadz kod dostarczony SMS'em</p>
-		<input type="text" id="authenicationCode"></br>
-		<input type="submit" value="Submit">
-	</div>
+	<form class="form-horizontal" action=<c:url value="/auth"/> method="post" role="form">
+		<div class="form-main-content container">
+			<input type="text" name="authenicationCode" id="authenicationCode" class="form-control" placeholder="Wprowadz kod dostarczony SMS-em"></br>
+			<input type="submit" value="Submit">
+		</div>
+	</form>>
 
 <jsp:include page="footer.jsp" />
 		<script src=<c:url value="/resources/js/jquery-2.1.4.min.js" />></script>

@@ -17,7 +17,6 @@
 <link
 	href=<c:url value="https://fonts.googleapis.com/css?family=Lora" />
 	rel='stylesheet' type='text/css'>
-
 </head>
 
 <body

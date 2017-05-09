@@ -20,6 +20,9 @@ import isi.project.banking.HomeController;
 import isi.project.banking.auth.SmsSender;
 import isi.project.banking.model.client.Client;
 import isi.project.banking.model.client.ClientService;
+import no.vianett.sms.Sms;
+import no.vianett.sms.component.SmsTransceiver;
+import no.vianett.sms.log.SmsScreenLogger;
 
 @Controller
 public class LoginController {
@@ -52,7 +55,7 @@ private static final Logger logger = LoggerFactory.getLogger(LoginController.cla
 		session.setAttribute("client", client);
 		
 		// test
-		// SmsSender s = new SmsSender("Yes!", "608595488");
+		//new SmsSender().sendSms("Yes!", "608595488");
 		
 		return new HomeController().home(locale, model, session);
 	}

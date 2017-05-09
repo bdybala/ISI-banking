@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import isi.project.banking.auth.AuthSMS;
 import isi.project.banking.model.client.Client;
 import isi.project.banking.model.transfer.Transfer;
 import isi.project.banking.model.transfer.TransferService;
@@ -53,18 +54,33 @@ public class TransferController {
 	}
 
 	@RequestMapping(value = "/transfer", method = RequestMethod.POST)
-	public String doTransfer(@ModelAttribute("transfer") Transfer transfer, Locale locale, Model model,
+	public String confirmTransfer(@ModelAttribute("transfer") Transfer transfer, Locale locale, Model model,
 			HttpSession session) {
 
+		Client client = (Client) session.getAttribute("client");
+		String code = new AuthSMS().sendCode();
+		session.setAttribute("transfer", transfer);
+		session.setAttribute("code", code);
+		System.out.println(code);
+		return "authentication";
+
+	}
+	
+	/*@RequestMapping(value = "/transfer", method = RequestMethod.POST)
+	public String doTransfer(Locale locale, Model model, HttpSession session) {
+		
+		Transfer transfer = (Transfer) session.getAttribute("transfer");
+		
 		transfer.setExecutionDate(new Date());
 		transfer.setOrderDate(new Date());
 
 		TransferService ts = new TransferService();
 		Client client = (Client) session.getAttribute("client");
-		
+	
 		ts.transfer(transfer, client.getPesel());
-		return "authentication";
+		
+		return "home";
 
-	}
+	}*/
 		
 }
