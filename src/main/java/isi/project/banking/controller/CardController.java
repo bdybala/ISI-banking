@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import isi.project.banking.model.card.CardService;
 import isi.project.banking.model.client.Client;
-import isi.project.banking.model.offerInvestment.OfferInvestmentService;
 
 @Controller
 public class CardController {

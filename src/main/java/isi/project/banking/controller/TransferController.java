@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import isi.project.banking.auth.AuthSMS;
 import isi.project.banking.model.client.Client;
 import isi.project.banking.model.transfer.Transfer;
-import isi.project.banking.model.transfer.TransferService;
 
 
 @Controller

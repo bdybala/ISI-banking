@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,16 +23,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import isi.project.banking.HomeController;
+import isi.project.banking.dao.ClientDao;
 import isi.project.banking.model.account.Account;
 import isi.project.banking.model.account.AccountService;
 import isi.project.banking.model.client.Client;
-import isi.project.banking.model.client.ClientService;
-import net.sf.cglib.core.Local;
 
 @Controller
 public class ClientController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(ClientController.class);
+	
+	@Autowired
+	ClientDao clientDao;
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView register(Locale locale, Model model) {
@@ -49,8 +52,7 @@ public class ClientController {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
 		EntityManager em = emf.createEntityManager();
 		
-		ClientService cs = new ClientService(em);
-		cs.createClient(client);
+		clientDao.create(client);
 		AccountService as = new AccountService(em);
 		as.createAccount(new Account(client.getPesel(), "eKonto"));
 		

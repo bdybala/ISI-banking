@@ -6,32 +6,30 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import isi.project.banking.dao.ClientDao;
 import isi.project.banking.model.AbstractTransaction;
 import isi.project.banking.model.account.Account;
 import isi.project.banking.model.account.AccountService;
 import isi.project.banking.model.client.Client;
-import isi.project.banking.model.client.ClientService;
-import isi.project.banking.model.transfer.Transfer;
-import isi.project.banking.model.transfer.TransferService;
-import net.sf.cglib.proxy.Factory;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class HomeController {
+	
+	@Autowired
+	ClientDao clientDao;
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -49,12 +47,7 @@ public class HomeController {
 
 		model.addAttribute("serverTime", formattedDate);
 
-		// hibernate
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
-		EntityManager em = emf.createEntityManager();
-
-		ClientService ser = new ClientService(em);
-		List<Client> allClients = ser.findAllClients();
+		List<Client> allClients = clientDao.findAll();
 		model.addAttribute("clients", allClients);
 
 		Client client = (Client) session.getAttribute("client");
@@ -75,30 +68,38 @@ public class HomeController {
 
 			// transfer history
 			List<List<AbstractTransaction>> transferHistory = new ArrayList<List<AbstractTransaction>>();
-			AccountService transferService = new AccountService();
+			AccountService accountService = new AccountService();
 			for(Account account: client.getAccounts()) {
-				transferHistory.add(transferService.getTransactionsFromAccount(account));
+				transferHistory.add(accountService.getTransactionsFromAccount(account));
 			}
 			model.addAttribute("transferHistory", transferHistory);
 			
-			
 			return "client/user_account";
+			
 		} catch (NullPointerException e) {
 			// TODO Auto-generated catch block
 			logger.info("Logged account: NOT LOGGED");
 			return "index";
-		} finally {
-			em.close();
-			emf.close();
 		}
-
 	}
+	
+	
 	//TODO
 	@RequestMapping(value = "/invest", method = RequestMethod.GET)
 	public String investments(Locale locale, Model model, HttpSession session) {
 		return "main-investments";
 	}
 	
-	
+	@RequestMapping(value = "/client-dao")
+	public String clientDao(Model model) {
+		
+		
+		
+		model.addAttribute("allClients", clientDao.findAll());
+//		model.addAttribute("client", clientDao.findOne("11112222333"));
+		model.addAttribute("client", clientDao.findByLoginAndPassword("tester", "password"));
+		
+		return "client-dao";
+	}
 
 }

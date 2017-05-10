@@ -2,13 +2,11 @@ package isi.project.banking.controller;
 
 import java.util.Locale;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,13 +14,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import isi.project.banking.dao.ClientDao;
 import isi.project.banking.model.client.Client;
-import isi.project.banking.model.client.ClientService;
 
 @Controller
 @RequestMapping(value = "/admin")
 class AdminController {
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
+	
+	@Autowired
+	ClientDao clientDao;
 	
 	//TODO
 	@RequestMapping(value = "", method=RequestMethod.GET)
@@ -38,11 +39,7 @@ class AdminController {
 		
 		logger.info("Admin intends to delete client!");
 		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
-		EntityManager em = emf.createEntityManager();
-		
-		ClientService clientService = new ClientService(em);
-		model.addAttribute("allClients", clientService.findAllClients());
+		model.addAttribute("allClients", clientDao.findAll());
 		model.addAttribute("cl", new Client());
 		
 		return "admin/delete-client";
