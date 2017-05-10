@@ -89,17 +89,5 @@ public class HomeController {
 	public String investments(Locale locale, Model model, HttpSession session) {
 		return "main-investments";
 	}
-	
-	@RequestMapping(value = "/client-dao")
-	public String clientDao(Model model) {
-		
-		
-		
-		model.addAttribute("allClients", clientDao.findAll());
-//		model.addAttribute("client", clientDao.findOne("11112222333"));
-		model.addAttribute("client", clientDao.findByLoginAndPassword("tester", "password"));
-		
-		return "client-dao";
-	}
 
 }

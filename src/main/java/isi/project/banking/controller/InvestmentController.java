@@ -3,13 +3,11 @@ package isi.project.banking.controller;
 import java.util.Date;
 import java.util.Locale;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,15 +15,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import isi.project.banking.HomeController;
+import isi.project.banking.dao.InvestmentDao;
 import isi.project.banking.model.client.Client;
 import isi.project.banking.model.investment.Investment;
-import isi.project.banking.model.investment.InvestmentService;
 
 @Controller
 public class InvestmentController {
 
 	private static final Logger logger = LoggerFactory.getLogger(InvestmentController.class);
 
+	@Autowired
+	InvestmentDao investmentDao;
+	
 	@RequestMapping(value="/put-up-investment", method=RequestMethod.POST)
 	public String putUpInvestment(Locale locale, Model model, HttpSession session, 
 			@ModelAttribute("investment-form") Investment investment,
@@ -51,15 +52,10 @@ public class InvestmentController {
 		model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
 		
 		
-		// TODO create Investment
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
-		EntityManager em = emf.createEntityManager();
-		InvestmentService is = new InvestmentService(em);
-		
 		investment.setOpenDate(new Date());
 		Date closeDate = new Date((long) (investment.getOpenDate().getTime() + (long)investmentDuration*86400000));
 		investment.setCloseDate(closeDate);
-		is.createInvestment(investment);
+		investmentDao.create(investment);;
 		System.out.println(
 				"ID: " + investment.getId() + "\n" +
 				"Name: " + investment.getName() + "\n" +
