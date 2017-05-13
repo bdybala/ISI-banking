@@ -34,7 +34,7 @@ public class Client {
 	private Date birthday;
 	@OneToMany
 	private Set<Message> messages;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="client")
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="client")
 	private Set<Account> accounts;
 	
 	@Override

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import isi.project.banking.HomeController;
 import isi.project.banking.auth.SmsSender;
@@ -39,9 +40,10 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String addClient(@ModelAttribute Client client,
+	public ModelAndView addClient(@ModelAttribute Client client,
 			Locale locale, Model model,
-			HttpSession session) {
+			HttpSession session,
+			RedirectAttributes redirectAttributes) {
 
 		logger.info("logging in: l:{} p:{}", client.getLogin(), client.getPassword());
 
@@ -52,8 +54,7 @@ public class LoginController {
 
 		// test
 		//new SmsSender().sendSms("Yes!", "608595488");
-
-		return new HomeController().home(locale, model, session);
+		return new ModelAndView("redirect:/");
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)

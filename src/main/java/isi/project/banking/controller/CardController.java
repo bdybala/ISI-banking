@@ -3,25 +3,26 @@ package isi.project.banking.controller;
 import java.util.Date;
 import java.util.Locale;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import isi.project.banking.model.card.CardService;
+import isi.project.banking.dao.CardDao;
 import isi.project.banking.model.client.Client;
 
 @Controller
 public class CardController {
 
 	private static final Logger logger = LoggerFactory.getLogger(CardController.class);
+	
+	@Autowired
+	CardDao cardDao;
 	
 	@RequestMapping(value = "/card", method = RequestMethod.GET)
 	public String investments(Locale locale, Model model, HttpSession session) {
@@ -37,11 +38,8 @@ public class CardController {
 			return "index";
 		}
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
-		EntityManager em = emf.createEntityManager();
-		CardService ois = new CardService(em);
-		// offer investments
-		model.addAttribute("card", ois.findAllCard());
+		
+		model.addAttribute("card", cardDao.findAll());
 		
 		// last session access (in miliseconds)
 		Date currentDate = new Date();

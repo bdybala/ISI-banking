@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import isi.project.banking.HomeController;
+import isi.project.banking.dao.AccountDao;
 import isi.project.banking.dao.ClientDao;
 import isi.project.banking.model.account.Account;
 import isi.project.banking.model.account.AccountService;
@@ -35,6 +36,8 @@ public class ClientController {
 	
 	@Autowired
 	ClientDao clientDao;
+	@Autowired
+	AccountDao accountDao;
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView register(Locale locale, Model model) {
@@ -49,12 +52,9 @@ public class ClientController {
 			HttpSession session){
 
 		logger.info("register! " + client);
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
-		EntityManager em = emf.createEntityManager();
 		
 		clientDao.create(client);
-		AccountService as = new AccountService(em);
-		as.createAccount(new Account(client.getPesel(), "eKonto"));
+		accountDao.create(new Account(client.getPesel(), "eKonto"));
 		
 		return new HomeController().home(locale, model, session);
 	}

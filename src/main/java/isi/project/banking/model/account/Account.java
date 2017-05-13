@@ -3,19 +3,15 @@ package isi.project.banking.model.account;
 import java.util.Date;
 import java.util.Set;
 
-import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
 import org.springframework.stereotype.Repository;
 
 import isi.project.banking.model.Deposit;
@@ -48,21 +44,21 @@ public class Account {
 	@JoinColumn(name = "PESEL", insertable = false, updatable = false)
 	private Client client;
 	
-	@OneToMany(mappedBy="accNr")
+	@OneToMany(mappedBy="accNr", fetch=FetchType.EAGER)
 	private Set<Card> cards;
-	@OneToMany(mappedBy="accNr")
+	@OneToMany(mappedBy="accNr", fetch=FetchType.EAGER)
 	private Set<CashLoan> cashLoans;
-	@OneToMany(mappedBy="accNr")
+	@OneToMany(mappedBy="accNr", fetch=FetchType.EAGER)
 	private Set<MortgageLoan> mortgageLoans;
-	@OneToMany(mappedBy="accNr", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="accNr", fetch=FetchType.EAGER)
 	private Set<Investment> investments;
-	@OneToMany(mappedBy="accNrSender")
+	@OneToMany(mappedBy="accNrSender", fetch=FetchType.EAGER)
 	private Set<Transfer> transfersFrom;
-	@OneToMany(mappedBy="accNrReceiver")
+	@OneToMany(mappedBy="accNrReceiver", fetch=FetchType.EAGER)
 	private Set<Transfer> transfersTo;
-	@OneToMany(mappedBy="accNr")
+	@OneToMany(mappedBy="accNr", fetch=FetchType.EAGER)
 	private Set<Deposit> deposits;
-	@OneToMany(mappedBy="accNr")
+	@OneToMany(mappedBy="accNr", fetch=FetchType.EAGER)
 	private Set<Withdraw> withdrawals;
 	
 	public Account(String pesel, String name) {

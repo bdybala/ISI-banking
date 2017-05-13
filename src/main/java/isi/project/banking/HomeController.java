@@ -47,6 +47,7 @@ public class HomeController {
 
 		model.addAttribute("serverTime", formattedDate);
 
+		System.out.println("clientDao: " + clientDao);
 		List<Client> allClients = clientDao.findAll();
 		model.addAttribute("clients", allClients);
 
@@ -68,9 +69,8 @@ public class HomeController {
 
 			// transfer history
 			List<List<AbstractTransaction>> transferHistory = new ArrayList<List<AbstractTransaction>>();
-			AccountService accountService = new AccountService();
 			for(Account account: client.getAccounts()) {
-				transferHistory.add(accountService.getTransactionsFromAccount(account));
+				transferHistory.add(AccountService.getTransactionsFromAccount(account));
 			}
 			model.addAttribute("transferHistory", transferHistory);
 			

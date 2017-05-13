@@ -10,21 +10,29 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import isi.project.banking.dao.OfferCashLoanDao;
+import isi.project.banking.dao.OfferInvestmentDao;
+import isi.project.banking.dao.OfferMortgageLoanDao;
 import isi.project.banking.model.client.Client;
-import isi.project.banking.model.offerInvestment.OfferInvestmentService;
-import isi.project.banking.model.offerLoan.OfferCashLoanService;
-import isi.project.banking.model.offerLoan.OfferMortgageLoanService;
 
 @Controller
 public class OfferController {
 
 	private static final Logger logger = LoggerFactory.getLogger(OfferController.class);
+	
+	@Autowired
+	OfferInvestmentDao offerInvestmentDao;
+	@Autowired
+	OfferCashLoanDao offerCashLoanDao;
+	@Autowired
+	OfferMortgageLoanDao offerMortgageLoanDao;
 
 	@RequestMapping(value = "/offer-investments", method = RequestMethod.GET)
 	public String investments( Model model, HttpSession session) {
@@ -49,12 +57,8 @@ public class OfferController {
 		model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
 
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
-		EntityManager em = emf.createEntityManager();
-		OfferInvestmentService ois = new OfferInvestmentService(em);
 		// offer investments
-		model.addAttribute("offerInvestments", ois.findAllOfferInvestments());
-
+		model.addAttribute("offerInvestments", offerInvestmentDao.findAll());
 
 		return "client/offer-investments";
 
@@ -84,10 +88,7 @@ public class OfferController {
 
 
 		// specific investment offer
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
-		EntityManager em = emf.createEntityManager();
-		OfferInvestmentService ois = new OfferInvestmentService(em);
-		model.addAttribute("investmentOfferShown", ois.findOfferInvestment(offerInvestmentId));
+		model.addAttribute("investmentOfferShown", offerInvestmentDao.findOne(offerInvestmentId));
 
 		return "client/offer-investments-1";
 	}
@@ -115,13 +116,8 @@ public class OfferController {
 		model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
 
 		// loans offer
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
-		EntityManager em = emf.createEntityManager();
-
-		OfferMortgageLoanService omls = new OfferMortgageLoanService(em);
-		OfferCashLoanService ocls = new OfferCashLoanService(em);
-		model.addAttribute("offerMortgageLoans", omls.findAllOfferMortgageLoan());
-		model.addAttribute("offerCashLoans", ocls.findAllOfferCashLoan());
+		model.addAttribute("offerMortgageLoans", offerMortgageLoanDao.findAll());
+		model.addAttribute("offerCashLoans", offerCashLoanDao.findAll());
 
 
 		return "client/offer-loans";
