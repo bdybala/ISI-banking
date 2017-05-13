@@ -8,7 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import isi.project.banking.model.account.Account;
+import isi.project.banking.model.Account;
 
 @Repository
 public class AccountDao {

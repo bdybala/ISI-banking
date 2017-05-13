@@ -25,9 +25,9 @@ import org.springframework.web.servlet.ModelAndView;
 import isi.project.banking.HomeController;
 import isi.project.banking.dao.AccountDao;
 import isi.project.banking.dao.ClientDao;
-import isi.project.banking.model.account.Account;
+import isi.project.banking.model.Account;
+import isi.project.banking.model.Client;
 import isi.project.banking.model.account.AccountService;
-import isi.project.banking.model.client.Client;
 
 @Controller
 public class ClientController {

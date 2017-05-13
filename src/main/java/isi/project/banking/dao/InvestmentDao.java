@@ -8,7 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import isi.project.banking.model.investment.Investment;
+import isi.project.banking.model.Investment;
 
 @Repository
 public class InvestmentDao {

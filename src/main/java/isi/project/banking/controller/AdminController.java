@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import isi.project.banking.dao.ClientDao;
-import isi.project.banking.model.client.Client;
+import isi.project.banking.model.Client;
 
 @Controller
 @RequestMapping(value = "/admin")

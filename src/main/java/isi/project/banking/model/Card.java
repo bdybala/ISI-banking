@@ -1,4 +1,4 @@
-package isi.project.banking.model.card;
+package isi.project.banking.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,8 +8,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Repository;
-
-import isi.project.banking.model.account.Account;
 
 @Repository()
 @Entity

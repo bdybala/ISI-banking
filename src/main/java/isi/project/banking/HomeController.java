@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import isi.project.banking.dao.ClientDao;
 import isi.project.banking.model.AbstractTransaction;
-import isi.project.banking.model.account.Account;
+import isi.project.banking.model.Account;
+import isi.project.banking.model.Client;
 import isi.project.banking.model.account.AccountService;
-import isi.project.banking.model.client.Client;
 
 /**
  * Handles requests for the application home page.

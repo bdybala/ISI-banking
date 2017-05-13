@@ -8,34 +8,33 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import isi.project.banking.model.OfferCashLoan;
+import isi.project.banking.model.CashLoan;
 
 @Repository
-public class OfferCashLoanDao {
-
+public class CashLoanDao {
 
 	@PersistenceContext
 	EntityManager entityManager;
 	
 	@Transactional
-	public void create(OfferCashLoan offerCashLoan) {
-		entityManager.persist(offerCashLoan);
+	public void create(CashLoan cashLoan) {
+		entityManager.persist(cashLoan);
 	}
 	
 	@Transactional
-	public OfferCashLoan findOne(int id) {
-		return entityManager.find(OfferCashLoan.class, id);
+	public CashLoan findOne(int id) {
+		return entityManager.find(CashLoan.class, id);
 	}
 	
 	@SuppressWarnings("unchecked")
 	@Transactional
-	public List<OfferCashLoan> findAll() {
-		return entityManager.createQuery("FROM OfferCashLoan").getResultList();
+	public List<CashLoan> findAll() {
+		return entityManager.createQuery("FROM CashLoan").getResultList();
 	}
 	
 	@Transactional
-	public OfferCashLoan update(OfferCashLoan offerCashLoan) {
-		return entityManager.merge(offerCashLoan);
+	public CashLoan update(CashLoan cashLoan) {
+		return entityManager.merge(cashLoan);
 	}
 	
 	@Transactional

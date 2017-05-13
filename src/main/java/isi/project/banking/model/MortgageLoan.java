@@ -1,4 +1,4 @@
-package isi.project.banking.model.mortgageLoan;
+package isi.project.banking.model;
 
 import java.util.Date;
 
@@ -12,9 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Repository;
-
-import isi.project.banking.model.MortgageSupervisor;
-import isi.project.banking.model.account.Account;
 
 @Repository
 @Entity

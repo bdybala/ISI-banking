@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import isi.project.banking.HomeController;
 import isi.project.banking.dao.InvestmentDao;
-import isi.project.banking.model.client.Client;
-import isi.project.banking.model.investment.Investment;
+import isi.project.banking.model.Client;
+import isi.project.banking.model.Investment;
 
 @Controller
 public class InvestmentController {

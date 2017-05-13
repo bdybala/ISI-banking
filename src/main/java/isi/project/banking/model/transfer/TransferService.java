@@ -8,7 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import isi.project.banking.dao.AccountDao;
-import isi.project.banking.model.account.Account;
+import isi.project.banking.model.Account;
+import isi.project.banking.model.Transfer;
 
 @Service
 public class TransferService {

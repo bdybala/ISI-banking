@@ -5,9 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 import isi.project.banking.model.AbstractTransaction;
+import isi.project.banking.model.Account;
 import isi.project.banking.model.Deposit;
+import isi.project.banking.model.Transfer;
 import isi.project.banking.model.Withdraw;
-import isi.project.banking.model.transfer.Transfer;
 
 public class AccountService {
 

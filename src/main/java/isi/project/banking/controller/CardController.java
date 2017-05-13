@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import isi.project.banking.dao.CardDao;
-import isi.project.banking.model.client.Client;
+import isi.project.banking.model.Client;
 
 @Controller
 public class CardController {

@@ -42,13 +42,13 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 import isi.project.banking.controller.OfferController;
-import isi.project.banking.model.investment.Investment;
-import isi.project.banking.model.offerInvestment.OfferInvestment;
-import isi.project.banking.model.offerInvestment.OfferInvestmentService;
-import isi.project.banking.model.offerLoan.OfferCashLoan;
-import isi.project.banking.model.offerLoan.OfferCashLoanService;
-import isi.project.banking.model.offerLoan.OfferMortgageLoan;
-import isi.project.banking.model.offerLoan.OfferMortgageLoanService;
+import isi.project.banking.model.Investment;
+import isi.project.banking.model.OfferCashLoan;
+import isi.project.banking.model.OfferCashLoanService;
+import isi.project.banking.model.OfferInvestment;
+import isi.project.banking.model.OfferInvestmentService;
+import isi.project.banking.model.OfferMortgageLoan;
+import isi.project.banking.model.OfferMortgageLoanService;
 
 
 @RunWith(MockitoJUnitRunner.class)

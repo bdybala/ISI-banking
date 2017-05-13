@@ -8,7 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import isi.project.banking.model.offerInvestment.OfferInvestment;
+import isi.project.banking.model.OfferInvestment;
 
 @Repository
 public class OfferInvestmentDao {

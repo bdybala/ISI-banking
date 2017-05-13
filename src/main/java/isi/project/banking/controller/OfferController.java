@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import isi.project.banking.dao.OfferCashLoanDao;
 import isi.project.banking.dao.OfferInvestmentDao;
 import isi.project.banking.dao.OfferMortgageLoanDao;
-import isi.project.banking.model.client.Client;
+import isi.project.banking.model.Client;
 
 @Controller
 public class OfferController {

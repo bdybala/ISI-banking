@@ -18,7 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import isi.project.banking.HomeController;
 import isi.project.banking.auth.SmsSender;
 import isi.project.banking.dao.ClientDao;
-import isi.project.banking.model.client.Client;
+import isi.project.banking.model.Client;
 import no.vianett.sms.Sms;
 import no.vianett.sms.component.SmsTransceiver;
 import no.vianett.sms.log.SmsScreenLogger;

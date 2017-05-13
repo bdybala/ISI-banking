@@ -16,10 +16,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.ui.Model;
 
 import isi.project.banking.controller.CardController;
-import isi.project.banking.model.account.Account;
+import isi.project.banking.model.Account;
+import isi.project.banking.model.OfferMortgageLoan;
 import isi.project.banking.model.account.AccountService;
 import isi.project.banking.model.card.CardService;
-import isi.project.banking.model.offerLoan.OfferMortgageLoan;
 
 public class AccountTest {
 	

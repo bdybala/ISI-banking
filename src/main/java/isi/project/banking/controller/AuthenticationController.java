@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import isi.project.banking.HomeController;
-import isi.project.banking.model.client.Client;
-import isi.project.banking.model.transfer.Transfer;
+import isi.project.banking.model.Client;
+import isi.project.banking.model.Transfer;
 import isi.project.banking.model.transfer.TransferService;
 
 @Controller

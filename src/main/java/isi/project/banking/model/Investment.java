@@ -1,4 +1,4 @@
-package isi.project.banking.model.investment;
+package isi.project.banking.model;
 
 import java.util.Date;
 
@@ -13,8 +13,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Repository;
-
-import isi.project.banking.model.account.Account;
 
 @Repository
 @Entity

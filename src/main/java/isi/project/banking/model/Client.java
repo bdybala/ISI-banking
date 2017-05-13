@@ -1,4 +1,4 @@
-package isi.project.banking.model.client;
+package isi.project.banking.model;
 
 import java.util.Date;
 import java.util.Set;
@@ -11,9 +11,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Repository;
-
-import isi.project.banking.model.Message;
-import isi.project.banking.model.account.Account;
 
 @Repository
 @Entity

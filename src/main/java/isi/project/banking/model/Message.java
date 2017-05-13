@@ -11,8 +11,6 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Repository;
 
-import isi.project.banking.model.client.Client;
-
 @Repository
 @Entity
 @Table(name="MESSAGE")

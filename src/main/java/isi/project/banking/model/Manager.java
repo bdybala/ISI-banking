@@ -14,10 +14,6 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Repository;
 
-import isi.project.banking.model.offerInvestment.OfferInvestment;
-import isi.project.banking.model.offerLoan.OfferCashLoan;
-import isi.project.banking.model.offerLoan.OfferMortgageLoan;
-
 @Repository
 @Entity
 @Table(name="MANAGER")

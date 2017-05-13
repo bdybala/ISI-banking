@@ -20,9 +20,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.Model;
 
 import isi.project.banking.controller.CardController;
-
-import isi.project.banking.model.card.Card;
-import isi.project.banking.model.card.CardService;
+import isi.project.banking.model.Card;
+import isi.project.banking.model.CardService;
 
 
 

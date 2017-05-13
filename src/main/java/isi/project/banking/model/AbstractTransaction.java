@@ -6,8 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.SequenceGenerator;
 
-import isi.project.banking.model.account.Account;
-
 public abstract class AbstractTransaction {
 
 	private Integer id;

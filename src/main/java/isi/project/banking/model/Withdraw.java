@@ -15,8 +15,6 @@ import javax.persistence.Transient;
 
 import org.springframework.stereotype.Repository;
 
-import isi.project.banking.model.account.Account;
-
 @Repository
 @Entity
 @Table(name="WITHDRAW")

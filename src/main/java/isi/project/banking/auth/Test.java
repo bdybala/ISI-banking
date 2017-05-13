@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import isi.project.banking.model.client.Client;
+import isi.project.banking.model.Client;
 
 public class Test {
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
