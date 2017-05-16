@@ -17,6 +17,10 @@
 <link
 	href=<c:url value="https://fonts.googleapis.com/css?family=Lora" />
 	rel='stylesheet' type='text/css'>
+	
+	<script src="jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/locale/pl.js" integrity="sha256-H6L26BWbdqmD2F7C+En+WYLy9TIxvuFGBAUQHGljuTE=" crossorigin="anonymous"></script>
+
 </head>
 
 <body
@@ -39,54 +43,53 @@
 				</p>
 			</div>
 			<div class="col-sm-10 text-left">
-
-				<%-- <table class="table table-striped">
-					<tbody>
-
-						<tr>
-
-							<td><i>Pesel:</i></td>
-							<td>${loggedClient.pesel}</td>
-						</tr>
-						<tr>
-
-							<td><i>Login:</i></td>
-							<td>${loggedClient.login}</td>
-						</tr>
-						<tr>
-
-							<td><i>First Name:</i></td>
-							<td>${loggedClient.firstName}</td>
-						</tr>
-
-						<td><i>Last Name:</i></td>
-						<td>${loggedClient.lastName}</td>
-						</tr>
-
-						<td><i>Email:</i></td>
-						<td>${loggedClient.email}</td>
-						</tr>
-
-						<td><i>Numer telefonu:</i></td>
-						<td>${loggedClient.nrTel}</td>
-						</tr>
-
-						<td><i>Birthday:</i></td>
-						<td>${loggedClient.birthday}</td>
-						</tr>
+<script type="text/javascript">
+$(document).ready(function() {
+        $(function () {
+            $('#datetimepicker6').datetimepicker();
+            $('#datetimepicker7').datetimepicker({
+                useCurrent: false //Important! See issue #1075
+            });
+            $("#datetimepicker6").on("dp.change", function (e) {
+                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+            });
+            $("#datetimepicker7").on("dp.change", function (e) {
+                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+            });
+        });
+    });
+</script>
 
 
+<div class="container">
+    <div class='col-md-5'>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker6'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-5'>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker7'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
 
-					</tbody>
-				</table> --%>
 
 
 
-				<%-- <br /> <i>Accounts:</i> ${loggedClient.accounts} <br /> --%>
 				<div class="balance-info text-center">
 					<c:forEach items="${loggedClient.accounts}" var="account">
 						<p>
-
 							<tr>
 								<td>${account.name}</td>
 							</tr>
@@ -96,16 +99,35 @@
 								</tr>
 							</b> PLN <br />
 						</p>
+						</c:forEach>
 				</div>
 				<br />
-				</c:forEach>
+				
 
 				<div>
 					<div class="panel panel-primary">
-						<div class="panel-heading">Historia operacji</div>
+						<div class="panel-heading">Historia operacji
+						
+	
+						
+						
+						</div>
 						<!-- TODO: widok dla pobranych transakcji -->
 						<c:forEach items="${loggedClient.accounts}" var="account">
-							<div class="panel-body"></div>
+							
+							 <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Rodzaj</th>
+        <th>Kwota</th>
+        <th>Data zamowienia</th>
+        <th>Data realizacji</th>
+        <th>Nr konta nadawcy</th>
+        <th>Nr konta odbiorcy</th>
+        <th>Tytul</th>
+      </tr>
+    </thead>
+    <tbody>
 							<!-- Pobieranie histrorii operacji -->
 							<c:forEach items="${transferHistory }" var="accountTransfers">
 								<c:forEach items="${accountTransfers }" var="transfer">
@@ -113,40 +135,48 @@
 								
 								<c:set var="className" value="${transfer.getClass().getName()}"/>
 									<c:choose>
+
 										<c:when test = "${className == 'isi.project.banking.model.transfer.Transfer'}">
 											<c:set var="clientAccNr" value="${account.accNr}"/>
 								<c:set var="senderAccNr" value="${transfer.accNrSender}"/>
 											<c:choose>												
 												<c:when test = "${clientAccNr == senderAccNr}">
-													<span style="color:red">Przelew wychodzacy</span>
+													 <tr>
+        												<td>Przelew wychodzacy </td>
 												</c:when>
 												<c:otherwise>
-													<span style="color:green">Przelew przychodzacy</span>
+													 <tr>
+       													 <td>Przelew przychodzacy </td>
 												</c:otherwise>
 											</c:choose>
-											</br>
-											Kwota: ${transfer.amount} </br>
-											Data zamowienia: ${transfer.orderDate} </br>
-											Data realizacji: ${transfer.executionDate} </br>
-											Nr konta nadawcy: ${transfer.accNrSender} </br>
-											Nr konta odbiorcy: ${transfer.accNrReceiver} </br>
-											tytul: ${transfer.title} </br>
-											</br>
+											  <td>${transfer.amount} </td>
+									        <td>${transfer.orderDate} </td>
+									        <td>${transfer.executionDate} </td>
+									        <td>${transfer.accNrSender} </td>
+									        <td>${transfer.accNrReceiver} </td>
+									        <td>${transfer.title} </td>
+									      </tr>
+										
 										</c:when>
 										<c:otherwise>
 											<c:choose>												
 												<c:when test = "${className == 'isi.project.banking.model.transfer.Deposit'}">
-													<span style="color:green">Wplata</span>
+													  <tr>
+    												    <td><span class="glyphicon glyphicon-circle-arrow-up"></span>  Wplata </td>
 												</c:when>
 												<c:otherwise>
-													<span style="color:red">Wyplata</span>
+													<tr>
+    												    <td><span class="glyphicon glyphicon-circle-arrow-down"></span>  Wyplata </td>
 												</c:otherwise>
 											</c:choose>
-											</br>
-											Kwota: ${transfer.amount} </br>
-											Data zamowienia: ${transfer.orderDate} </br>
-											Data realizacji: ${transfer.executionDate} </br>
-											</br>
+											
+											 
+        <td>${transfer.amount} </td>
+        <td>${transfer.orderDate} </td>
+        <td>${transfer.executionDate} </td>
+        <td> </td>  <td> </td>  <td> </td>
+      </tr>
+											
 										</c:otherwise>
 									</c:choose>
 									
@@ -154,46 +184,12 @@
 							</c:forEach>
 							
 					</div>
-					<br />
+					
+					</tbody> </table>
 					</c:forEach>
+					
 				</div>
 			</div>
-			<%-- <tr>
-
-								<td><i>Name:</i></td>
-								<td>${account.name}</td>
-							</tr>
-							<tr>
-
-								<td><i>Account Number:</i></td>
-								<td>${account.accNr}</td>
-							</tr>
-							<tr>
-
-								<td><i>Balance:</i></td>
-								<td>${account.balance}</td>
-							</tr>
-
-							<td><i>Day Limit:</i></td>
-							<td>${account.dayLimit}</td>
-							</tr>
-
-							<td><i>Interest:</i></td>
-							<td>${account.interest}</td>
-							</tr>
-
-							<td><i>Open Date:</i></td>
-							<td>${account.openDate}</td>
-							</tr>
-
-							<td><i>Pesel:</i></td>
-							<td>${account.pesel}</td>
-							</tr>
-
- --%>
-
-
-
 
 		</div>
 	</div>
