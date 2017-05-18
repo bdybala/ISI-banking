@@ -57,7 +57,7 @@
 
 						<c:forEach items="${offerMortgageLoans}" var="offerMortgageLoan">
 							<div class="col-md-6 portfolio-item">
-								<a href=<c:url value="/offer-loans-1"/>> <img
+								<a href=<c:url value="/offer-mortgege"/>> <img
 									class="img-responsive" src="http://placehold.it/700x400" alt="">
 								</a>
 								<h3>

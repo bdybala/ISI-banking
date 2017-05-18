@@ -122,6 +122,14 @@ public class OfferController {
 
 		return "client/offer-loans";
 	}
+	
+	@RequestMapping(value="/offer-mortgage", method = RequestMethod.GET)
+	public String offerMortgage(Locale locale, Model model, HttpSession session){
+		Client client = (Client) session.getAttribute("client");
+		model.addAttribute("loggedClient", client);
+		//TODO
+		return "client/offer-mortgage";
+	}
 
 
 }
