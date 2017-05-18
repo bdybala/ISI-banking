@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ISI-banking:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="banking-1.0.0-BUILD-SNAPSHOT.war">
+      <element id="artifact" artifact-name="ISI-banking:war exploded" />
+    </root>
+  </artifact>
+</component>

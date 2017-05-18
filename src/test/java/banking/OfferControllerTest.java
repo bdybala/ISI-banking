@@ -44,17 +44,16 @@ import org.springframework.web.servlet.view.JstlView;
 import isi.project.banking.controller.OfferController;
 import isi.project.banking.model.Investment;
 import isi.project.banking.model.OfferCashLoan;
-import isi.project.banking.model.OfferCashLoanService;
+
 import isi.project.banking.model.OfferInvestment;
-import isi.project.banking.model.OfferInvestmentService;
+
 import isi.project.banking.model.OfferMortgageLoan;
-import isi.project.banking.model.OfferMortgageLoanService;
+
 
 
 @RunWith(MockitoJUnitRunner.class)
 @WebAppConfiguration
 public class OfferControllerTest {
-
 	
 	@Mock
 	private Logger logger;
@@ -100,7 +99,6 @@ public class OfferControllerTest {
 	@Test
 	public void testMocks()
 	{
-
 		assertNotNull(em);
 		assertNotNull(model);
 		assertNotNull(investmentService);

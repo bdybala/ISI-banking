@@ -19,7 +19,7 @@ import isi.project.banking.controller.CardController;
 import isi.project.banking.model.Account;
 import isi.project.banking.model.OfferMortgageLoan;
 import isi.project.banking.model.account.AccountService;
-import isi.project.banking.model.card.CardService;
+
 
 public class AccountTest {
 	
@@ -28,9 +28,7 @@ public class AccountTest {
 	
 	@Mock
 	private AccountService accService;
-	
 
-	
 	@Mock
 	private EntityManager em;
 	
@@ -39,11 +37,8 @@ public class AccountTest {
 	
 	@Mock
 	Model model;
-	
-
 
 	private MockMvc mockMvc;
-
 	
 	@Test
 	public void testFindByIdList() throws Exception
