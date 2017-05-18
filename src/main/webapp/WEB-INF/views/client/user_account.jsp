@@ -17,15 +17,20 @@
 <link
 	href=<c:url value="https://fonts.googleapis.com/css?family=Lora" />
 	rel='stylesheet' type='text/css'>
+	
+	<!-- added by adamoq -->
+ <link href = "https://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css"
+         rel = "stylesheet">
+      <script
+  src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      
 </head>
 
-<body
-	onload="sessionTimeout(${lastAccessTimeInMs},${sessionTimeOutPeriodInMs});">
-
+<body onload="sessionTimeout(${lastAccessTimeInMs},${sessionTimeOutPeriodInMs});">
 
 	<jsp:include page="user-header.jsp" />
 	<jsp:include page="user-navbar.jsp" />
-
 
 	<div class="container-fluid text-center">
 		<div class="row content">
@@ -39,48 +44,6 @@
 				</p>
 			</div>
 			<div class="col-sm-10 text-left">
-
-				<%-- <table class="table table-striped">
-					<tbody>
-
-						<tr>
-
-							<td><i>Pesel:</i></td>
-							<td>${loggedClient.pesel}</td>
-						</tr>
-						<tr>
-
-							<td><i>Login:</i></td>
-							<td>${loggedClient.login}</td>
-						</tr>
-						<tr>
-
-							<td><i>First Name:</i></td>
-							<td>${loggedClient.firstName}</td>
-						</tr>
-
-						<td><i>Last Name:</i></td>
-						<td>${loggedClient.lastName}</td>
-						</tr>
-
-						<td><i>Email:</i></td>
-						<td>${loggedClient.email}</td>
-						</tr>
-
-						<td><i>Numer telefonu:</i></td>
-						<td>${loggedClient.nrTel}</td>
-						</tr>
-
-						<td><i>Birthday:</i></td>
-						<td>${loggedClient.birthday}</td>
-						</tr>
-
-
-
-					</tbody>
-				</table> --%>
-
-
 
 				<%-- <br /> <i>Accounts:</i> ${loggedClient.accounts} <br /> --%>
 				<div class="balance-info text-center">
@@ -96,16 +59,36 @@
 								</tr>
 							</b> PLN <br />
 						</p>
+						</c:forEach>
 				</div>
 				<br />
-				</c:forEach>
-
+					
 				<div>
-					<div class="panel panel-primary">
-						<div class="panel-heading">Historia operacji</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">	
+   
+        <div class="form-group">Historia operacji w dniach<t>  <input type="text" id="datetime1"/>
+   
+            <input type="text" id="datetime2"/>
+        </div>
+          
+</div>
 						<!-- TODO: widok dla pobranych transakcji -->
 						<c:forEach items="${loggedClient.accounts}" var="account">
-							<div class="panel-body"></div>
+							
+							 <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Rodzaj</th>
+        <th>Kwota</th>
+        <th>Data zamowienia</th>
+        <th>Data realizacji</th>
+        <th>Nr konta nadawcy</th>
+        <th>Nr konta odbiorcy</th>
+        <th>Tytul</th>
+      </tr>
+    </thead>
+    <tbody>
 							<!-- Pobieranie histrorii operacji -->
 							<c:forEach items="${transferHistory }" var="accountTransfers">
 								<c:forEach items="${accountTransfers }" var="transfer">
@@ -113,40 +96,47 @@
 								
 								<c:set var="className" value="${transfer.getClass().getName()}"/>
 									<c:choose>
+
 										<c:when test = "${className == 'isi.project.banking.model.transfer.Transfer'}">
 											<c:set var="clientAccNr" value="${account.accNr}"/>
 								<c:set var="senderAccNr" value="${transfer.accNrSender}"/>
 											<c:choose>												
 												<c:when test = "${clientAccNr == senderAccNr}">
-													<span style="color:red">Przelew wychodzacy</span>
+													 <tr>
+        												<td>Przelew wychodzacy </td>
 												</c:when>
 												<c:otherwise>
-													<span style="color:green">Przelew przychodzacy</span>
+													 <tr>
+       													 <td>Przelew przychodzacy </td>
 												</c:otherwise>
 											</c:choose>
-											</br>
-											Kwota: ${transfer.amount} </br>
-											Data zamowienia: ${transfer.orderDate} </br>
-											Data realizacji: ${transfer.executionDate} </br>
-											Nr konta nadawcy: ${transfer.accNrSender} </br>
-											Nr konta odbiorcy: ${transfer.accNrReceiver} </br>
-											tytul: ${transfer.title} </br>
-											</br>
+											  <td>${transfer.amount} </td>
+									        <td>${transfer.orderDate} </td>
+									        <td>${transfer.executionDate} </td>
+									        <td>${transfer.accNrSender} </td>
+									        <td>${transfer.accNrReceiver} </td>
+									        <td>${transfer.title} </td>
+									      </tr>
+										
 										</c:when>
 										<c:otherwise>
 											<c:choose>												
 												<c:when test = "${className == 'isi.project.banking.model.transfer.Deposit'}">
-													<span style="color:green">Wplata</span>
+													  <tr>
+    												    <td><span class="glyphicon glyphicon-circle-arrow-up"></span>  Wplata </td>
 												</c:when>
 												<c:otherwise>
-													<span style="color:red">Wyplata</span>
+													<tr>
+    												    <td><span class="glyphicon glyphicon-circle-arrow-down"></span>  Wyplata </td>
 												</c:otherwise>
 											</c:choose>
-											</br>
-											Kwota: ${transfer.amount} </br>
-											Data zamowienia: ${transfer.orderDate} </br>
-											Data realizacji: ${transfer.executionDate} </br>
-											</br>
+																						 
+        <td>${transfer.amount} </td>
+        <td>${transfer.orderDate} </td>
+        <td>${transfer.executionDate} </td>
+        <td> </td>  <td> </td>  <td> </td>
+      </tr>
+											
 										</c:otherwise>
 									</c:choose>
 									
@@ -154,53 +144,43 @@
 							</c:forEach>
 							
 					</div>
-					<br />
+					
+					</tbody> </table>
 					</c:forEach>
+					
 				</div>
 			</div>
-			<%-- <tr>
-
-								<td><i>Name:</i></td>
-								<td>${account.name}</td>
-							</tr>
-							<tr>
-
-								<td><i>Account Number:</i></td>
-								<td>${account.accNr}</td>
-							</tr>
-							<tr>
-
-								<td><i>Balance:</i></td>
-								<td>${account.balance}</td>
-							</tr>
-
-							<td><i>Day Limit:</i></td>
-							<td>${account.dayLimit}</td>
-							</tr>
-
-							<td><i>Interest:</i></td>
-							<td>${account.interest}</td>
-							</tr>
-
-							<td><i>Open Date:</i></td>
-							<td>${account.openDate}</td>
-							</tr>
-
-							<td><i>Pesel:</i></td>
-							<td>${account.pesel}</td>
-							</tr>
-
- --%>
-
-
-
 
 		</div>
 	</div>
 	</div>
-	<script src=<c:url value="/resources/js/jquery-2.1.4.min.js" />></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+	$('#datetime1').datepicker();
+    	 $('#datetime2').datepicker();
+    	var date = new Date();
+    	$('#datetime2').datepicker("setDate", date);
+    	date.setMonth(date.getMonth()-1) 
+    	$('#datetime1').datepicker("setDate", date);
+    	/* nie dziala huj wie czemu
+    	tutaj dziala http://jsfiddle.net/wsodjsyv/ */
+    	$("#datetime1").datepicker({
+    	        todayBtn:  1,
+    	        autoclose: true,
+    	    }).on('changeDate', function (selected) {
+    	        var minDate = new Date(selected.date.valueOf());
+    	        $('#datetime2').datepicker('setStartDate', minDate);
+    	    });
+    	    
+    	    $("#datetime2").datepicker()
+    	        .on('changeDate', function (selected) {
+    	            var minDate = new Date(selected.date.valueOf());
+    	            $('#datetime1').datepicker('setEndDate', minDate);
+    	        });
+})</script>
+
 	<script src=<c:url value="/resources/js/script.js" />></script>
-	<script src=<c:url value="/resources/js/bootstrap.min.js" />></script>
+	
 
 </body>
 </html>
