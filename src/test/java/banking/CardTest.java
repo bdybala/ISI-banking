@@ -21,7 +21,7 @@ import org.springframework.ui.Model;
 
 import isi.project.banking.controller.CardController;
 import isi.project.banking.model.Card;
-
+import isi.project.banking.model.CardService;
 
 
 
@@ -32,7 +32,9 @@ public class CardTest {
 	
 	@Mock
 	private CardService cardService;
+	
 
+	
 	@Mock
 	private EntityManager em;
 	
@@ -57,11 +59,13 @@ public class CardTest {
 	@Test
 	public void testMocks()
 	{
+
 		assertNotNull(em);
 		assertNotNull(model);
 		assertNotNull(cardService);
 		assertNotNull(logger);
 		assertNotNull(http);
+		
 	}
 	
 	
@@ -76,6 +80,6 @@ public class CardTest {
 		when(cardService.findAllCard()).thenReturn(card);
 	}
 	
-
+	
 	
 }
