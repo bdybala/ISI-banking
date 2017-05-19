@@ -191,6 +191,13 @@
 			<version>${hibernate-version}</version>
 		</dependency>
 
+		<!-- lombok (gettery settery builder etc. -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.16</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import isi.project.banking.dto.AccountDto;
 import isi.project.banking.exceptions.EntityNotFoundException;
 import isi.project.banking.model.Account;
 import isi.project.banking.repository.AccountRepository;
