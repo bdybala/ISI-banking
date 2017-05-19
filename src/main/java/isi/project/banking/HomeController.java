@@ -21,6 +21,7 @@ import isi.project.banking.model.AbstractTransaction;
 import isi.project.banking.model.Account;
 import isi.project.banking.model.Client;
 import isi.project.banking.model.account.AccountService;
+import isi.project.banking.repository.ClientRepository;
 
 /**
  * Handles requests for the application home page.
@@ -29,7 +30,7 @@ import isi.project.banking.model.account.AccountService;
 public class HomeController {
 	
 	@Autowired
-	ClientDao clientDao;
+	ClientRepository clientRepository;
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -47,8 +48,8 @@ public class HomeController {
 
 		model.addAttribute("serverTime", formattedDate);
 
-		System.out.println("clientDao: " + clientDao);
-		List<Client> allClients = clientDao.findAll();
+		System.out.println("clientRepository:" + clientRepository);
+		List<Client> allClients = clientRepository.findAll();
 		model.addAttribute("clients", allClients);
 
 		Client client = (Client) session.getAttribute("client");

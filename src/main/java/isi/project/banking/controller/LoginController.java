@@ -19,9 +19,6 @@ import isi.project.banking.HomeController;
 import isi.project.banking.auth.SmsSender;
 import isi.project.banking.dao.ClientDao;
 import isi.project.banking.model.Client;
-import no.vianett.sms.Sms;
-import no.vianett.sms.component.SmsTransceiver;
-import no.vianett.sms.log.SmsScreenLogger;
 
 @Controller
 public class LoginController {
