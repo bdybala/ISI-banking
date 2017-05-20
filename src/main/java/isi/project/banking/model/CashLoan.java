@@ -36,8 +36,8 @@ public class CashLoan {
 	private Date grantDate;
 	@Column(name="REPAYMENT_DATE")
 	private Date repaymentDate;
-	@Column(name="ListTLED_INTEREST")
-	private Double ListtledInterest;
+	@Column(name="SETTLED_INTEREST")
+	private Double settledInterest;
 	@Column(name="ACC_NR")
 	private String accNr;
 	private String provider;
