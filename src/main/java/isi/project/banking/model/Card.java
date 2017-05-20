@@ -7,11 +7,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.springframework.stereotype.Repository;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Repository()
 @Entity
 @Table(name="CARD")
+@Setter
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Card {
 	
 	@Id
@@ -27,46 +35,4 @@ public class Card {
 	@JoinColumn(name = "acc_nr", insertable = false, updatable=false)
 	private Account account;
 
-	public String getCardNr() {
-		return cardNr;
-	}
-	public void setCardNr(String cardNr) {
-		this.cardNr = cardNr;
-	}
-	public String getAccNr() {
-		return accNr;
-	}
-	public void setAccNr(String accNr) {
-		this.accNr = accNr;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
-	public String getCvc() {
-		return cvc;
-	}
-	public void setCvc(String cvc) {
-		this.cvc = cvc;
-	}
-	public String getPin() {
-		return pin;
-	}
-	public void setPin(String pin) {
-		this.pin = pin;
-	}
-	public Account getAccount() {
-		return account;
-	}
-	public void setAccount(Account account) {
-		this.account = account;
-	}
 }

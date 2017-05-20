@@ -1,10 +1,8 @@
 package isi.project.banking.dto;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
-import isi.project.banking.model.Account;
-import isi.project.banking.model.Message;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -27,7 +25,7 @@ public class ClientDto {
 	private String nrTel;
 	private Date birthday;
 	
-	private Set<Message> messages;
-	private Set<Account> accounts;
+	private List<MessageDto> messages;
+	private List<AccountDto> accounts;
 	
 }

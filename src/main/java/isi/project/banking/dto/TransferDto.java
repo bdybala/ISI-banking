@@ -1,7 +1,6 @@
 package isi.project.banking.dto;
 
 import java.util.Date;
-import isi.project.banking.model.Account;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -23,7 +22,7 @@ public class TransferDto {
 	private String accNrReceiver;
 	private String title;
 	
-	private Account sender;
-	private Account receiver;
+	private AccountDto sender;
+	private AccountDto receiver;
 	
 }

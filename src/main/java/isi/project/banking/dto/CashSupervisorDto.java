@@ -1,10 +1,8 @@
 package isi.project.banking.dto;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
-import isi.project.banking.model.CashLoan;
-import isi.project.banking.model.Request;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -27,7 +25,7 @@ public class CashSupervisorDto {
 	private String nrTel;
 	private Date birthday;
 	
-	private Set<Request> requests;
-	private Set<CashLoan> cashLoans;
+	private List<RequestDto> requests;
+	private List<CashLoanDto> cashLoans;
 
 }

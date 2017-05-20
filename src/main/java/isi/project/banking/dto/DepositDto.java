@@ -1,7 +1,6 @@
 package isi.project.banking.dto;
 
 import java.util.Date;
-import isi.project.banking.model.Account;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,5 +20,5 @@ public class DepositDto {
 	private Date executionDate;
 	private String accNr;
 	
-	private Account account;
+	private AccountDto account;
 }

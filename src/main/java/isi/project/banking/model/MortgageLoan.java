@@ -11,11 +11,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.springframework.stereotype.Repository;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Repository
 @Entity
 @Table(name="MORTGAGE_LOAN")
+@Setter
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class MortgageLoan {
 
 	@Id
@@ -33,6 +41,7 @@ public class MortgageLoan {
 	@Column(name="ACC_NR")
 	private String accNr;
 	private String provider;
+	
 	@ManyToOne
 	@JoinColumn(name="PROVIDER", insertable=false, updatable=false)
 	private MortgageSupervisor mortgageSupervisor;
@@ -40,70 +49,4 @@ public class MortgageLoan {
 	@JoinColumn(name="ACC_NR", insertable=false, updatable=false)
 	private Account account;
 	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public Integer getInstallments() {
-		return installments;
-	}
-	public void setInstallments(Integer installments) {
-		this.installments = installments;
-	}
-	public Double getInterest() {
-		return interest;
-	}
-	public void setInterest(Double interest) {
-		this.interest = interest;
-	}
-	public Double getSum() {
-		return sum;
-	}
-	public void setSum(Double sum) {
-		this.sum = sum;
-	}
-	public Date getGrantDate() {
-		return grantDate;
-	}
-	public void setGrantDate(Date grantDate) {
-		this.grantDate = grantDate;
-	}
-	public Date getRepaymentDate() {
-		return repaymentDate;
-	}
-	public void setRepaymentDate(Date repaymentDate) {
-		this.repaymentDate = repaymentDate;
-	}
-	public Double getSettledInterest() {
-		return settledInterest;
-	}
-	public void setSettledInterest(Double settledInterest) {
-		this.settledInterest = settledInterest;
-	}
-	public String getAccNr() {
-		return accNr;
-	}
-	public void setAccNr(String accNr) {
-		this.accNr = accNr;
-	}
-	public String getProvider() {
-		return provider;
-	}
-	public void setProvider(String provider) {
-		this.provider = provider;
-	}
-	public MortgageSupervisor getMortgageSupervisor() {
-		return mortgageSupervisor;
-	}
-	public void setMortgageSupervisor(MortgageSupervisor mortgageSupervisor) {
-		this.mortgageSupervisor = mortgageSupervisor;
-	}
-	public Account getAccount() {
-		return account;
-	}
-	public void setAccount(Account account) {
-		this.account = account;
-	}
 }

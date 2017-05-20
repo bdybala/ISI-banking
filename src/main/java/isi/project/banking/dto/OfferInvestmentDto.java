@@ -1,6 +1,5 @@
 package isi.project.banking.dto;
 
-import isi.project.banking.model.Manager;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -23,6 +22,6 @@ public class OfferInvestmentDto {
 	private Double maxSum;
 	private String author;
 
-	private Manager manager;
+	private ManagerDto manager;
 	
 }

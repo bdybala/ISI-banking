@@ -1,6 +1,5 @@
 package isi.project.banking.dto;
 
-import isi.project.banking.model.Account;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,5 +20,5 @@ public class CardDto {
 	private String cvc;
 	private String pin;
 
-	private Account account;
+	private AccountDto account;
 }

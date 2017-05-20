@@ -1,10 +1,8 @@
 package isi.project.banking.dto;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
-import isi.project.banking.model.MortgageLoan;
-import isi.project.banking.model.Request;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -27,7 +25,7 @@ public class MortgageSupervisorDto {
 	private String nrTel;
 	private Date birthday;
 	
-	private Set<Request> requests;
-	private Set<MortgageLoan> mortgageLoans;
+	private List<RequestDto> requests;
+	private List<MortgageLoanDto> mortgageLoans;
 	
 }

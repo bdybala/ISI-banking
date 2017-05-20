@@ -8,11 +8,19 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.springframework.stereotype.Repository;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Repository
 @Entity
 @Table(name="REQUEST")
+@Setter
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Request {
 
 	@Id
@@ -34,58 +42,4 @@ public class Request {
 	@ManyToOne
 	private Account account;
 	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getCause() {
-		return cause;
-	}
-	public void setCause(String cause) {
-		this.cause = cause;
-	}
-	public String getAccNr() {
-		return accNr;
-	}
-	public void setAccNr(String accNr) {
-		this.accNr = accNr;
-	}
-	public String getApplicantCash() {
-		return applicantCash;
-	}
-	public void setApplicantCash(String applicantCash) {
-		this.applicantCash = applicantCash;
-	}
-	public String getApplicantMortgage() {
-		return applicantMortgage;
-	}
-	public void setApplicantMortgage(String applicantMortgage) {
-		this.applicantMortgage = applicantMortgage;
-	}
-	public Manager getManager() {
-		return manager;
-	}
-	public void setManager(Manager manager) {
-		this.manager = manager;
-	}
-	public CashSupervisor getCashSupervisor() {
-		return cashSupervisor;
-	}
-	public void setCashSupervisor(CashSupervisor cashSupervisor) {
-		this.cashSupervisor = cashSupervisor;
-	}
-	public MortgageSupervisor getMortgageSupervisor() {
-		return mortgageSupervisor;
-	}
-	public void setMortgageSupervisor(MortgageSupervisor mortgageSupervisor) {
-		this.mortgageSupervisor = mortgageSupervisor;
-	}
-	public Account getAccount() {
-		return account;
-	}
-	public void setAccount(Account account) {
-		this.account = account;
-	}
 }

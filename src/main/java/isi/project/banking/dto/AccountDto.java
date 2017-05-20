@@ -1,16 +1,9 @@
 package isi.project.banking.dto;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
-import isi.project.banking.model.Card;
-import isi.project.banking.model.CashLoan;
 import isi.project.banking.model.Client;
-import isi.project.banking.model.Deposit;
-import isi.project.banking.model.Investment;
-import isi.project.banking.model.MortgageLoan;
-import isi.project.banking.model.Transfer;
-import isi.project.banking.model.Withdraw;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -34,12 +27,12 @@ public class AccountDto {
 	
 	private Client client;
 	
-	private Set<Card> cards;
-	private Set<CashLoan> cashLoans;
-	private Set<MortgageLoan> mortgageLoans;
-	private Set<Investment> investments;
-	private Set<Transfer> transfersFrom;
-	private Set<Transfer> transfersTo;
-	private Set<Deposit> deposits;
-	private Set<Withdraw> withdrawals;
+	private List<CardDto> cards;
+	private List<CashLoanDto> cashLoans;
+	private List<MortgageLoanDto> mortgageLoans;
+	private List<InvestmentDto> investments;
+	private List<TransferDto> transfersFrom;
+	private List<TransferDto> transfersTo;
+	private List<DepositDto> deposits;
+	private List<WithdrawDto> withdrawals;
 }

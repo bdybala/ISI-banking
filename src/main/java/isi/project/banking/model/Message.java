@@ -9,11 +9,19 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.springframework.stereotype.Repository;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Repository
 @Entity
 @Table(name="MESSAGE")
+@Setter
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Message {
 
 	@Id
@@ -30,52 +38,4 @@ public class Message {
 	@ManyToOne
 	private Chat chat;
 	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getText() {
-		return text;
-	}
-	public void setText(String text) {
-		this.text = text;
-	}
-	public Date getTime() {
-		return time;
-	}
-	public void setTime(Date time) {
-		this.time = time;
-	}
-	public String getAdvisorPesel() {
-		return advisorPesel;
-	}
-	public void setAdvisorPesel(String advisorPesel) {
-		this.advisorPesel = advisorPesel;
-	}
-	public String getClientPesel() {
-		return clientPesel;
-	}
-	public void setClientPesel(String clientPesel) {
-		this.clientPesel = clientPesel;
-	}
-	public Advisor getAdvisor() {
-		return advisor;
-	}
-	public void setAdvisor(Advisor advisor) {
-		this.advisor = advisor;
-	}
-	public Client getClient() {
-		return client;
-	}
-	public void setClient(Client client) {
-		this.client = client;
-	}
-	public Chat getChat() {
-		return chat;
-	}
-	public void setChat(Chat chat) {
-		this.chat = chat;
-	}
 }

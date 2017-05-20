@@ -1,12 +1,8 @@
 package isi.project.banking.dto;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
-import isi.project.banking.model.OfferCashLoan;
-import isi.project.banking.model.OfferInvestment;
-import isi.project.banking.model.OfferMortgageLoan;
-import isi.project.banking.model.Request;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -29,9 +25,9 @@ public class ManagerDto {
 	private String nrTel;
 	private Date birthday;
 	
-	private Set<OfferCashLoan> cashLoanOffers;
-	private Set<OfferInvestment> investmentOffers;
-	private Set<OfferMortgageLoan> mortgageLoanOffers;
-	private Set<Request> requests;
+	private List<OfferCashLoanDto> cashLoanOffers;
+	private List<OfferInvestmentDto> investmentOffers;
+	private List<OfferMortgageLoanDto> mortgageLoanOffers;
+	private List<RequestDto> requests;
 	
 }

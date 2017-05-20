@@ -1,8 +1,7 @@
 package isi.project.banking.dto;
 
-import java.util.Set;
+import java.util.List;
 
-import isi.project.banking.model.Message;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,6 +17,6 @@ public class ChatDto {
 
 	private Integer id;
 
-	private Set<Message> messages;
+	private List<MessageDto> messages;
 	
 }

@@ -12,11 +12,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.springframework.stereotype.Repository;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Repository
 @Entity
 @Table(name="INVESTMENT")
+@Setter
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Investment {
 	
 	@Id
@@ -37,52 +45,4 @@ public class Investment {
 	@JoinColumn(name="ACC_NR", insertable=false)
 	private Account account;
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getAccNr() {
-		return accNr;
-	}
-	public void setAccNr(String accNr) {
-		this.accNr = accNr;
-	}
-	public Date getOpenDate() {
-		return openDate;
-	}
-	public void setOpenDate(Date openDate) {
-		this.openDate = openDate;
-	}
-	public Date getCloseDate() {
-		return closeDate;
-	}
-	public void setCloseDate(Date closeDate) {
-		this.closeDate = closeDate;
-	}
-	public Double getInterest() {
-		return interest;
-	}
-	public void setInterest(Double interest) {
-		this.interest = interest;
-	}
-	public Double getBalance() {
-		return balance;
-	}
-	public void setBalance(Double balance) {
-		this.balance = balance;
-	}
-	public Account getAccount() {
-		return account;
-	}
-	public void setAccount(Account account) {
-		this.account = account;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 }

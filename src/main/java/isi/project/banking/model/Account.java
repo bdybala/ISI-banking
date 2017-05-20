@@ -1,7 +1,7 @@
 package isi.project.banking.model;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,14 +12,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.springframework.stereotype.Repository;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Repository
 @Entity
 @Table(name="ACCOUNT")
+@Setter
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Account {
 	
-
 	@Id
 	@Column(name = "ACC_NR")
 	private String accNr;
@@ -36,21 +43,21 @@ public class Account {
 	private Client client;
 	
 	@OneToMany(mappedBy="accNr", fetch=FetchType.EAGER)
-	private Set<Card> cards;
+	private List<Card> cards;
 	@OneToMany(mappedBy="accNr", fetch=FetchType.EAGER)
-	private Set<CashLoan> cashLoans;
+	private List<CashLoan> cashLoans;
 	@OneToMany(mappedBy="accNr", fetch=FetchType.EAGER)
-	private Set<MortgageLoan> mortgageLoans;
+	private List<MortgageLoan> mortgageLoans;
 	@OneToMany(mappedBy="accNr", fetch=FetchType.EAGER)
-	private Set<Investment> investments;
+	private List<Investment> investments;
 	@OneToMany(mappedBy="accNrSender", fetch=FetchType.EAGER)
-	private Set<Transfer> transfersFrom;
+	private List<Transfer> transfersFrom;
 	@OneToMany(mappedBy="accNrReceiver", fetch=FetchType.EAGER)
-	private Set<Transfer> transfersTo;
+	private List<Transfer> transfersTo;
 	@OneToMany(mappedBy="accNr", fetch=FetchType.EAGER)
-	private Set<Deposit> deposits;
+	private List<Deposit> deposits;
 	@OneToMany(mappedBy="accNr", fetch=FetchType.EAGER)
-	private Set<Withdraw> withdrawals;
+	private List<Withdraw> withdrawals;
 	
 	public Account(String pesel, String name) {
 		super();
@@ -63,105 +70,5 @@ public class Account {
 		this.dayLimit = 0.;
 		this.interest = 0.;
 		this.openDate = new Date();
-	}
-	public Account() {
-		super();
-	}
-	
-	public String getAccNr() {
-		return accNr;
-	}
-	public void setAccNr(String accNr) {
-		this.accNr = accNr;
-	}
-	public Double getBalance() {
-		return balance;
-	}
-	public void setBalance(Double balance) {
-		this.balance = balance;
-	}
-	public Double getDayLimit() {
-		return dayLimit;
-	}
-	public void setDayLimit(Double dayLimit) {
-		this.dayLimit = dayLimit;
-	}
-	public Double getInterest() {
-		return interest;
-	}
-	public void setInterest(Double interest) {
-		this.interest = interest;
-	}
-	public Date getOpenDate() {
-		return openDate;
-	}
-	public void setOpenDate(Date openDate) {
-		this.openDate = openDate;
-	}
-	public String getPesel() {
-		return pesel;
-	}
-	public void setPesel(String pesel) {
-		this.pesel = pesel;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public Client getClient() {
-		return client;
-	}
-	public void setClient(Client client) {
-		this.client = client;
-	}
-	public Set<Card> getCards() {
-		return cards;
-	}
-	public void setCards(Set<Card> cards) {
-		this.cards = cards;
-	}
-	public Set<CashLoan> getCashLoans() {
-		return cashLoans;
-	}
-	public void setCashLoans(Set<CashLoan> cashLoans) {
-		this.cashLoans = cashLoans;
-	}
-	public Set<MortgageLoan> getMortgageLoans() {
-		return mortgageLoans;
-	}
-	public void setMortgageLoans(Set<MortgageLoan> mortgageLoans) {
-		this.mortgageLoans = mortgageLoans;
-	}
-	public Set<Investment> getInvestments() {
-		return investments;
-	}
-	public void setInvestments(Set<Investment> investments) {
-		this.investments = investments;
-	}
-	public Set<Transfer> getTransfersFrom() {
-		return transfersFrom;
-	}
-	public void setTransfersFrom(Set<Transfer> transfersFrom) {
-		this.transfersFrom = transfersFrom;
-	}
-	public Set<Transfer> getTransfersTo() {
-		return transfersTo;
-	}
-	public void setTransfersTo(Set<Transfer> transfersTo) {
-		this.transfersTo = transfersTo;
-	}
-	public Set<Deposit> getDeposits() {
-		return deposits;
-	}
-	public void setDeposits(Set<Deposit> deposits) {
-		this.deposits = deposits;
-	}
-	public Set<Withdraw> getWithdrawals() {
-		return withdrawals;
-	}
-	public void setWithdrawals(Set<Withdraw> withdrawals) {
-		this.withdrawals = withdrawals;
 	}
 }

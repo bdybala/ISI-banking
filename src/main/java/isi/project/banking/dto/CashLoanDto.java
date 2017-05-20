@@ -2,8 +2,6 @@ package isi.project.banking.dto;
 
 import java.util.Date;
 
-import isi.project.banking.model.Account;
-import isi.project.banking.model.CashSupervisor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -27,7 +25,7 @@ public class CashLoanDto {
 	private String accNr;
 	private String provider;
 	
-	private CashSupervisor cashSupervisor;
-	private Account account;
+	private CashSupervisorDto cashSupervisor;
+	private AccountDto account;
 
 }

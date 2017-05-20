@@ -1,6 +1,6 @@
 package isi.project.banking.model;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,11 +9,19 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.springframework.stereotype.Repository;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Repository
 @Entity
 @Table(name="CHAT")
+@Setter
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Chat {
 
 	@Id
@@ -21,18 +29,6 @@ public class Chat {
 	private Integer id;
 
 	@OneToMany
-	private Set<Message> messages;
+	private List<Message> messages;
 	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public Set<Message> getMessages() {
-		return messages;
-	}
-	public void setMessages(Set<Message> messages) {
-		this.messages = messages;
-	}
 }

@@ -1,11 +1,5 @@
 package isi.project.banking.dto;
 
-import javax.persistence.ManyToOne;
-
-import isi.project.banking.model.Account;
-import isi.project.banking.model.CashSupervisor;
-import isi.project.banking.model.Manager;
-import isi.project.banking.model.MortgageSupervisor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -24,13 +18,10 @@ public class RequestDto {
 	private String accNr;
 	private String applicantCash;
 	private String applicantMortgage;
-	@ManyToOne
-	private Manager manager;
-	@ManyToOne
-	private CashSupervisor cashSupervisor;
-	@ManyToOne
-	private MortgageSupervisor mortgageSupervisor;
-	@ManyToOne
-	private Account account;
+	
+	private ManagerDto manager;
+	private CashSupervisorDto cashSupervisor;
+	private MortgageSupervisorDto mortgageSupervisor;
+	private AccountDto account;
 	
 }

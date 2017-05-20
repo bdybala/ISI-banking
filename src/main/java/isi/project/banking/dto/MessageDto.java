@@ -1,9 +1,6 @@
 package isi.project.banking.dto;
 
 import java.util.Date;
-import isi.project.banking.model.Advisor;
-import isi.project.banking.model.Chat;
-import isi.project.banking.model.Client;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -23,8 +20,8 @@ public class MessageDto {
 	private String advisorPesel;
 	private String clientPesel;
 	
-	private Advisor advisor;
-	private Client client;
-	private Chat chat;
+	private AdvisorDto advisor;
+	private ClientDto client;
+	private ChatDto chat;
 
 }
