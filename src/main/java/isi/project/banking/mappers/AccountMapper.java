@@ -37,7 +37,7 @@ public class AccountMapper implements BaseMapper<Account, AccountDto> {
 				.openDate(from.getOpenDate())
 				.pesel(from.getPesel())
 				.name(from.getName())
-				.client(from.getClient())
+				.client(clientMapper.map(from.getClient()))
 				.cards(cardMapper.map(from.getCards()))
 				.cashLoans(cashLoanMapper.map(from.getCashLoans()))
 				.mortgageLoans(mortgageLoanMapper.map(from.getMortgageLoans()))

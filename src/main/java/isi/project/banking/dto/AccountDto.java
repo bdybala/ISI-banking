@@ -3,7 +3,6 @@ package isi.project.banking.dto;
 import java.util.Date;
 import java.util.List;
 
-import isi.project.banking.model.Client;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -25,7 +24,7 @@ public class AccountDto {
 	private String pesel;
 	private String name;
 	
-	private Client client;
+	private ClientDto client;
 	
 	private List<CardDto> cards;
 	private List<CashLoanDto> cashLoans;

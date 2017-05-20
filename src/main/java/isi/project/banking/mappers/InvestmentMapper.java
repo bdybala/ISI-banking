@@ -1,5 +1,6 @@
 package isi.project.banking.mappers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import isi.project.banking.dto.InvestmentDto;
@@ -8,10 +9,21 @@ import isi.project.banking.model.Investment;
 @Component
 public class InvestmentMapper implements BaseMapper<Investment, InvestmentDto> {
 
+	@Autowired
+	AccountMapper accountMapper;
+
 	@Override
 	public InvestmentDto map(Investment from) {
-		// TODO Auto-generated method stub
-		return null;
+		return InvestmentDto.builder()
+				.id(from.getId())
+				.accNr(from.getAccNr())
+				.openDate(from.getOpenDate())
+				.closeDate(from.getCloseDate())
+				.interest(from.getInterest())
+				.balance(from.getBalance())
+				.name(from.getName())
+				.account(accountMapper.map(from.getAccount()))
+				.build();
 	}
 
 }
