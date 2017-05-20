@@ -1,10 +1,12 @@
 package isi.project.banking.mappers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import isi.project.banking.dto.ManagerDto;
 import isi.project.banking.model.Manager;
 
+@Component
 public class ManagerMapper implements BaseMapper<Manager, ManagerDto> {
 
 	@Autowired

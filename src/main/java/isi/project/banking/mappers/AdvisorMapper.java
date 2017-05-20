@@ -1,8 +1,11 @@
 package isi.project.banking.mappers;
 
+import org.springframework.stereotype.Component;
+
 import isi.project.banking.dto.AdvisorDto;
 import isi.project.banking.model.Advisor;
 
+@Component
 public class AdvisorMapper implements BaseMapper<Advisor, AdvisorDto> {
 
 	@Override

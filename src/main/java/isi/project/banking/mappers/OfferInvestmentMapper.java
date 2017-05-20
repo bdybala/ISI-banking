@@ -1,10 +1,12 @@
 package isi.project.banking.mappers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import isi.project.banking.dto.OfferInvestmentDto;
 import isi.project.banking.model.OfferInvestment;
 
+@Component
 public class OfferInvestmentMapper implements BaseMapper<OfferInvestment, OfferInvestmentDto> {
 
 	@Autowired
