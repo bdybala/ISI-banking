@@ -21,8 +21,8 @@
 </head>
 
 <body>
-	<jsp:include page="admin-header.jsp" />
-	<jsp:include page="admin-panel.jsp" />
+	<jsp:include page="header.jsp" />
+	<jsp:include page="navbar.jsp" />
 
 
 </body>

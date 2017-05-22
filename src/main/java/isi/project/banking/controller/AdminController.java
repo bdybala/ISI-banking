@@ -31,7 +31,7 @@ class AdminController {
 		
 		logger.info("Admin connecting!");
 		
-		return "admin/admin-home";
+		return "admin/home";
 	}
 	
 	@RequestMapping(value="/delete-client", method=RequestMethod.GET)

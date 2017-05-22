@@ -24,22 +24,6 @@
 	<jsp:include page="header.jsp" />
 	<jsp:include page="navbar.jsp" />
 
-	DELETE CLIENT KURWA
-	<br>
-
-	<form:form modelAttribute="cl" action="delete-client" method="POST">
-		<form:select path="pesel">
-			<form:option value="0">--SELECT--</form:option>
-			<c:forEach items="${allClients}" var="client">
-				<form:option value="${client.pesel}">
-					#${client.pesel}  ${client.firstName} ${client.lastName}
-				</form:option>
-			</c:forEach>
-		</form:select>
-		<input type="submit" value="usuń">
-	</form:form>
-
-
 
 </body>
 <script src=<c:url value="/resources/js/jquery-2.1.4.min.js" />></script>

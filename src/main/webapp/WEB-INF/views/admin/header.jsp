@@ -12,6 +12,15 @@
 					<a href=<c:url value="/"/>> Investment Group</a>
 				</div>
 			</div>
+			<div id="collapsable-nav" class="collapse navbar-collapse">
+				<ul id="nav-list" class="nav navbar-nav navbar-right">
+					<li><a href=<c:url value="/logout" />> <span
+							class="glyphicon glyphicon-log-out"></span><br> Wyloguj się
+					</a></li>
+
+				</ul>
+
+			</div>
 		</div>
 		<!-- container -->
 	</nav>
