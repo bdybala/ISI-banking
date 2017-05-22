@@ -1,6 +1,7 @@
 package isi.project.banking.controller;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -15,9 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import isi.project.banking.HomeController;
+import isi.project.banking.dto.AccountDto;
+import isi.project.banking.dto.ClientDto;
+import isi.project.banking.dto.InvestmentDto;
 import isi.project.banking.model.Client;
 import isi.project.banking.model.Investment;
 import isi.project.banking.repository.InvestmentRepository;
+import isi.project.banking.service.InvestmentService;
 
 @Controller
 public class InvestmentController {
@@ -25,15 +30,15 @@ public class InvestmentController {
 	private static final Logger logger = LoggerFactory.getLogger(InvestmentController.class);
 
 	@Autowired
-	InvestmentRepository investmentRepository;
+	InvestmentService investmentService;
 	
 	@RequestMapping(value="/put-up-investment", method=RequestMethod.POST)
 	public String putUpInvestment(Locale locale, Model model, HttpSession session, 
-			@ModelAttribute("investment-form") Investment investment,
+			@ModelAttribute("investment-form") InvestmentDto investmentDto,
 			@ModelAttribute("offerInvestmentId") int offerInvestmentId,
 			@ModelAttribute("investmentDuration") int investmentDuration) {
 
-		Client client = (Client) session.getAttribute("client");
+		ClientDto client = (ClientDto) session.getAttribute("client");
 		try {
 			logger.info("l: {} putting up an investment #{}", client.getLogin(), offerInvestmentId);
 			model.addAttribute("loggedClient", client);
@@ -51,19 +56,18 @@ public class InvestmentController {
 		// timeout period (in seconds)
 		model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
 		
-		
-		investment.setOpenDate(new Date());
-		Date closeDate = new Date((long) (investment.getOpenDate().getTime() + (long)investmentDuration*86400000));
-		investment.setCloseDate(closeDate);
-		investmentRepository.save(investment);;
+		investmentDto.setOpenDate(new Date());
+		Date closeDate = new Date((long) (investmentDto.getOpenDate().getTime() + (long)investmentDuration*86400000));
+		investmentDto.setCloseDate(closeDate);
+		investmentService.save(investmentDto);
 		System.out.println(
-				"ID: " + investment.getId() + "\n" +
-				"Name: " + investment.getName() + "\n" +
-				"accNr: " + investment.getAccNr() + "\n" +
-				"openDate: " + investment.getOpenDate() + "\n" +
-				"closeDate: " + investment.getCloseDate() + "\n" +
-				"interest: " + investment.getInterest() + "\n" +
-				"balance: " + investment.getBalance()
+				"ID: " + investmentDto.getId() + "\n" +
+				"Name: " + investmentDto.getName() + "\n" +
+				"accNr: " + investmentDto.getAccNr() + "\n" +
+				"openDate: " + investmentDto.getOpenDate() + "\n" +
+				"closeDate: " + investmentDto.getCloseDate() + "\n" +
+				"interest: " + investmentDto.getInterest() + "\n" +
+				"balance: " + investmentDto.getBalance()
 				);
 		
 		return new HomeController().home(locale, model, session);
@@ -72,10 +76,17 @@ public class InvestmentController {
 	@RequestMapping(value="/investments", method=RequestMethod.GET)
 	public String investments(Locale locale, Model model, HttpSession session) {
 		
-		Client client = (Client) session.getAttribute("client");
+		ClientDto clientDto = (ClientDto) session.getAttribute("client");
 		try {
-			logger.info("l: {} checking his investments", client.getLogin());
-			model.addAttribute("loggedClient", client);
+			logger.info("l: {} checking his investments", clientDto.getLogin());
+			List<InvestmentDto> investmentsByAccount ;
+			
+			for(AccountDto accountDto: clientDto.getAccounts()) {
+				investmentsByAccount = investmentService.findByAccountAccNr(accountDto.getAccNr());
+				accountDto.setInvestments(investmentsByAccount);
+			}
+			
+			model.addAttribute("loggedClient", clientDto);
 		} catch (NullPointerException e) {
 			// TODO Auto-generated catch block
 			logger.info("Logged account: NOT LOGGED");

@@ -1,7 +1,10 @@
 package isi.project.banking.service;
 
-import isi.project.banking.model.Investment;
+import java.util.List;
 
-public interface InvestmentService extends BaseService<Investment, Integer> {
+import isi.project.banking.dto.InvestmentDto;
 
+public interface InvestmentService extends BaseService<InvestmentDto, Integer> {
+
+	List<InvestmentDto> findByAccountAccNr(String accNr);
 }

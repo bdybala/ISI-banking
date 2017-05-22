@@ -66,6 +66,7 @@ public class HomeController {
 
 			// transfer history
 			List<List<AbstractTransaction>> transferHistory = new ArrayList<List<AbstractTransaction>>();
+			// TODO transfer history with DTO
 //			for(Account account: client.getAccounts()) {
 //				transferHistory.add(AccountService.getTransactionsFromAccount(account));
 //			}

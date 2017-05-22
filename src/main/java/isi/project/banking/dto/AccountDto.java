@@ -26,4 +26,13 @@ public class AccountDto {
 	
 	private ClientDto client;
 	
+	private List<CardDto> cards;
+	private List<CashLoanDto> cashLoans;
+	private List<MortgageLoanDto> mortgageLoans;
+	private List<InvestmentDto> investments;
+	private List<TransferDto> transfersFrom;
+	private List<TransferDto> transfersTo;
+	private List<DepositDto> deposits;
+	private List<WithdrawDto> withdrawals;
+	
 }

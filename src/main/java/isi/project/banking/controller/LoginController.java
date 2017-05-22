@@ -63,7 +63,7 @@ public class LoginController {
 		logger.info("logged in! #" + clientDto.getPesel());
 
 		List<AccountDto> accountsByPesel = accountService.findByPesel(clientDto.getPesel());
-		clientDto.setAccounts( accountsByPesel);
+		clientDto.setAccounts(accountsByPesel);
 		session.setAttribute("client", clientDto);
 
 		// test

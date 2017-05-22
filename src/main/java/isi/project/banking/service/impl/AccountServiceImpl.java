@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import isi.project.banking.dto.AccountDto;
 import isi.project.banking.exceptions.EntityNotFoundException;
 import isi.project.banking.mappers.AccountMapper;
-import isi.project.banking.model.Account;
 import isi.project.banking.repository.AccountRepository;
 import isi.project.banking.service.AccountService;
 
@@ -59,7 +58,7 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public void removeByPesel(String pesel) throws EntityNotFoundException {
-		// TODO Auto-generated method stub
+		// TODO nie wiem czy jest sens jeszce, trzeba rozkminiæ
 		
 	}
 	
