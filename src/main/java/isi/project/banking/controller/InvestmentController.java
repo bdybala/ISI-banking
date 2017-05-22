@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import isi.project.banking.HomeController;
-import isi.project.banking.dao.InvestmentDao;
 import isi.project.banking.model.Client;
 import isi.project.banking.model.Investment;
+import isi.project.banking.repository.InvestmentRepository;
 
 @Controller
 public class InvestmentController {
@@ -25,7 +25,7 @@ public class InvestmentController {
 	private static final Logger logger = LoggerFactory.getLogger(InvestmentController.class);
 
 	@Autowired
-	InvestmentDao investmentDao;
+	InvestmentRepository investmentRepository;
 	
 	@RequestMapping(value="/put-up-investment", method=RequestMethod.POST)
 	public String putUpInvestment(Locale locale, Model model, HttpSession session, 
@@ -55,7 +55,7 @@ public class InvestmentController {
 		investment.setOpenDate(new Date());
 		Date closeDate = new Date((long) (investment.getOpenDate().getTime() + (long)investmentDuration*86400000));
 		investment.setCloseDate(closeDate);
-		investmentDao.create(investment);;
+		investmentRepository.save(investment);;
 		System.out.println(
 				"ID: " + investment.getId() + "\n" +
 				"Name: " + investment.getName() + "\n" +

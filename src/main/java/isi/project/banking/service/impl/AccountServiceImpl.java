@@ -3,6 +3,8 @@ package isi.project.banking.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,10 @@ public class AccountServiceImpl implements AccountService {
 	public Optional<Account> findOne(String accNr) {
 		return Optional.ofNullable(accountRepository.findOne(accNr));
 	}
+	
+	public Optional<Account> findByPesel(String pesel) {
+		return Optional.ofNullable(accountRepository.findByPesel(pesel));
+	}
 
 	@Override
 	public List<Account> findAll() {
@@ -39,9 +45,17 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
+	@Transactional
 	public void remove(String accNr) throws EntityNotFoundException {
 		accountRepository.delete(findOne(accNr).orElseThrow(() 
 				-> new EntityNotFoundException("Account with that accNr not found!")));
+	}
+	
+	@Override
+	@Transactional
+	public void removeByPesel(String pesel) throws EntityNotFoundException {
+		accountRepository.delete(findByPesel(pesel).orElseThrow(() 
+				-> new EntityNotFoundException("Account with that pesel not found!")));
 	}
 
 }

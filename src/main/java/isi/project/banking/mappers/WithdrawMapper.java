@@ -24,4 +24,16 @@ public class WithdrawMapper implements BaseMapper<Withdraw, WithdrawDto> {
 				.build();
 	}
 
+	@Override
+	public Withdraw unmap(WithdrawDto from) {
+		return Withdraw.builder()
+				.id(from.getId())
+				.amount(from.getAmount())
+				.orderDate(from.getOrderDate())
+				.executionDate(from.getExecutionDate())
+				.accNr(from.getAccNr())
+				.account(accountMapper.unmap(from.getAccount()))
+				.build();
+	}
+	
 }

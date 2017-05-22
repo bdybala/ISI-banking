@@ -31,4 +31,21 @@ public class MortgageLoanMapper implements BaseMapper<MortgageLoan, MortgageLoan
 				.build();
 	}
 
+	@Override
+	public MortgageLoan unmap(MortgageLoanDto from) {
+		return MortgageLoan.builder()
+				.id(from.getId())
+				.installments(from.getInstallments())
+				.interest(from.getInterest())
+				.sum(from.getSum())
+				.grantDate(from.getGrantDate())
+				.repaymentDate(from.getRepaymentDate())
+				.settledInterest(from.getSettledInterest())
+				.accNr(from.getAccNr())
+				.provider(from.getProvider())
+				.mortgageSupervisor(mortgageSupervisorMapper.unmap(from.getMortgageSupervisor()))
+				.account(accountMapper.unmap(from.getAccount()))
+				.build();
+	}
+	
 }

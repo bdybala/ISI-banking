@@ -7,9 +7,9 @@ import javax.persistence.Persistence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import isi.project.banking.dao.AccountDao;
 import isi.project.banking.model.Account;
 import isi.project.banking.model.Transfer;
+import isi.project.banking.repository.AccountRepository;
 
 @Service
 public class TransferService {
@@ -17,18 +17,19 @@ public class TransferService {
 	EntityManager em = emf.createEntityManager();
 	
 	@Autowired
-	AccountDao accountDao;
+	AccountRepository accountRepository;
+	
 	public void transfer(Transfer transfer, String pesel) {
 		
-		Account anr = accountDao.findOne(transfer.getAccNrReceiver());
-		Account ans = accountDao.findByPesel(pesel).get(0);
+		Account anr = accountRepository.findOne(transfer.getAccNrReceiver());
+		Account ans = accountRepository.findByPesel(pesel);
 		transfer.setAccNrSender(ans.getAccNr());
 		System.out.println(ans.getPesel());
 		ans.setBalance(ans.getBalance() - transfer.getAmount());
 		anr.setBalance(anr.getBalance() + transfer.getAmount());
 		
-		accountDao.update(ans);
-		accountDao.update(anr);
+		accountRepository.save(ans);
+		accountRepository.save(anr);
 		create(transfer);
 	}
 	

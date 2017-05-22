@@ -3,6 +3,7 @@ package isi.project.banking.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -40,9 +41,9 @@ public class Client {
 	@Column(name="NR_TEL")
 	private String nrTel;
 	private Date birthday;
-	@OneToMany
+	@OneToMany(mappedBy="client", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<Message> messages;
-	@OneToMany(fetch=FetchType.EAGER, mappedBy="client")
+	@OneToMany(mappedBy="client", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<Account> accounts;
 	
 	@Override

@@ -1,7 +1,7 @@
 package isi.project.banking.service;
 
-import isi.project.banking.model.Client;
+import isi.project.banking.dto.ClientDto;
 
-public interface ClientService extends BaseService<Client, String>{
+public interface ClientService extends BaseService<ClientDto, String>{
 
 }

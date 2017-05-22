@@ -25,7 +25,4 @@ public class MortgageSupervisorDto {
 	private String nrTel;
 	private Date birthday;
 	
-	private List<RequestDto> requests;
-	private List<MortgageLoanDto> mortgageLoans;
-	
 }

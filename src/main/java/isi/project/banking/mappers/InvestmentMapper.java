@@ -26,4 +26,18 @@ public class InvestmentMapper implements BaseMapper<Investment, InvestmentDto> {
 				.build();
 	}
 
+	@Override
+	public Investment unmap(InvestmentDto from) {
+		return Investment.builder()
+				.id(from.getId())
+				.accNr(from.getAccNr())
+				.openDate(from.getOpenDate())
+				.closeDate(from.getCloseDate())
+				.interest(from.getInterest())
+				.balance(from.getBalance())
+				.name(from.getName())
+				.account(accountMapper.unmap(from.getAccount()))
+				.build();
+	}
+	
 }

@@ -22,4 +22,17 @@ public class BankerMapper implements BaseMapper<Banker, BankerDto> {
 				.build();
 	}
 
+	@Override
+	public Banker unmap(BankerDto from) {
+		return Banker.builder()
+				.pesel(from.getPesel())
+				.login(from.getLogin())
+				.password(from.getPassword())
+				.firstName(from.getFirstName())
+				.lastName(from.getLastName())
+				.email(from.getEmail())
+				.nrTel(from.getNrTel())
+				.birthday(from.getBirthday())
+				.build();
+	}
 }

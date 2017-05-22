@@ -4,9 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -23,11 +20,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import isi.project.banking.HomeController;
-import isi.project.banking.dao.AccountDao;
-import isi.project.banking.dao.ClientDao;
 import isi.project.banking.model.Account;
 import isi.project.banking.model.Client;
-import isi.project.banking.model.account.AccountService;
+import isi.project.banking.repository.AccountRepository;
+import isi.project.banking.repository.ClientRepository;
 
 @Controller
 public class ClientController {
@@ -35,9 +31,9 @@ public class ClientController {
 	private static final Logger logger = LoggerFactory.getLogger(ClientController.class);
 	
 	@Autowired
-	ClientDao clientDao;
+	ClientRepository clientRepository;
 	@Autowired
-	AccountDao accountDao;
+	AccountRepository accountRepository;
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView register(Locale locale, Model model) {
@@ -53,10 +49,10 @@ public class ClientController {
 
 		logger.info("register! " + client);
 		
-		clientDao.create(client);
-		accountDao.create(new Account(client.getPesel(), "eKonto"));
+		clientRepository.save(client);
+		accountRepository.save(new Account(client.getPesel(), "eKonto"));
 		
-		return new HomeController().home(locale, model, session);
+		return "redirect:/";
 	}
 	//TODO
 	@RequestMapping(value = "/change-password")

@@ -3,9 +3,6 @@ package isi.project.banking.controller;
 import java.util.Date;
 import java.util.Locale;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -17,10 +14,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import isi.project.banking.dao.OfferCashLoanDao;
-import isi.project.banking.dao.OfferInvestmentDao;
-import isi.project.banking.dao.OfferMortgageLoanDao;
 import isi.project.banking.model.Client;
+import isi.project.banking.repository.OfferCashLoanRepository;
+import isi.project.banking.repository.OfferInvestmentRepository;
+import isi.project.banking.repository.OfferMortgageLoanRepository;
 
 @Controller
 public class OfferController {
@@ -28,11 +25,11 @@ public class OfferController {
 	private static final Logger logger = LoggerFactory.getLogger(OfferController.class);
 	
 	@Autowired
-	OfferInvestmentDao offerInvestmentDao;
+	OfferInvestmentRepository offerInvestmentRepository;
 	@Autowired
-	OfferCashLoanDao offerCashLoanDao;
+	OfferCashLoanRepository offerCashLoanRepository;
 	@Autowired
-	OfferMortgageLoanDao offerMortgageLoanDao;
+	OfferMortgageLoanRepository offerMortgageLoanRepository;
 
 	@RequestMapping(value = "/offer-investments", method = RequestMethod.GET)
 	public String investments( Model model, HttpSession session) {
@@ -58,7 +55,7 @@ public class OfferController {
 
 
 		// offer investments
-		model.addAttribute("offerInvestments", offerInvestmentDao.findAll());
+		model.addAttribute("offerInvestments", offerInvestmentRepository.findAll());
 
 		return "client/offer-investments";
 
@@ -88,7 +85,7 @@ public class OfferController {
 
 
 		// specific investment offer
-		model.addAttribute("investmentOfferShown", offerInvestmentDao.findOne(offerInvestmentId));
+		model.addAttribute("investmentOfferShown", offerInvestmentRepository.findOne(offerInvestmentId));
 
 		return "client/offer-investments-1";
 	}
@@ -116,8 +113,8 @@ public class OfferController {
 		model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
 
 		// loans offer
-		model.addAttribute("offerMortgageLoans", offerMortgageLoanDao.findAll());
-		model.addAttribute("offerCashLoans", offerCashLoanDao.findAll());
+		model.addAttribute("offerMortgageLoans", offerMortgageLoanRepository.findAll());
+		model.addAttribute("offerCashLoans", offerCashLoanRepository.findAll());
 
 
 		return "client/offer-loans";

@@ -17,8 +17,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import isi.project.banking.HomeController;
 import isi.project.banking.auth.SmsSender;
-import isi.project.banking.dao.ClientDao;
 import isi.project.banking.model.Client;
+import isi.project.banking.repository.ClientRepository;
 
 @Controller
 public class LoginController {
@@ -26,8 +26,8 @@ public class LoginController {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	@Autowired
-	ClientDao clientDao;
-
+	ClientRepository clientRepository;
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView client(Locale locale, Model model,
 			HttpSession session) {
@@ -44,7 +44,7 @@ public class LoginController {
 
 		logger.info("logging in: l:{} p:{}", client.getLogin(), client.getPassword());
 
-		client = clientDao.findByLoginAndPassword(client.getLogin(), client.getPassword());
+		client = clientRepository.findByLoginAndPassword(client.getLogin(), client.getPassword());
 		logger.info("logged in! #" + client.getPesel());
 
 		session.setAttribute("client", client);

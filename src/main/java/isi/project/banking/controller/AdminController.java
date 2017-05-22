@@ -7,25 +7,32 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
-import isi.project.banking.dao.ClientDao;
+import isi.project.banking.exceptions.EntityNotFoundException;
 import isi.project.banking.model.Client;
+import isi.project.banking.service.AccountService;
+import isi.project.banking.service.ClientService;
 
 @Controller
 @RequestMapping(value = "/admin")
 class AdminController {
+	
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	
 	@Autowired
-	ClientDao clientDao;
+	@Qualifier("ClientService")
+	ClientService clientService;
+	@Autowired
+	@Qualifier("AccountService")
+	AccountService accountService;
 	
-	//TODO
 	@RequestMapping(value = "", method=RequestMethod.GET)
 	public String admin(Locale locale, Model model, HttpSession session){
 		
@@ -34,33 +41,30 @@ class AdminController {
 		return "admin/admin-home";
 	}
 	
-	@RequestMapping(value="/delete-client", method=RequestMethod.GET)
-	public String deleteClient(Locale locale, Model model, HttpSession session) {
+	@RequestMapping(value = "/clients")
+	public ModelAndView clients(Locale locale, Model model, HttpSession session) {
 		
-		logger.info("Admin intends to delete client!");
+		logger.info("Admin checking clients list!");
 		
-		model.addAttribute("allClients", clientDao.findAll());
-		model.addAttribute("cl", new Client());
+		model.addAttribute("allClients", clientService.findAll());
+		model.addAttribute("clientToDelete", new Client());
 		
-		return "admin/delete-client";
+		return new ModelAndView("admin/admin-clients");
 	}
 	
-	@RequestMapping(value="/delete-client", method=RequestMethod.POST)
+	@RequestMapping(value="/delete-client")
 	public String deleteClient(Locale locale, Model model, HttpSession session,
-			@ModelAttribute("cl") Client client,
-			@RequestParam("pesel") String pesel) {
+			@ModelAttribute Client clientToDelete) {
 		
-		// TODO deleting client
-//		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaHibernate.isi");
-//		EntityManager em = emf.createEntityManager();
-//		
-//		ClientService clientService = new ClientService(em);
-//		TODO clientService.deleteClient();
-//		
-		
-		System.out.println("client: " + client.getPesel());
-		System.out.println("Pesel: " + pesel);
-		return new AdminController().deleteClient(locale, model, session);
+		logger.info("Admin deletes client with pesel: " + clientToDelete.getPesel());
+		System.out.println("WYJEB: client: " + clientToDelete.getPesel());
+		try {
+			accountService.removeByPesel(clientToDelete.getPesel());
+			clientService.remove(clientToDelete.getPesel());
+		} catch (EntityNotFoundException e) {
+			e.printStackTrace();
+		}
+		return "redirect:/admin/clients";
 	}
-
+	
 }

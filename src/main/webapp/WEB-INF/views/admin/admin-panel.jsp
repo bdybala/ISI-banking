@@ -8,16 +8,8 @@
 				<li><a href=<c:url value="/admin"/>>WIDOK GLOWNY</a></li>
 
 				<!-- Konta klienta -->
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Konta Klienta <span
-						class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href=<c:url value="/admin/delete-client"/>> Usuń</a></li>
-						<li class="divider"></li>
-						<li><a href=<c:url value="#"/>> Edytuj</a></li>
-						<li class="divider"></li>
-						<li><a href=<c:url value="#"/>> Historia logów</a></li>
-					</ul></li>
+				<li class="dropdown"><a href=<c:url value="/admin/clients"/>>Klienci <span class="caret"></span></a>
+				</li>
 
 				<!-- Resetowanie hasła -->
 				<li><a href=<c:url value="#"/>>Resetowanie hasel</a></li>

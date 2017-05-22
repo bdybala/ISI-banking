@@ -28,4 +28,20 @@ public class OfferCashLoanMapper implements BaseMapper<OfferCashLoan, OfferCashL
 				.build();
 	}
 
+	@Override
+	public OfferCashLoan unmap(OfferCashLoanDto from) {
+		return OfferCashLoan.builder()
+				.id(from.getId())
+				.name(from.getName())
+				.interest(from.getInterest())
+				.interestType(from.getInterestType())
+				.minSum(from.getMinSum())
+				.maxSum(from.getMaxSum())
+				.minInstallments(from.getMinInstallments())
+				.maxInstallments(from.getMaxInstallments())
+				.author(from.getAuthor())
+				.manager(managerMapper.unmap(from.getManager()))
+				.build();
+	}
+	
 }

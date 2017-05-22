@@ -16,7 +16,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import isi.project.banking.dao.ClientDao;
 import isi.project.banking.model.AbstractTransaction;
 import isi.project.banking.model.Account;
 import isi.project.banking.model.Client;

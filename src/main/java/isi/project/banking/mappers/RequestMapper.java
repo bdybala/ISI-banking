@@ -33,4 +33,19 @@ public class RequestMapper implements BaseMapper<Request, RequestDto> {
 				.build();
 	}
 
+	@Override
+	public Request unmap(RequestDto from) {
+		return Request.builder()
+				.id(from.getId())
+				.cause(from.getCause())
+				.accNr(from.getAccNr())
+				.applicantCash(from.getApplicantCash())
+				.applicantMortgage(from.getApplicantMortgage())
+				.manager(managerMapper.unmap(from.getManager()))
+				.cashSupervisor(cashSupervisorMapper.unmap(from.getCashSupervisor()))
+				.mortgageSupervisor(mortgageSupervisorMapper.unmap(from.getMortgageSupervisor()))
+				.account(accountMapper.unmap(from.getAccount()))
+				.build();
+	}
+	
 }
