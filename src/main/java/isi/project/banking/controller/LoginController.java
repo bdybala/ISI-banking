@@ -2,7 +2,6 @@ package isi.project.banking.controller;
 
 import java.util.List;
 import java.util.Locale;
-import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
@@ -23,8 +22,6 @@ import isi.project.banking.dto.AccountDto;
 import isi.project.banking.dto.ClientDto;
 import isi.project.banking.exceptions.EntityNotFoundException;
 import isi.project.banking.model.Client;
-import isi.project.banking.repository.AccountRepository;
-import isi.project.banking.repository.ClientRepository;
 import isi.project.banking.service.AccountService;
 import isi.project.banking.service.ClientService;
 

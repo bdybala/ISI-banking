@@ -1,7 +1,10 @@
 package isi.project.banking.service;
 
-import isi.project.banking.model.CashLoan;
+import java.util.List;
 
-public interface CashLoanService extends BaseService<CashLoan, Integer> {
+import isi.project.banking.dto.CashLoanDto;
 
+public interface CashLoanService extends BaseService<CashLoanDto, Integer> {
+
+	List<CashLoanDto> findByAccountAccNr(String accNr);
 }

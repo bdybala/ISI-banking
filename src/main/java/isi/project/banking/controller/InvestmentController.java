@@ -19,9 +19,6 @@ import isi.project.banking.HomeController;
 import isi.project.banking.dto.AccountDto;
 import isi.project.banking.dto.ClientDto;
 import isi.project.banking.dto.InvestmentDto;
-import isi.project.banking.model.Client;
-import isi.project.banking.model.Investment;
-import isi.project.banking.repository.InvestmentRepository;
 import isi.project.banking.service.InvestmentService;
 
 @Controller
@@ -79,7 +76,7 @@ public class InvestmentController {
 		ClientDto clientDto = (ClientDto) session.getAttribute("client");
 		try {
 			logger.info("l: {} checking his investments", clientDto.getLogin());
-			List<InvestmentDto> investmentsByAccount ;
+			List<InvestmentDto> investmentsByAccount;
 			
 			for(AccountDto accountDto: clientDto.getAccounts()) {
 				investmentsByAccount = investmentService.findByAccountAccNr(accountDto.getAccNr());

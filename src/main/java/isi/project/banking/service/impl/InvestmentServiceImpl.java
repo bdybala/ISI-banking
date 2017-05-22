@@ -44,6 +44,7 @@ public class InvestmentServiceImpl implements InvestmentService {
 
 	@Override
 	public Optional<InvestmentDto> update(InvestmentDto investmentDao) {
+		//TODO first findOne in repo, (orElseThrow) than save
 		return Optional.ofNullable(investmentMapper.map(investmentRepository.save(investmentMapper.unmap(investmentDao))));
 	}
 

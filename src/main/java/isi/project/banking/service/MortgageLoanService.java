@@ -1,7 +1,10 @@
 package isi.project.banking.service;
 
-import isi.project.banking.model.MortgageLoan;
+import java.util.List;
 
-public interface MortgageLoanService extends BaseService<MortgageLoan, Integer> {
+import isi.project.banking.dto.MortgageLoanDto;
 
+public interface MortgageLoanService extends BaseService<MortgageLoanDto, Integer> {
+
+	List<MortgageLoanDto> findByAccountAccNr(String accNr);
 }

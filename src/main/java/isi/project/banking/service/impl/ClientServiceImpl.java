@@ -44,6 +44,7 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public Optional<ClientDto> update(ClientDto clientDto) {
+		//TODO first findOne in repo, (orElseThrow) than save
 		return Optional.ofNullable(clientMapper.map(clientRepository.save(clientMapper.unmap(clientDto))));
 	}
 	@Override
