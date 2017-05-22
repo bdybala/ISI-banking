@@ -6,56 +6,61 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import isi.project.banking.dto.AccountDto;
 import isi.project.banking.exceptions.EntityNotFoundException;
+import isi.project.banking.mappers.AccountMapper;
 import isi.project.banking.model.Account;
 import isi.project.banking.repository.AccountRepository;
 import isi.project.banking.service.AccountService;
 
 @Service("AccountService")
+@Primary
 public class AccountServiceImpl implements AccountService {
 
 	@Autowired
 	AccountRepository accountRepository;
+	@Autowired
+	AccountMapper accountMapper;
 	
 	@Override
-	public Optional<Account> findOne(String accNr) {
-		return Optional.ofNullable(accountRepository.findOne(accNr));
+	public Optional<AccountDto> findOne(String accNr) {
+		return Optional.ofNullable(accountMapper.map(accountRepository.findOne(accNr)));
 	}
 	
-	public Optional<Account> findByPesel(String pesel) {
-		return Optional.ofNullable(accountRepository.findByPesel(pesel));
+	@Override
+	public List<AccountDto> findByPesel(String pesel) {
+		return accountMapper.map(accountRepository.findByPesel(pesel));
 	}
 
 	@Override
-	public List<Account> findAll() {
-		return accountRepository.findAll();
+	public List<AccountDto> findAll() {
+		return accountMapper.map(accountRepository.findAll());
 	}
 
 	@Override
-	public Optional<Account> save(Account account) {
-		return Optional.ofNullable(accountRepository.save(account));
+	public Optional<AccountDto> save(AccountDto accountDto) {
+		return Optional.ofNullable(accountMapper.map(accountRepository.save(accountMapper.unmap(accountDto))));
 	}
 
 	@Override
-	public Optional<Account> update(Account account) {
-		return Optional.ofNullable(accountRepository.save(account));
+	public Optional<AccountDto> update(AccountDto accountDto) {
+		return Optional.ofNullable(accountMapper.map(accountRepository.save(accountMapper.unmap(accountDto))));
 	}
 
 	@Override
 	@Transactional
 	public void remove(String accNr) throws EntityNotFoundException {
-		accountRepository.delete(findOne(accNr).orElseThrow(() 
-				-> new EntityNotFoundException("Account with that accNr not found!")));
-	}
-	
-	@Override
-	@Transactional
-	public void removeByPesel(String pesel) throws EntityNotFoundException {
-		accountRepository.delete(findByPesel(pesel).orElseThrow(() 
-				-> new EntityNotFoundException("Account with that pesel not found!")));
+		accountRepository.delete(accountMapper.unmap(findOne(accNr).orElseThrow(() 
+				-> new EntityNotFoundException("Account with that accNr not found!"))));
 	}
 
+	@Override
+	public void removeByPesel(String pesel) throws EntityNotFoundException {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

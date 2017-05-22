@@ -3,7 +3,6 @@ package isi.project.banking.dto;
 import java.util.Date;
 import java.util.List;
 
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -25,5 +24,7 @@ public class ClientDto {
 	private String email;
 	private String nrTel;
 	private Date birthday;
+	
+	List<AccountDto> accounts;
 	
 }

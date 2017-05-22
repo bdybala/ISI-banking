@@ -51,7 +51,7 @@ class AdminController {
 		
 		return new ModelAndView("admin/admin-clients");
 	}
-	
+	 
 	@RequestMapping(value="/delete-client")
 	public String deleteClient(Locale locale, Model model, HttpSession session,
 			@ModelAttribute Client clientToDelete) {

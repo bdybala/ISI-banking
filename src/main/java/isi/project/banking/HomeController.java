@@ -16,11 +16,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import isi.project.banking.dto.ClientDto;
 import isi.project.banking.model.AbstractTransaction;
-import isi.project.banking.model.Account;
-import isi.project.banking.model.Client;
-import isi.project.banking.model.account.AccountService;
-import isi.project.banking.repository.ClientRepository;
+import isi.project.banking.service.AccountService;
+import isi.project.banking.service.ClientService;
 
 /**
  * Handles requests for the application home page.
@@ -29,7 +28,9 @@ import isi.project.banking.repository.ClientRepository;
 public class HomeController {
 	
 	@Autowired
-	ClientRepository clientRepository;
+	ClientService clientService;
+	@Autowired
+	AccountService accountService;
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -47,11 +48,7 @@ public class HomeController {
 
 		model.addAttribute("serverTime", formattedDate);
 
-		System.out.println("clientRepository:" + clientRepository);
-		List<Client> allClients = clientRepository.findAll();
-		model.addAttribute("clients", allClients);
-
-		Client client = (Client) session.getAttribute("client");
+		ClientDto client = (ClientDto) session.getAttribute("client");
 		try {
 
 			logger.info("Logged account: {}", client.getPesel());
@@ -69,9 +66,9 @@ public class HomeController {
 
 			// transfer history
 			List<List<AbstractTransaction>> transferHistory = new ArrayList<List<AbstractTransaction>>();
-			for(Account account: client.getAccounts()) {
-				transferHistory.add(AccountService.getTransactionsFromAccount(account));
-			}
+//			for(Account account: client.getAccounts()) {
+//				transferHistory.add(AccountService.getTransactionsFromAccount(account));
+//			}
 			model.addAttribute("transferHistory", transferHistory);
 			
 			return "client/user_account";

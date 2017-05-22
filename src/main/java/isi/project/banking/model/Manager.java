@@ -37,11 +37,11 @@ public class Manager {
 	@Column(name="NR_TEL")
 	private String nrTel;
 	private Date birthday;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="manager")
+	@OneToMany(mappedBy="manager")
 	private List<OfferCashLoan> cashLoanOffers;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="manager")
+	@OneToMany(mappedBy="manager")
 	private List<OfferInvestment> investmentOffers;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="manager")
+	@OneToMany(mappedBy="manager")
 	private List<OfferMortgageLoan> mortgageLoanOffers;
 	@OneToMany
 	private List<Request> requests;

@@ -4,17 +4,18 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import isi.project.banking.dto.ClientDto;
 import isi.project.banking.exceptions.EntityNotFoundException;
 import isi.project.banking.mappers.ClientMapper;
-import isi.project.banking.model.Client;
 import isi.project.banking.repository.ClientRepository;
 import isi.project.banking.service.ClientService;
 
 @Service("ClientService")
+@Primary
 public class ClientServiceImpl implements ClientService {
 
 	@Autowired
@@ -26,6 +27,12 @@ public class ClientServiceImpl implements ClientService {
 	public Optional<ClientDto> findOne(String pesel) {
 		return Optional.ofNullable(clientMapper.map(clientRepository.findOne(pesel)));
 	}
+	
+	@Override
+	public Optional<ClientDto> findByLoginAndPassword(String login, String password) {
+		return Optional.ofNullable(clientMapper.map(clientRepository.findByLoginAndPassword(login, password)));
+	}
+	
 	@Override
 	public List<ClientDto> findAll() {
 		return clientMapper.map(clientRepository.findAll());
