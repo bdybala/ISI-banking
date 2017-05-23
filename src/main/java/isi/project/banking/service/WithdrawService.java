@@ -1,7 +1,10 @@
 package isi.project.banking.service;
 
-import isi.project.banking.model.Withdraw;
+import java.util.List;
 
-public interface WithdrawService extends BaseService<Withdraw, Integer> {
+import isi.project.banking.dto.WithdrawDto;
 
+public interface WithdrawService extends BaseService<WithdrawDto, Integer> {
+
+	public List<WithdrawDto> findByAccountAccNr(String accNr);
 }

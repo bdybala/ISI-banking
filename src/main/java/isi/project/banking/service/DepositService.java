@@ -1,7 +1,10 @@
 package isi.project.banking.service;
 
-import isi.project.banking.model.Deposit;
+import java.util.List;
 
-public interface DepositService extends BaseService<Deposit, Integer> {
+import isi.project.banking.dto.DepositDto;
 
+public interface DepositService extends BaseService<DepositDto, Integer> {
+
+	public List<DepositDto> findByAccountAccNr(String accNr);
 }

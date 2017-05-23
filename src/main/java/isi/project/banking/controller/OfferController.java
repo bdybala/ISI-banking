@@ -15,10 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import isi.project.banking.dto.ClientDto;
-import isi.project.banking.model.Client;
-import isi.project.banking.repository.OfferCashLoanRepository;
-import isi.project.banking.repository.OfferInvestmentRepository;
-import isi.project.banking.repository.OfferMortgageLoanRepository;
 import isi.project.banking.service.OfferCashLoanService;
 import isi.project.banking.service.OfferInvestmentService;
 import isi.project.banking.service.OfferMortgageLoanService;

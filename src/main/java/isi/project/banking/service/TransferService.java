@@ -1,7 +1,11 @@
 package isi.project.banking.service;
 
-import isi.project.banking.model.Transfer;
+import java.util.List;
 
-public interface TransferService extends BaseService<Transfer, Integer> {
+import isi.project.banking.dto.TransferDto;
 
+public interface TransferService extends BaseService<TransferDto, Integer> {
+
+	public List<TransferDto> findBySenderAccNr(String accNr);
+	public List<TransferDto> findByReceiverAccNr(String accNr);
 }
