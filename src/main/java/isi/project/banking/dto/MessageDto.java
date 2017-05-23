@@ -19,9 +19,5 @@ public class MessageDto {
 	private Date time;
 	private String advisorPesel;
 	private String clientPesel;
-	
-	private AdvisorDto advisor;
-	private ClientDto client;
-	private ChatDto chat;
-
+	private Integer chatId;
 }

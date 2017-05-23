@@ -13,8 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import isi.project.banking.dao.CardDao;
 import isi.project.banking.model.Client;
+import isi.project.banking.repository.CardRepository;
 
 @Controller
 public class CardController {
@@ -22,7 +22,7 @@ public class CardController {
 	private static final Logger logger = LoggerFactory.getLogger(CardController.class);
 	
 	@Autowired
-	CardDao cardDao;
+	CardRepository cardRepository;
 	
 	@RequestMapping(value = "/card", method = RequestMethod.GET)
 	public String investments(Locale locale, Model model, HttpSession session) {
@@ -39,7 +39,7 @@ public class CardController {
 		}
 
 		
-		model.addAttribute("card", cardDao.findAll());
+		model.addAttribute("card", cardRepository.findAll());
 		
 		// last session access (in miliseconds)
 		Date currentDate = new Date();

@@ -34,4 +34,5 @@ public class AccountDto {
 	private List<TransferDto> transfersTo;
 	private List<DepositDto> deposits;
 	private List<WithdrawDto> withdrawals;
+	
 }

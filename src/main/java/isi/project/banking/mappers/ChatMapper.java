@@ -20,4 +20,12 @@ public class ChatMapper implements BaseMapper<Chat, ChatDto> {
 				.build();
 	}
 
+	@Override
+	public Chat unmap(ChatDto from) {
+		return Chat.builder()
+				.id(from.getId())
+				.messages(messageMapper.unmap(from.getMessages()))
+				.build();	
+	}
+	
 }

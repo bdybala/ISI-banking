@@ -16,5 +16,14 @@ public class AdministratorMapper implements BaseMapper<Administrator, Administra
 				.password(from.getPassword())
 				.build();
 	}
+	
+	@Override
+	public Administrator unmap(AdministratorDto from) {
+		return Administrator.builder()
+				.id(from.getId())
+				.login(from.getLogin())
+				.password(from.getPassword())
+				.build();
+	}
 
 }

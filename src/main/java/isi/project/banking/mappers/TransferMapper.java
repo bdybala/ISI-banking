@@ -27,4 +27,19 @@ public class TransferMapper implements BaseMapper<Transfer, TransferDto> {
 				.build();
 	}
 
+	@Override
+	public Transfer unmap(TransferDto from) {
+		return Transfer.builder()
+				.id(from.getId())
+				.amount(from.getAmount())
+				.orderDate(from.getOrderDate())
+				.executionDate(from.getExecutionDate())
+				.accNrSender(from.getAccNrSender())
+				.accNrReceiver(from.getAccNrReceiver())
+				.title(from.getTitle())
+				.sender(accountMapper.unmap(from.getSender()))
+				.receiver(accountMapper.unmap(from.getReceiver()))
+				.build();
+	}
+	
 }

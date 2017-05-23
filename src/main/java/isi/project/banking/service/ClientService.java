@@ -1,7 +1,10 @@
 package isi.project.banking.service;
 
-import isi.project.banking.model.Client;
+import java.util.Optional;
 
-public interface ClientService extends BaseService<Client, String>{
+import isi.project.banking.dto.ClientDto;
 
+public interface ClientService extends BaseService<ClientDto, String>{
+
+	public Optional<ClientDto> findByLoginAndPassword(String login, String password);
 }

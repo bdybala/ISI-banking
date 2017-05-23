@@ -25,7 +25,6 @@ public class ClientDto {
 	private String nrTel;
 	private Date birthday;
 	
-	private List<MessageDto> messages;
-	private List<AccountDto> accounts;
+	List<AccountDto> accounts;
 	
 }

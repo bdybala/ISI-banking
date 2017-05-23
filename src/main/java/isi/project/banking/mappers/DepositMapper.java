@@ -24,4 +24,16 @@ public class DepositMapper implements BaseMapper<Deposit, DepositDto> {
 				.build();
 	}
 
+	@Override
+	public Deposit unmap(DepositDto from) {
+		return Deposit.builder()
+				.id(from.getId())
+				.amount(from.getAmount())
+				.orderDate(from.getOrderDate())
+				.executionDate(from.getExecutionDate())
+				.accNr(from.getAccNr())
+				.account(accountMapper.unmap(from.getAccount()))
+				.build();
+	}
+	
 }

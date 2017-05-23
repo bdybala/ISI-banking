@@ -25,9 +25,21 @@ public class CashSupervisorMapper implements BaseMapper<CashSupervisor, CashSupe
 				.email(from.getEmail())
 				.nrTel(from.getNrTel())
 				.birthday(from.getBirthday())
-				.requests(requestMapper.map(from.getRequests()))
-				.cashLoans(cashLoanMapper.map(from.getCashLoans()))
 				.build();
 	}
 
+	@Override
+	public CashSupervisor unmap(CashSupervisorDto from) {
+		return CashSupervisor.builder()
+				.pesel(from.getPesel())
+				.login(from.getLogin())
+				.password(from.getPassword())
+				.firstName(from.getFirstName())
+				.lastName(from.getLastName())
+				.email(from.getEmail())
+				.nrTel(from.getNrTel())
+				.birthday(from.getBirthday())
+				.build();
+	}
+	
 }

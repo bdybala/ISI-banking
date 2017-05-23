@@ -6,4 +6,5 @@ import isi.project.banking.model.Client;
 
 public interface ClientRepository extends JpaRepository<Client, String>{
 
+	public Client findByLoginAndPassword(String login, String password);
 }

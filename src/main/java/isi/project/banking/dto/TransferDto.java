@@ -12,7 +12,7 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TransferDto {
+public class TransferDto extends AbstractTransactionDto {
 
 	private Integer id;
 	private double amount;

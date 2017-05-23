@@ -31,4 +31,21 @@ public class CashLoanMapper implements BaseMapper<CashLoan, CashLoanDto> {
 				.build();
 	}
 
+	@Override
+	public CashLoan unmap(CashLoanDto from) {
+		return CashLoan.builder()
+				.id(from.getId())
+				.installments(from.getInstallments())
+				.interest(from.getInterest())
+				.sum(from.getSum())
+				.grantDate(from.getGrantDate())
+				.repaymentDate(from.getRepaymentDate())
+				.settledInterest(from.getSettledInterest())
+				.accNr(from.getAccNr())
+				.provider(from.getProvider())
+				.cashSupervisor(cashSupervisorMapper.unmap(from.getCashSupervisor()))
+				.account(accountMapper.unmap(from.getAccount()))
+				.build();
+	}
+	
 }

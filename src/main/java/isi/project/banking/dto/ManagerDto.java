@@ -25,9 +25,4 @@ public class ManagerDto {
 	private String nrTel;
 	private Date birthday;
 	
-	private List<OfferCashLoanDto> cashLoanOffers;
-	private List<OfferInvestmentDto> investmentOffers;
-	private List<OfferMortgageLoanDto> mortgageLoanOffers;
-	private List<RequestDto> requests;
-	
 }

@@ -22,4 +22,17 @@ public class AdvisorMapper implements BaseMapper<Advisor, AdvisorDto> {
 				.build();
 	}
 
+	@Override
+	public Advisor unmap(AdvisorDto from) {
+		return Advisor.builder()
+				.pesel(from.getPesel())
+				.login(from.getLogin())
+				.password(from.getPassword())
+				.firstName(from.getFirstName())
+				.lastName(from.getLastName())
+				.email(from.getEmail())
+				.nrTel(from.getNrTel())
+				.birthday(from.getBirthday())
+				.build();	
+	}
 }

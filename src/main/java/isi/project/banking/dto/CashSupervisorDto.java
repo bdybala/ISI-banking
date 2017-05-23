@@ -25,7 +25,4 @@ public class CashSupervisorDto {
 	private String nrTel;
 	private Date birthday;
 	
-	private List<RequestDto> requests;
-	private List<CashLoanDto> cashLoans;
-
 }

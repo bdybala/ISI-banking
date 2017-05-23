@@ -1,5 +1,6 @@
 package isi.project.banking.controller;
 
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -17,8 +18,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import isi.project.banking.HomeController;
 import isi.project.banking.auth.SmsSender;
-import isi.project.banking.dao.ClientDao;
+import isi.project.banking.dto.AccountDto;
+import isi.project.banking.dto.ClientDto;
+import isi.project.banking.exceptions.EntityNotFoundException;
 import isi.project.banking.model.Client;
+import isi.project.banking.service.AccountService;
+import isi.project.banking.service.ClientService;
 
 @Controller
 public class LoginController {
@@ -26,28 +31,37 @@ public class LoginController {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	@Autowired
-	ClientDao clientDao;
-
+	ClientService clientService;
+	@Autowired
+	AccountService accountService;
+	
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView client(Locale locale, Model model,
 			HttpSession session) {
 		logger.info("Welcome client! The client locale is {}.", locale);
 
-		return new ModelAndView("login", "command", new Client());
+		return new ModelAndView("login", "command", new ClientDto());
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView addClient(@ModelAttribute Client client,
+	public ModelAndView addClient(@ModelAttribute ClientDto clientDto,
 			Locale locale, Model model,
 			HttpSession session,
-			RedirectAttributes redirectAttributes) {
+			RedirectAttributes redirectAttributes) throws EntityNotFoundException {
 
-		logger.info("logging in: l:{} p:{}", client.getLogin(), client.getPassword());
+		final String login = clientDto.getLogin();
+		final String password = clientDto.getPassword();
+		
+		logger.info("logging in: l:{} p:{}", login, password);
+		
+		clientDto = clientService.findByLoginAndPassword(login, password).orElseThrow(() 
+				-> new EntityNotFoundException("Bad credentials! l: " + login + " p: " + password));
+		logger.info("logged in! #" + clientDto.getPesel());
 
-		client = clientDao.findByLoginAndPassword(client.getLogin(), client.getPassword());
-		logger.info("logged in! #" + client.getPesel());
-
-		session.setAttribute("client", client);
+		List<AccountDto> accountsByPesel = accountService.findByPesel(clientDto.getPesel());
+		clientDto.setAccounts(accountsByPesel);
+		session.setAttribute("client", clientDto);
 
 		// test
 		//new SmsSender().sendSms("Yes!", "608595488");

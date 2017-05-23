@@ -27,4 +27,19 @@ public class OfferInvestmentMapper implements BaseMapper<OfferInvestment, OfferI
 				.build();
 	}
 
+	@Override
+	public OfferInvestment unmap(OfferInvestmentDto from) {
+		return OfferInvestment.builder()
+				.id(from.getId())
+				.name(from.getName())
+				.interest(from.getInterest())
+				.interestType(from.getInterestType())
+				.duration(from.getDuration())
+				.minSum(from.getMinSum())
+				.maxSum(from.getMaxSum())
+				.author(from.getAuthor())
+				.manager(managerMapper.unmap(from.getManager()))
+				.build();
+	}
+	
 }

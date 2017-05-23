@@ -25,4 +25,16 @@ public class CardMapper implements BaseMapper<Card, CardDto> {
 				.build();
 	}
 
+	@Override
+	public Card unmap(CardDto from) {
+		return Card.builder()
+				.cardNr(from.getCardNr())
+				.accNr(from.getAccNr())
+				.name(from.getName())
+				.status(from.getStatus())
+				.cvc(from.getCvc())
+				.pin(from.getPin())
+				.account(accountMapper.unmap(from.getAccount()))
+				.build();
+	}
 }

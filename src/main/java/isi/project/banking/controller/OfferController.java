@@ -3,9 +3,6 @@ package isi.project.banking.controller;
 import java.util.Date;
 import java.util.Locale;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -17,10 +14,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import isi.project.banking.dao.OfferCashLoanDao;
-import isi.project.banking.dao.OfferInvestmentDao;
-import isi.project.banking.dao.OfferMortgageLoanDao;
-import isi.project.banking.model.Client;
+import isi.project.banking.dto.ClientDto;
+import isi.project.banking.service.OfferCashLoanService;
+import isi.project.banking.service.OfferInvestmentService;
+import isi.project.banking.service.OfferMortgageLoanService;
 
 @Controller
 public class OfferController {
@@ -28,16 +25,16 @@ public class OfferController {
 	private static final Logger logger = LoggerFactory.getLogger(OfferController.class);
 	
 	@Autowired
-	OfferInvestmentDao offerInvestmentDao;
+	OfferInvestmentService offerInvestmentService;
 	@Autowired
-	OfferCashLoanDao offerCashLoanDao;
+	OfferCashLoanService offerCashLoanService;
 	@Autowired
-	OfferMortgageLoanDao offerMortgageLoanDao;
-
+	OfferMortgageLoanService offerMortgageLoanService;
+	
 	@RequestMapping(value = "/offer-investments", method = RequestMethod.GET)
 	public String investments( Model model, HttpSession session) {
 
-		Client client = (Client) session.getAttribute("client");
+		ClientDto client = (ClientDto) session.getAttribute("client");
 		try {
 			logger.info("l:{} checking investments offer", client.getLogin());
 			model.addAttribute("loggedClient", client);
@@ -58,7 +55,7 @@ public class OfferController {
 
 
 		// offer investments
-		model.addAttribute("offerInvestments", offerInvestmentDao.findAll());
+		model.addAttribute("offerInvestments", offerInvestmentService.findAll());
 
 		return "client/offer-investments";
 
@@ -68,7 +65,7 @@ public class OfferController {
 	public String offer1(Locale locale, Model model, HttpSession session, 
 			@ModelAttribute("offerInvestmentId") int offerInvestmentId){
 
-		Client client = (Client) session.getAttribute("client");
+		ClientDto client = (ClientDto) session.getAttribute("client");
 		try {
 			logger.info("l:{} checking #{} investment offer", client.getLogin(), offerInvestmentId);
 			model.addAttribute("loggedClient", client);
@@ -88,7 +85,7 @@ public class OfferController {
 
 
 		// specific investment offer
-		model.addAttribute("investmentOfferShown", offerInvestmentDao.findOne(offerInvestmentId));
+		model.addAttribute("investmentOfferShown", offerInvestmentService.findOne(offerInvestmentId));
 
 		return "client/offer-investments-1";
 	}
@@ -96,7 +93,7 @@ public class OfferController {
 	@RequestMapping(value = "/offer-loans", method = RequestMethod.GET)
 	public String loans(Locale locale, Model model, HttpSession session) {
 
-		Client client = (Client) session.getAttribute("client");
+		ClientDto client = (ClientDto) session.getAttribute("client");
 		try {
 			logger.info("l:{} checking loans offer", client.getLogin());
 			model.addAttribute("loggedClient", client);
@@ -116,8 +113,8 @@ public class OfferController {
 		model.addAttribute("sessionTimeOutPeriodInMs", 1000 * session.getMaxInactiveInterval());
 
 		// loans offer
-		model.addAttribute("offerMortgageLoans", offerMortgageLoanDao.findAll());
-		model.addAttribute("offerCashLoans", offerCashLoanDao.findAll());
+		model.addAttribute("offerMortgageLoans", offerMortgageLoanService.findAll());
+		model.addAttribute("offerCashLoans", offerCashLoanService.findAll());
 
 
 		return "client/offer-loans";
@@ -125,7 +122,7 @@ public class OfferController {
 	
 	@RequestMapping(value="/offer-mortgage", method = RequestMethod.GET)
 	public String offerMortgage(Locale locale, Model model, HttpSession session){
-		Client client = (Client) session.getAttribute("client");
+		ClientDto client = (ClientDto) session.getAttribute("client");
 		model.addAttribute("loggedClient", client);
 		//TODO
 		return "client/offer-mortgage";

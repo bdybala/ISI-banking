@@ -3,6 +3,7 @@ package isi.project.banking.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -42,21 +43,21 @@ public class Account {
 	@JoinColumn(name = "PESEL", insertable = false, updatable = false)
 	private Client client;
 	
-	@OneToMany(mappedBy="accNr", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="accNr", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<Card> cards;
-	@OneToMany(mappedBy="accNr", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="accNr", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<CashLoan> cashLoans;
-	@OneToMany(mappedBy="accNr", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="accNr", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<MortgageLoan> mortgageLoans;
-	@OneToMany(mappedBy="accNr", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="accNr", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<Investment> investments;
-	@OneToMany(mappedBy="accNrSender", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="accNrSender", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<Transfer> transfersFrom;
-	@OneToMany(mappedBy="accNrReceiver", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="accNrReceiver", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<Transfer> transfersTo;
-	@OneToMany(mappedBy="accNr", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="accNr", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<Deposit> deposits;
-	@OneToMany(mappedBy="accNr", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="accNr", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<Withdraw> withdrawals;
 	
 	public Account(String pesel, String name) {

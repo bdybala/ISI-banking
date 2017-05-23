@@ -1,7 +1,12 @@
 package isi.project.banking.service;
 
-import isi.project.banking.model.Account;
+import java.util.List;
 
-public interface AccountService extends BaseService<Account, String> {
+import isi.project.banking.dto.AccountDto;
+import isi.project.banking.exceptions.EntityNotFoundException;
 
+public interface AccountService extends BaseService<AccountDto, String> {
+
+	public void removeByPesel(String pesel) throws EntityNotFoundException;
+	public List<AccountDto> findByPesel(String pesel);
 }
