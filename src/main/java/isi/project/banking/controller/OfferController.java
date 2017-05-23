@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import isi.project.banking.dto.ClientDto;
+import isi.project.banking.dto.OfferInvestmentDto;
 import isi.project.banking.service.OfferCashLoanService;
 import isi.project.banking.service.OfferInvestmentService;
 import isi.project.banking.service.OfferMortgageLoanService;
@@ -85,7 +86,7 @@ public class OfferController {
 
 
 		// specific investment offer
-		model.addAttribute("investmentOfferShown", offerInvestmentService.findOne(offerInvestmentId));
+		model.addAttribute("investmentOfferShown", offerInvestmentService.findOne(offerInvestmentId).orElse(new OfferInvestmentDto()));
 
 		return "client/offer-investments-1";
 	}

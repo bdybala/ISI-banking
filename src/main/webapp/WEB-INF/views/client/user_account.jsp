@@ -101,7 +101,7 @@
 											<c:choose>
 
 												<c:when
-													test="${className == 'isi.project.banking.model.Transfer'}">
+													test="${className == 'isi.project.banking.dto.TransferDto'}">
 													<c:set var="clientAccNr" value="${account.accNr}" />
 													<c:set var="senderAccNr" value="${transfer.accNrSender}" />
 													<c:choose>
@@ -126,7 +126,7 @@
 												<c:otherwise>
 													<c:choose>
 														<c:when
-															test="${className == 'isi.project.banking.model.Deposit'}">
+															test="${className == 'isi.project.banking.dto.DepositDto'}">
 															<tr>
 																<td><span
 																	class="glyphicon glyphicon-circle-arrow-up"></span>
