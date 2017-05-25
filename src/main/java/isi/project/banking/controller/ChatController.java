@@ -1,5 +1,6 @@
 package isi.project.banking.controller;
 
+import java.util.Date;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -27,7 +28,8 @@ public class ChatController {
 	@MessageMapping("/chat")
 	@SendTo("/topic/messages")
 	public MessageDto send(MessageDto messageDto) {
-		log.info("Something!: " + messageDto);
+		messageDto.setTime(new Date());
+		log.info(messageDto.toString());
 		return messageDto;
 	}
 }

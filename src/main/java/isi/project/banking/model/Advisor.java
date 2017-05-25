@@ -1,12 +1,10 @@
 package isi.project.banking.model;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -36,8 +34,5 @@ public class Advisor {
 	@Column(name="NR_TEL")
 	private String nrTel;
 	private Date birthday;
-	
-	@OneToMany
-	private List<Message> messages;
 	
 }

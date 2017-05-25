@@ -2,10 +2,6 @@ package isi.project.banking.model;
 
 import java.util.Date;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.SequenceGenerator;
-
 public abstract class AbstractTransaction {
 
 	private Integer id;
