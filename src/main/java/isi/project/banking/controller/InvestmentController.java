@@ -67,7 +67,7 @@ public class InvestmentController {
 				"balance: " + investmentDto.getBalance()
 				);
 		
-		return new HomeController().home(locale, model, session);
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value="/investments", method=RequestMethod.GET)

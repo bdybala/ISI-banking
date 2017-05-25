@@ -14,7 +14,7 @@ public class InvestmentMapper implements BaseMapper<Investment, InvestmentDto> {
 
 	@Override
 	public InvestmentDto map(Investment from) {
-		return InvestmentDto.builder()
+		InvestmentDto investmentDto = InvestmentDto.builder()
 				.id(from.getId())
 				.accNr(from.getAccNr())
 				.openDate(from.getOpenDate())
@@ -22,13 +22,16 @@ public class InvestmentMapper implements BaseMapper<Investment, InvestmentDto> {
 				.interest(from.getInterest())
 				.balance(from.getBalance())
 				.name(from.getName())
-				.account(accountMapper.map(from.getAccount()))
 				.build();
+		if(from.getAccount() != null) {
+			investmentDto.setAccount(accountMapper.map(from.getAccount()));
+		}
+		return investmentDto;
 	}
 
 	@Override
 	public Investment unmap(InvestmentDto from) {
-		return Investment.builder()
+		Investment investment = Investment.builder()
 				.id(from.getId())
 				.accNr(from.getAccNr())
 				.openDate(from.getOpenDate())
@@ -36,8 +39,11 @@ public class InvestmentMapper implements BaseMapper<Investment, InvestmentDto> {
 				.interest(from.getInterest())
 				.balance(from.getBalance())
 				.name(from.getName())
-				.account(accountMapper.unmap(from.getAccount()))
 				.build();
+		if(from.getAccount() != null) {
+			investment.setAccount(accountMapper.unmap(from.getAccount()));
+		}
+		return investment;
 	}
 	
 }
