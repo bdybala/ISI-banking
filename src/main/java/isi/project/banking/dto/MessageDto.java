@@ -13,11 +13,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MessageDto {
-	
+	/*
 	private Integer id;
 	private String text;
 	private Date time;
 	private String advisorPesel;
 	private String clientPesel;
-	private Integer chatId;
+	private Integer chatId;*/
+    private String from;
+    private String text;
+    private Date time;
 }

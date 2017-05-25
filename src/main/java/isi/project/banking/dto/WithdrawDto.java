@@ -14,7 +14,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class WithdrawDto extends AbstractTransactionDto {
 
-	private int id;
+	private Integer id;
 	private double amount;
 	private Date orderDate;
 	private Date executionDate;
