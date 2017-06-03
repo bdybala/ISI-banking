@@ -6,11 +6,13 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+
     tools:context="banking.isis.nfcreader.MainActivity$PlaceholderFragment">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:id="@+id/cardLayout"
     >
 
     <TextView
@@ -18,25 +20,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="invisible"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/carddetected" />
 
     <TextView
         android:id="@+id/info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:text="Looking for cards..."
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-        android:paddingTop="15dp"
         android:textAllCaps="false"
-        android:textAlignment="center"
-        android:gravity="center_horizontal" />
+        android:gravity="center" />
     <Button
         android:text="Make transfer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button"
         android:visibility="invisible"
-         />
+        android:layout_margin="30dp"
+        />
 </LinearLayout>
 
 

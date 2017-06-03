@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     tools:context="banking.isis.nfcreader.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/app_background">
 
 
     <TextView

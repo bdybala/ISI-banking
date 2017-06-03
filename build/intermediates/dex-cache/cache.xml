@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="ee9eedfb55360ae4400f4d746570baac6610fed8">
+        sha1="e2eda823dff148fdc900d8c20abb7661148c59e8">
         <dex dex="/home/adam/AndroidStudioProjects/NFCReader/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_fe78819193f075eae70379f2689ea9f50576d73d/classes.dex" />
     </item>
     <item
@@ -70,7 +70,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="043241eca98f9cd7ed9b90486e2e47ce3903dc6f">
+        sha1="1d6d57d3dd1a44958d485cee1b4deb3d2f107960">
         <dex dex="/home/adam/AndroidStudioProjects/NFCReader/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_99362219e88ea9abe4eff534d58de3373a492a19/classes.dex" />
     </item>
     <item
