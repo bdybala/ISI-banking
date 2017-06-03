@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="banking.isis.nfcreader.MainActivity"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:text="I.S.I.S. Banking Group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif-smallcaps" />
+
+    <TextView
+        android:text="NFC Reader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scanningBar"
+        android:visibility="invisible"
+        android:gravity="right"
+        android:paddingBottom="20dp"
+        android:paddingTop="15dp">
+        <TextView
+            android:text="Scanning  "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical" />
+
+        <ProgressBar
+            style="@android:style/Widget.DeviceDefault.ProgressBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        android:id="@+id/hajs"
+        android:paddingBottom="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Enter the amount of money"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/sumOfMoney"
+
+            />
+    </LinearLayout>
+
+    <ProgressBar
+        style="@android:style/Widget.DeviceDefault.ProgressBar.Large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:paddingTop="@android:dimen/notification_large_icon_height" />
+
+
+
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:id="@+id/container" android:layout_width="match_parent" android:layout_height="match_parent" tools:context="banking.isis.nfcreader.MainActivity" tools:ignore="MergeRootFrame"/>
+
+
+</LinearLayout>

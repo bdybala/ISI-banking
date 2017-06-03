@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popup_element"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:padding="50px"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Transfering money"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/cardId"
+        android:text="Card ID:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal|bottom">
+
+        <Button android:id="@+id/end_data_send_button"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:drawablePadding="3sp"
+            android:layout_centerHorizontal="true"
+            android:text="Send"
+            style="@android:style/Widget.Material.Light.Button.Small" />
+
+
+    </LinearLayout>
+</LinearLayout>
