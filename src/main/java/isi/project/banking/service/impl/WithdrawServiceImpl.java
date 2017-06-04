@@ -12,6 +12,7 @@ import isi.project.banking.model.Card;
 import isi.project.banking.model.Withdraw;
 import isi.project.banking.repository.AccountRepository;
 import isi.project.banking.repository.CardRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,7 @@ import javax.transaction.Transactional;
 
 @Service
 @Primary
+@Slf4j
 public class WithdrawServiceImpl implements WithdrawService {
 
 	@Autowired
@@ -74,6 +76,7 @@ public class WithdrawServiceImpl implements WithdrawService {
 	public WithdrawDto executeMobilePayment(MobilePaymentDto mobilePaymentDto)
 			throws EntityNotFoundException, NoRequiredFundsException, InvalidPinException {
 
+		log.info("Execute: {}", mobilePaymentDto);
 		Card card = Optional.ofNullable(cardRepository.findByNfcValue(mobilePaymentDto.getTagCode())).orElseThrow(()
 				-> new EntityNotFoundException("Card with that nfc Value not found! :" + mobilePaymentDto.getTagCode()));
 
