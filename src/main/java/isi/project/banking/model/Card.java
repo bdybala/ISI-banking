@@ -31,6 +31,7 @@ public class Card {
 	private String status;
 	private String cvc;
 	private String pin;
+	private String nfcValue;
 	@ManyToOne
 	@JoinColumn(name = "acc_nr", insertable = false, updatable=false)
 	private Account account;

@@ -21,6 +21,7 @@ public class CardMapper implements BaseMapper<Card, CardDto> {
 				.status(from.getStatus())
 				.cvc(from.getCvc())
 				.pin(from.getPin())
+				.nfcValue(from.getNfcValue())
 				.account(accountMapper.map(from.getAccount()))
 				.build();
 	}
@@ -34,6 +35,7 @@ public class CardMapper implements BaseMapper<Card, CardDto> {
 				.status(from.getStatus())
 				.cvc(from.getCvc())
 				.pin(from.getPin())
+				.nfcValue(from.getNfcValue())
 				.account(accountMapper.unmap(from.getAccount()))
 				.build();
 	}

@@ -19,6 +19,7 @@ public class CardDto {
 	private String status;
 	private String cvc;
 	private String pin;
+	private String nfcValue;
 
 	private AccountDto account;
 }
