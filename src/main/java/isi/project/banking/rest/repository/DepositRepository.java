@@ -1,6 +1,6 @@
 package isi.project.banking.rest.repository;
 
-import isi.project.banking.model.Deposit;
+import isi.project.banking.rest.model.Deposit;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
