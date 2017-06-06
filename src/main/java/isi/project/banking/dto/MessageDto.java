@@ -6,18 +6,17 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(includeFieldNames = true)
 public class MessageDto {
 	
-	private Integer id;
-	private String text;
-	private Date time;
-	private String advisorPesel;
-	private String clientPesel;
-	private Integer chatId;
+    private String from;
+    private String text;
+    private Date time;
 }

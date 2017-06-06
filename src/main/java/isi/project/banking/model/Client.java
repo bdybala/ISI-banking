@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -41,8 +40,6 @@ public class Client {
 	@Column(name="NR_TEL")
 	private String nrTel;
 	private Date birthday;
-	@OneToMany(mappedBy="client", cascade=CascadeType.ALL, orphanRemoval=true)
-	private List<Message> messages;
 	@OneToMany(mappedBy="client", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<Account> accounts;
 	
