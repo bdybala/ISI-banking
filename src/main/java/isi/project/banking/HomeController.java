@@ -103,7 +103,7 @@ public class HomeController {
 					public int compare(AbstractTransactionDto o1, AbstractTransactionDto o2) {
 						if(o1.getOrderDate() == null || o2.getOrderDate() == null)
 							return 0;
-						return o1.getOrderDate().compareTo(o2.getOrderDate());
+						return o2.getOrderDate().compareTo(o1.getOrderDate());
 					}
 				});
 				transferHistory.add(transfers);
