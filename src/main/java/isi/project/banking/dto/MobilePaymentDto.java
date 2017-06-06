@@ -11,6 +11,6 @@ import lombok.*;
 public class MobilePaymentDto {
 
     private Double amount;
-    private String tagCode;
+    private String nfcValue;
     private String pin;
 }

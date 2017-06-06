@@ -3,8 +3,10 @@ package isi.project.banking.dto;
 import java.util.Date;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public abstract class AbstractTransactionDto {
 
 	private Integer id;
