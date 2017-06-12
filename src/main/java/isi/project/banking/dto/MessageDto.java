@@ -1,5 +1,6 @@
 package isi.project.banking.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,7 +15,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(includeFieldNames = true)
-public class MessageDto {
+public class MessageDto implements Serializable {
 	
     private String from;
     private String text;
