@@ -38,8 +38,26 @@ function sendMessage() {
 function showMessageOutput(messageOutput) {
 	var response = document.getElementById('response');
 	var p = document.createElement('p');
+	var div = document.createElement('div');
 	p.style.wordWrap = 'break-word';
+	if(messageOutput.from != document.getElementById('from').value) div.style.backgroundColor = "orange";
+	else {
+		div.style.backgroundColor = "#cdcdcd";
+		div.style.float = "right";
+	
+	}
+	div.style.width = "450px";
+	div.style.position = "relative";
+	div.style.clear = "right";
+	div.style.margin = "10px";
+	div.style.padding = "10px";
+	
 	p.appendChild(document.createTextNode(messageOutput.from + ": "
-			+ messageOutput.text + " (" + new Date(messageOutput.time) + ")"));
-	response.appendChild(p);
+			+ messageOutput.text ));
+	var p2 = document.createElement('p');
+	p2.style.fontSize = "11px";
+	p2.appendChild(document.createTextNode(new Date(messageOutput.time) ));
+	div.appendChild(p);
+	div.appendChild(p2);
+	response.appendChild(div);
 }
