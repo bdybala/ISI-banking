@@ -9,10 +9,23 @@
 			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
 		</layout>
 	</appender>
+	<appender name="RollingAppender" class="org.apache.log4j.DailyRollingFileAppender">
+
+	   <param name="file" value="/log.out"/>
+	   <param name="threshold" value="info"/>
+	   <param name="append" value="true"/>
+	   <param name="DatePattern" value="'.'yyyy-MM-dd-HH-mm" />
+	   
+	   <layout class="org.apache.log4j.PatternLayout">
+	      <param name="conversionPattern" value=" %d{dd-MM-yyyy HH:mm:ss} %-5p: %c - %m%n"/>
+	   </layout>
+	</appender>
+
 	
 	<!-- Application Loggers -->
 	<logger name="isi.project.banking">
 		<level value="info" />
+		<appender-ref ref="RollingAppender"/>
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
@@ -39,3 +52,4 @@
 	</root>
 	
 </log4j:configuration>
+
