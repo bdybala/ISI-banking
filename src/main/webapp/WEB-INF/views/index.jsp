@@ -86,8 +86,7 @@
 					<div class="carousel-caption">
 						<h1>Oferta lokat.</h1>
 						<p>
-							<a class="btn btn-lg btn-primary" href=<c:url value="/invest" /> role="button">Learn
-								more</a>
+							<a class="btn btn-lg btn-primary" href=<c:url value="/invest" /> role="button">Dowiedz się więcej</a>
 						</p>
 					</div>
 				</div>
@@ -99,8 +98,7 @@
 					<div class="carousel-caption">
 						<h1>Oferta kredytów.</h1>
 						<p>
-							<a class="btn btn-lg btn-primary" href="#" role="button">Learn
-								more</a>
+							<a class="btn btn-lg btn-primary" href="#" role="button">Dowiedz się więcej</a>
 						</p>
 					</div>
 				</div>
@@ -117,34 +115,6 @@
 	</div>
 	<!-- .carousel -->
 
-<!--
-	<div>
-		<a href=<c:url value="/register"/>> Add client</a> <br> <a
-			href=<c:url value="/login"/>> Login as client</a> <br> <br>
-
-		<c:forEach items="${clients}" var="client">
-			Client:
-			<br />
-			<i>pesel:</i>  		${client.pesel} 
-			<br />
-			<i>login:</i>  		${client.login} 
-			<br />
-			<i>password:</i>  	${client.password}
-			<br />
-			<i>first name:</i>  	${client.firstName} 
-			<br />
-			<i>last name:</i>  	${client.lastName} 
-			<br />
-			<i>e-mail:</i>  		${client.email}
-			<br />
-			<i>phone:</i>  		${client.nrTel} 
-			<br />
-			<i>birthday:</i>  	${client.birthday} 
-			<br />
-			<br />
-		</c:forEach>
-	</div>
--->
 	<jsp:include page="footer.jsp" />
 	<script src="resources/js/jquery-2.1.4.min.js"></script>
 	<script src="resources/js/script.js"></script>

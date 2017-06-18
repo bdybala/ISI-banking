@@ -21,9 +21,9 @@
 					</ul></li>
 				<!-- Transakcje -->
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#"> Transakcje <span class="caret"></span></a>
+					data-toggle="dropdown" href=""> Transakcje <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="user_account_transfer.html"> Przelew jednorazowy</a></li>
+						<li><a href=<c:url value="/user_account_transfer"/>> Przelew jednorazowy</a></li>
 						<li class="divider"></li>
 						<li><a href="#"> Zlecenie stałe</a></li>
 					</ul></li>

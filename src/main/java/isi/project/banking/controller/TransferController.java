@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import isi.project.banking.auth.AuthSMS;
+import isi.project.banking.dto.ClientDto;
 import isi.project.banking.model.Client;
 import isi.project.banking.model.Transfer;
 
@@ -25,12 +26,12 @@ public class TransferController {
 
 	@RequestMapping(value = "/user_account_transfer", method = RequestMethod.GET)
 	public String regularTransfer(Locale locale, Model model, HttpSession session) {
-		Client client = (Client) session.getAttribute("client");
+		ClientDto clientDto = (ClientDto) session.getAttribute("client");
 
 		try {
 
-			logger.info("User: {} transfering cash", client.getLogin());
-			model.addAttribute("loggedClient", client);
+			logger.info("User: {} transfering cash", clientDto.getLogin());
+			model.addAttribute("loggedClient", clientDto);
 
 			// last session access (in miliseconds)
 			Date currentDate = new Date();

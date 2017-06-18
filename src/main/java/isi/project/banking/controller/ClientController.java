@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import isi.project.banking.dto.ClientDto;
 import isi.project.banking.model.Account;
 import isi.project.banking.model.Client;
 import isi.project.banking.repository.AccountRepository;
@@ -62,9 +63,9 @@ public class ClientController {
 	//TODO
 	@RequestMapping(value = "/user-settings")
 	public String userSettings(HttpSession session, Locale locale, Model model){
-		Client client = (Client) session.getAttribute("client");
+		ClientDto clientDto = (ClientDto) session.getAttribute("client");
 		
-		model.addAttribute("loggedClient", client);
+		model.addAttribute("loggedClient", clientDto);
 		return "client/user-settings";
 	}
 	
