@@ -47,13 +47,13 @@ public class CashLoanServiceTest {
 		mockMvc = MockMvcBuilders.standaloneSetup(clsi).build();
 	}
 	
-//	@Test
-//	public void findOneTest()
-//	{
-//		
-//		Integer id=0;
-//		when(clsi.findOne(id)).thenReturn(Optional.of(new CashLoanDto()));
-//	}
+	@Test
+	public void findOneTest()
+	{
+		
+		Integer id=0;
+		when(cls.findOne(id)).thenReturn(Optional.of(new CashLoanDto()));
+	}
 	
 	@Test
 	public void findAllTest()
