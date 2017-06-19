@@ -44,20 +44,45 @@ function showMessageOutput(messageOutput) {
 	else {
 		div.style.backgroundColor = "#cdcdcd";
 		div.style.float = "right";
-	
+
 	}
 	div.style.width = "450px";
 	div.style.position = "relative";
 	div.style.clear = "right";
 	div.style.margin = "10px";
 	div.style.padding = "10px";
-	
+
 	p.appendChild(document.createTextNode(messageOutput.from + ": "
 			+ messageOutput.text ));
 	var p2 = document.createElement('p');
 	p2.style.fontSize = "11px";
-	p2.appendChild(document.createTextNode(new Date(messageOutput.time) ));
+	p2.appendChild(document.createTextNode(formatTime(messageOutput.time)));
 	div.appendChild(p);
 	div.appendChild(p2);
 	response.appendChild(div);
 }
+
+function formatTime(time) {
+	var date = new Date(time);
+	var monthNames = [
+		"January", "February", "March",
+		"April", "May", "June", "July",
+		"August", "September", "October",
+		"November", "December"
+		];
+
+	var day = date.getDate();
+	var monthIndex = date.getMonth();
+	var year = date.getFullYear();
+	var hour = date.getHours();
+	var minutes = date.getMinutes();
+	var seconds = date.getSeconds();
+
+	return day + ' ' + monthNames[monthIndex] + ' ' + year + ' ' + hour + ':' + minutes + ';' + seconds;
+}
+
+
+
+
+
+
