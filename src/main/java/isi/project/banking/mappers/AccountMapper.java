@@ -15,31 +15,38 @@ public class AccountMapper implements BaseMapper<Account, AccountDto> {
 	@Override
 	public AccountDto map(Account from) {
 		
-		return AccountDto.builder()
+		AccountDto accountDto = AccountDto.builder()
 				.accNr(from.getAccNr())
 				.balance(from.getBalance())
 				.dayLimit(from.getDayLimit())
 				.interest(from.getInterest())
 				.openDate(from.getOpenDate())
-				.pesel(from.getPesel())
 				.name(from.getName())
-				.client(clientMapper.map(from.getClient()))
 				.build();
+		if(from.getClient() != null) {
+			accountDto.setClient(clientMapper.map(from.getClient()));
+		}
+		
+		return accountDto;
 	}
 	
 	@Override
 	public Account unmap(AccountDto from) {
 		
-		return Account.builder()
+		
+		Account account = Account.builder()
 				.accNr(from.getAccNr())
 				.balance(from.getBalance())
 				.dayLimit(from.getDayLimit())
 				.interest(from.getInterest())
 				.openDate(from.getOpenDate())
-				.pesel(from.getPesel())
 				.name(from.getName())
-				.client(clientMapper.unmap(from.getClient()))
 				.build();
+		
+		if(from.getClient() != null) {
+			account.setClient(clientMapper.unmap(from.getClient()));
+		}
+		return account;
 	}
 
 }

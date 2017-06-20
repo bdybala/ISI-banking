@@ -36,10 +36,9 @@ public class Account {
 	private Double interest;
 	@Column(name = "OPEN_DATE")
 	private Date openDate;
-	private String pesel;
 	private String name;
 	@ManyToOne
-	@JoinColumn(name = "PESEL", insertable = false, updatable = false)
+	@JoinColumn(name = "PESEL")
 	private Client client;
 	
 	@OneToMany(mappedBy="accNr", cascade=CascadeType.ALL, orphanRemoval=true)
@@ -59,16 +58,4 @@ public class Account {
 	@OneToMany(mappedBy="accNr", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<Withdraw> withdrawals;
 	
-	public Account(String pesel, String name) {
-		super();
-		this.pesel = pesel;
-		this.name = name;
-		
-		// default values:
-		this.accNr = "";
-		this.balance = 0.;
-		this.dayLimit = 0.;
-		this.interest = 0.;
-		this.openDate = new Date();
-	}
 }

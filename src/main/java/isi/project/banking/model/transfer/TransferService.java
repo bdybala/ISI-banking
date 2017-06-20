@@ -22,9 +22,9 @@ public class TransferService {
 	public void transfer(Transfer transfer, String pesel) {
 		
 		Account anr = accountRepository.findOne(transfer.getAccNrReceiver());
-		Account ans = accountRepository.findByPesel(pesel).get(0);
+		Account ans = accountRepository.findByClientPesel(pesel).get(0);
 		transfer.setAccNrSender(ans.getAccNr());
-		System.out.println(ans.getPesel());
+		System.out.println(ans.getClient().getPesel());
 		ans.setBalance(ans.getBalance() - transfer.getAmount());
 		anr.setBalance(anr.getBalance() + transfer.getAmount());
 		

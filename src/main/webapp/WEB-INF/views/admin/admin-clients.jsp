@@ -26,12 +26,24 @@
 
 	<c:forEach items="${allClients}" var="client">
 
+		${client.firstName }  ${client.lastName }
 		<form action=<c:url value="/admin/delete-client" /> method="Post">
-			${client.firstName }  ${client.lastName } <input type="hidden" name="pesel" value="${client.pesel }">
-			<input type="submit" value="USUŃ"> <br><br>
+			<input type="hidden" name="pesel" value="${client.pesel }"> <input
+				type="submit" value="USUŃ">
+		</form>
+		
+		<form action=<c:url value="/admin/clients/edit" /> method="Post">
+			<input type="hidden" name="pesel" value="${client.pesel }"> <input
+				type="submit" value="ZMIEŃ">
 		</form>
 
 	</c:forEach>
+	<br>
+	<br>
+	<form action=<c:url value="/admin/add-client" /> method="Post">
+		<input type="hidden" name="pesel" value="${client.pesel }"> <input
+			type="submit" value="DODAJ"> <br> <br>
+	</form>
 
 </body>
 <script src=<c:url value="/resources/js/jquery-2.1.4.min.js" />></script>

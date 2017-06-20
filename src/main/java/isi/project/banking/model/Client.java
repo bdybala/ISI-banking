@@ -17,6 +17,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Repository
 @Entity
@@ -26,6 +27,7 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Client {
 
 	@Id
@@ -40,7 +42,7 @@ public class Client {
 	@Column(name="NR_TEL")
 	private String nrTel;
 	private Date birthday;
-	@OneToMany(mappedBy="client", cascade=CascadeType.ALL, orphanRemoval=true)
+	@OneToMany(mappedBy="client", cascade=CascadeType.ALL)
 	private List<Account> accounts;
 	
 	@Override
