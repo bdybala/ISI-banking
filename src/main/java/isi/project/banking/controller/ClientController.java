@@ -24,6 +24,7 @@ import isi.project.banking.model.Account;
 import isi.project.banking.model.Client;
 import isi.project.banking.repository.AccountRepository;
 import isi.project.banking.repository.ClientRepository;
+import isi.project.banking.service.AccountService;
 
 @Controller
 public class ClientController {
@@ -33,7 +34,7 @@ public class ClientController {
 	@Autowired
 	ClientRepository clientRepository;
 	@Autowired
-	AccountRepository accountRepository;
+	AccountService accountService;
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView register(Locale locale, Model model) {
@@ -50,7 +51,7 @@ public class ClientController {
 		logger.info("register! " + client);
 		
 		clientRepository.save(client);
-		accountRepository.save(new Account(client.getPesel(), "eKonto"));
+		accountService.save(Account.builder().client(client).name("eKonto").build());
 		
 		return "redirect:/";
 	}

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import isi.project.banking.dto.ClientDto;
 import isi.project.banking.exceptions.EntityNotFoundException;
 import isi.project.banking.mappers.ClientMapper;
+import isi.project.banking.model.Client;
 import isi.project.banking.repository.ClientRepository;
 import isi.project.banking.service.ClientService;
 
@@ -43,10 +44,31 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
-	public Optional<ClientDto> update(ClientDto clientDto) {
+	@Transactional
+	public Optional<ClientDto> update(ClientDto clientDto) throws EntityNotFoundException {
 		//TODO first findOne in repo, (orElseThrow) than save
-		return Optional.ofNullable(clientMapper.map(clientRepository.save(clientMapper.unmap(clientDto))));
+		Client client = Optional.ofNullable(clientRepository.findOne(clientDto.getPesel())).orElseThrow(() 
+				-> new EntityNotFoundException("Client with that id not found!: " + clientDto.getPesel()));
+		System.out.println("CLIENT!: " + client);
+		return Optional.ofNullable(clientMapper.map(clientRepository.save(editClient(clientDto, client))));
 	}
+	private Client editClient(ClientDto clientDto, Client client) {
+		if(clientDto.getFirstName() != null)
+			client.setFirstName(clientDto.getFirstName());
+		if(clientDto.getLastName() != null)
+			client.setLastName((clientDto.getLastName()));
+		if(clientDto.getLogin() != null)
+			client.setLogin(clientDto.getLogin());
+		if(clientDto.getBirthday() != null)
+			client.setBirthday(clientDto.getBirthday());
+		if(clientDto.getEmail() != null)
+			client.setEmail(clientDto.getEmail());
+		if(clientDto.getNrTel() != null)
+			client.setNrTel(clientDto.getNrTel());
+		
+		return client;
+	}
+
 	@Override
 	@Transactional
 	public void remove(String pesel) throws EntityNotFoundException {

@@ -8,5 +8,5 @@ import isi.project.banking.model.Account;
 
 public interface AccountRepository extends JpaRepository<Account, String> {
 
-	public List<Account> findByPesel(String pesel);
+	public List<Account> findByClientPesel(String pesel);
 }

@@ -10,7 +10,7 @@ public interface BaseService <T, ID> {
 	public Optional<T> findOne(ID id);
 	public List<T> findAll();
 	public Optional<T> save(T t);
-	public Optional<T> update(T t);
+	public Optional<T> update(T t) throws EntityNotFoundException;
 	public void remove(ID id) throws EntityNotFoundException;
 
 }

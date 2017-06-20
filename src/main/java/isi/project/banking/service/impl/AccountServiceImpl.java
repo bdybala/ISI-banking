@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import isi.project.banking.dto.AccountDto;
 import isi.project.banking.exceptions.EntityNotFoundException;
 import isi.project.banking.mappers.AccountMapper;
+import isi.project.banking.model.Account;
 import isi.project.banking.repository.AccountRepository;
 import isi.project.banking.service.AccountService;
 
@@ -31,7 +32,7 @@ public class AccountServiceImpl implements AccountService {
 	
 	@Override
 	public List<AccountDto> findByPesel(String pesel) {
-		return accountMapper.map(accountRepository.findByPesel(pesel));
+		return accountMapper.map(accountRepository.findByClientPesel(pesel));
 	}
 
 	@Override
@@ -61,6 +62,11 @@ public class AccountServiceImpl implements AccountService {
 	public void removeByPesel(String pesel) throws EntityNotFoundException {
 		// TODO nie wiem czy jest sens jeszce, trzeba rozkminiæ
 		
+	}
+
+	@Override
+	public Optional<AccountDto> save(Account account) {
+		return Optional.ofNullable(accountMapper.map(accountRepository.save(account)));
 	}
 	
 }
