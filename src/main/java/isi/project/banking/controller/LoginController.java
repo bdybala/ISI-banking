@@ -71,7 +71,7 @@ public class LoginController {
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(Locale locale, Model model, HttpSession session) {
 
-		Client client = (Client) session.getAttribute("client");
+		ClientDto client = (ClientDto) session.getAttribute("client");
 		logger.info("logging out: l:{}", client.getLogin());
 
 		session.removeAttribute("client");
