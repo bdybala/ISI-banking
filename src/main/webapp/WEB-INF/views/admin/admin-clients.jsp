@@ -23,26 +23,42 @@
 <body>
 	<jsp:include page="header.jsp" />
 	<jsp:include page="navbar.jsp" />
-
+<table class="table table-responsive-striped" >
+	<tbody>
+								<tr>
+									<td><i>Imię</i></td>
+									<td><i>Nazwisko</i></td>
+									<td><i>E-mail</i></td>
+									<td><i>Numer telefonu</i></td>
+									<td><i>Data urodzin</i></td>
+									<td></td><td></td>
+								</tr>
 	<c:forEach items="${allClients}" var="client">
-
-		${client.firstName }  ${client.lastName }
-		<form action=<c:url value="/admin/delete-client" /> method="Post">
-			<input type="hidden" name="pesel" value="${client.pesel }"> <input
-				type="submit" value="USUŃ">
-		</form>
+	<tr>
+									<td>${client.firstName } </td>
+									<td>${client.lastName } </td>
+									<td>${client.email } </td>
+									<td>${client.nrTel } </td>
+									<td>${client.birthday } </td>
+									<td>	<form action=<c:url value="/admin/delete-client" /> method="Post">
+			<input type="hidden" name="pesel" value="${client.pesel }"> <button
+				type="submit" > <span class="glyphicon glyphicon-trash"></span></button>
+		</form> </td>
+									<td>	<form action=<c:url value="/admin/clients/edit" /> method="Post">
+			<input type="hidden" name="pesel" value="${client.pesel }"> <button type="submit" ><span class="glyphicon glyphicon-edit"></span> </button>
+		</form> </td>
+								</tr>
 		
-		<form action=<c:url value="/admin/clients/edit" /> method="Post">
-			<input type="hidden" name="pesel" value="${client.pesel }"> <input
-				type="submit" value="ZMIEŃ">
-		</form>
+	
+		
+	
 
 	</c:forEach>
 	<br>
 	<br>
 	<form action=<c:url value="/admin/add-client" /> method="Post">
-		<input type="hidden" name="pesel" value="${client.pesel }"> <input
-			type="submit" value="DODAJ"> <br> <br>
+		<input type="hidden" name="pesel" value="${client.pesel }"> <button
+			type="submit">Dodaj </button> <br> <br>
 	</form>
 
 </body>
