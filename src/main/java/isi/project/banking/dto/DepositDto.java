@@ -12,6 +12,7 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class DepositDto extends AbstractTransactionDto {
 
 	private Integer id;

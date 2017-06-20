@@ -38,6 +38,6 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/JAVA/libs/ViaNett_SMS_Package_v2_1/vianett_sms_v2_1.jar"/>
+	<classpathentry kind="lib" path="C:/Eclipse java/ViaNett_SMS_Package_v2_1/vianett_sms_v2_1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
